@@ -1,11 +1,12 @@
 @echo off
 chcp 65001 >nul
-title UBT 130/130 FizMat Platform (Local + Wi-Fi + Online HTTPS)
+title UNT 140 ACADEMY (Local + Wi-Fi + Online)
 cd /d "C:\Users\user\.gemini\antigravity\scratch\ubt-140-platform"
 echo =====================================================================
-echo 🚀 ҰБТ 130/130 ФИЗМАТ ПЛАТФОРМАСЫ ІСКЕ ҚОСЫЛУДА...
-echo 💻 Ноутбук үшін: http://localhost:3140
-echo 📱 Телефон / Планшет үшін: Сайт ішіндегі "Телефоннан кіру (QR)" батырмасын бас!
+echo UNT 140 ACADEMY — ПЛАТФОРМА ІСКЕ ҚОСЫЛУДА...
+echo Компьютер үшін: http://localhost:3140
+echo Смартфон / Планшет үшін: Сайт ішіндегі "Құрылғылар мен QR" батырмасын басыңыз
+echo Онлайн нұсқа: https://qazaqlab.github.io/unt/
 echo =====================================================================
 start http://localhost:3140
 node server.js
