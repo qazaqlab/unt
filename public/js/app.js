@@ -240,7 +240,7 @@ const App = {
         </div>
 
         <div class="kpi-card accent-amber">
-          <div class="kpi-label">🔥 Дисциплина & Анти-Выгорание</div>
+          <div class="kpi-label">Дисциплина және оқу режимі</div>
           <div class="kpi-value">${this.state.streak || 1} күн <span class="kpi-sub">үздіксіз стрик</span></div>
           <div class="kpi-foot" style="margin-top:8px;">
             Фокус уақыты: <b>${this.state.totalFocusMinutes || 0} мин</b> • Қатемен жұмыс кезегі: <b>${(this.state.errorBank || []).length} сұрақ</b>
@@ -254,7 +254,7 @@ const App = {
           <div class="card-header">
             <div>
               <span class="badge badge-blue">${dayObj.month}-АЙ • ${dayObj.week}-АПТА</span>
-              <h3 style="margin:6px 0 2px;">🎯 Бүгінгі миссия: ${dayObj.title}</h3>
+              <h3 style="margin:6px 0 2px;">Бүгінгі оқу мақсаты: ${dayObj.title}</h3>
             </div>
             <div style="display:flex;gap:6px;align-items:center;">
               <button class="btn btn-sm btn-outline" onclick="App.changeCurrentDay(-1)">◀ Алдыңғы</button>
@@ -265,28 +265,28 @@ const App = {
           <!-- Today's 4 Subject Topic Pills -->
           <div class="today-topics-grid">
             <div class="topic-pill phys" onclick="App.openTopicDirect('${physTopic.code}')">
-              <div class="tp-head">⚡ Физика (50 б)</div>
+              <div class="tp-head">Физика (50 б)</div>
               <div class="tp-title">${physTopic.title}</div>
               <div class="tp-link">Түсіндірме + PDF беттерін ашу →</div>
             </div>
             <div class="topic-pill math" onclick="App.openTopicDirect('${mathTopic.code}')">
-              <div class="tp-head">📐 Математика (50 б)</div>
+              <div class="tp-head">Математика (50 б)</div>
               <div class="tp-title">${mathTopic.title}</div>
               <div class="tp-link">Түсіндірме + PDF беттерін ашу →</div>
             </div>
             <div class="topic-pill hist" onclick="App.openTopicDirect('${histTopic.code}')">
-              <div class="tp-head">🏛️ Қазақстан тарихы (20 б)</div>
+              <div class="tp-head">Қазақстан тарихы (20 б)</div>
               <div class="tp-title">${histTopic.title}</div>
               <div class="tp-link">Даталар мен тұлғаларды ашу →</div>
             </div>
             <div class="topic-pill msl" onclick="App.openTopicDirect('${mslTopic.code}')">
-              <div class="tp-head">🧠 Мат. сауаттылық (10 б)</div>
+              <div class="tp-head">Мат. сауаттылық (10 б)</div>
               <div class="tp-title">${mslTopic.title}</div>
               <div class="tp-link">Логикалық лайфхактарды ашу →</div>
             </div>
           </div>
 
-          <h4 style="margin:16px 0 8px;">⏱️ Бүгінгі тайм-блокинг кестесі (Күйіп кетпеу режимі: ${dayObj.isWeekend ? 'Демалыс 4–4.5 сағ' : 'Жұмыс күні 3–3.5 сағ'}):</h4>
+          <h4 style="margin:16px 0 8px;">Бүгінгі сабақ кестесі (тайм-блокинг) (Күйіп кетпеу режимі: ${dayObj.isWeekend ? 'Демалыс 4–4.5 сағ' : 'Жұмыс күні 3–3.5 сағ'}):</h4>
           <div class="schedule-list">
             ${dayObj.blocks.map(b => {
               const key = `d${dayObj.day}_${b.id}`;
@@ -303,10 +303,10 @@ const App = {
 
           <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
             <button class="btn btn-primary" onclick="App.completeCurrentDay(${dayObj.day})">
-              ${this.state.completedDays?.[dayObj.day] ? '✅ Бүгінгі күн орындалды! (Келесі күнге өту)' : '✔️ Бүгінгі күнді толық аяқтадым деп белгілеу'}
+              ${this.state.completedDays?.[dayObj.day] ? 'Бүгінгі күн орындалды (Келесі күнге өту)' : 'Бүгінгі күнді аяқтау және сақтау'}
             </button>
             <button class="btn btn-accent" onclick="App.startDailyQuiz(${dayObj.day})">
-              🚀 Бүгінгі тақырыптар бойынша Блиц-Тест бастау
+              Бүгінгі тақырыптар бойынша сынақты бастау
             </button>
           </div>
         </div>
@@ -315,7 +315,7 @@ const App = {
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div class="card pomodoro-card">
             <div class="card-header">
-              <h3 style="margin:0;">🍅 Фокус-Таймер (Pomodoro)</h3>
+              <h3 style="margin:0;">Фокус-Таймер (Помодоро)</h3>
               <div style="display:flex;gap:6px;">
                 <button class="btn btn-xs ${this.timerMode==='50/10'?'btn-primary':'btn-outline'}" onclick="App.setTimerMode('50/10', 50)">50/10 Терең фокус</button>
                 <button class="btn btn-xs ${this.timerMode==='25/5'?'btn-primary':'btn-outline'}" onclick="App.setTimerMode('25/5', 25)">25/5 Жеңіл старт</button>
@@ -325,15 +325,15 @@ const App = {
             <div class="timer-display" id="pomodoro-digits">${this.formatSeconds(this.timerSeconds)}</div>
             <div style="display:flex;justify-content:center;gap:10px;margin-top:10px;">
               <button class="btn btn-primary" id="btn-timer-toggle" onclick="App.toggleTimer()">
-                ${this.timerRunning ? '⏸ Тоқтату' : '▶ Бастау'}
+                ${this.timerRunning ? 'Кідірту' : 'Бастау'}
               </button>
-              <button class="btn btn-outline" onclick="App.resetTimer()">🔄 Қайта қою</button>
+              <button class="btn btn-outline" onclick="App.resetTimer()">Қайта орнату</button>
             </div>
             <p class="timer-hint">Ереже: Таймер жүріп жатқанда телефонды басқа бөлмеге қой. 50 минутта тек 1 пәнмен жұмыс істе!</p>
           </div>
 
           <div class="card">
-            <h3 style="margin:0 0 10px;">🛡️ Выгораниеге қарсы 5 Алтын Ереже</h3>
+            <h3 style="margin:0 0 10px;">Академиялық тиімділіктің 5 қағидасы</h3>
             <ul class="anti-burnout-list">
               <li><b>1. Уақытпен емес, блокпен оқы:</b> Күніне 10 сағат шаршап отырғаннан гөрі, телефонсыз таза <b>3 сағат (3х50 мин)</b> оқу 3 есе көп балл береді.</li>
               <li><b>2. «2 минут ережесі»:</b> Сабақ бастауға ерінсең, таймерді 25 минутқа қойып, тек 2 оңай есеп шығарудан баста. Ми өзі іске қосылады.</li>
@@ -415,7 +415,7 @@ const App = {
     }
     this.timerRunning = true;
     const btn = document.getElementById("btn-timer-toggle");
-    if (btn) btn.textContent = "⏸ Тоқтату";
+    if (btn) btn.textContent = "Кідірту";
     this.timerInterval = setInterval(() => {
       if (this.timerSeconds > 0) {
         this.timerSeconds--;
@@ -427,7 +427,7 @@ const App = {
       } else {
         clearInterval(this.timerInterval);
         this.timerRunning = false;
-        alert("⏰ Таймер уақыты аяқталды! 10 минут орныңнан тұрып, көзіңді демалдыр!");
+        alert("Таймер уақыты аяқталды. 10 минут тынығып, көзіңізді демалдырыңыз.");
         this.renderDashboard();
       }
     }, 1000);
@@ -451,7 +451,7 @@ const App = {
 
     container.innerHTML = `
       <div class="card" style="margin-bottom:16px;">
-        <h3 style="margin:0 0 12px;">🗓️ 5 Айлық Макро-Жоспар (Қараша 2026 — Наурыз 2027)</h3>
+        <h3 style="margin:0 0 12px;">5 айлық оқу бағдарламасы (Қараша 2026 — Наурыз 2027)</h3>
         <div class="months-grid">
           ${months.map(m => `
             <div class="month-card ${this.selectedMonth === m.month ? 'active' : ''}" onclick="App.selectMonth(${m.month})">
@@ -468,13 +468,13 @@ const App = {
 
       <div class="dash-two-col">
         <div class="card">
-          <h3 style="margin:0 0 12px;">📌 ${this.selectedMonth}-айдың апталары (${weeks[0].week}–${weeks[weeks.length-1].week} апталар)</h3>
+          <h3 style="margin:0 0 12px;">${this.selectedMonth}-айдың апталары (${weeks[0].week}–${weeks[weeks.length-1].week} апталар)</h3>
           <div class="weeks-list">
             ${weeks.map(w => `
               <div class="week-item ${this.selectedWeek === w.week ? 'active' : ''}" onclick="App.selectWeek(${w.week})">
                 <div style="font-weight:700;color:#f8fafc;">${w.title}</div>
                 <div style="font-size:12px;color:#94a3b8;margin-top:4px;">
-                  ⚡ Физ: ${w.phys.join(", ")} • 📐 Мат: ${w.math.join(", ")} • 🏛️ Тар: ${w.hist.join(", ")} • 🧠 МС: ${w.msl.join(", ")}
+                  Физ: ${w.phys.join(", ")} • Мат: ${w.math.join(", ")} • Тар: ${w.hist.join(", ")} • МС: ${w.msl.join(", ")}
                 </div>
               </div>
             `).join("")}
@@ -482,7 +482,7 @@ const App = {
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 12px;">📅 ${this.selectedWeek}-аптаның күнделікті жоспары (7 күн)</h3>
+          <h3 style="margin:0 0 12px;">${this.selectedWeek}-аптаның күнделікті жоспары (7 күн)</h3>
           <div class="days-list">
             ${days.map(d => {
               const isDone = !!(this.state.completedDays && this.state.completedDays[d.day]);
@@ -491,7 +491,7 @@ const App = {
                 <div class="day-row ${isDone ? 'done' : ''} ${isCurrent ? 'current' : ''}">
                   <div>
                     <div style="font-weight:600;color:#f1f5f9;">
-                      ${isDone ? '✅ ' : isCurrent ? '🔥 ' : ''}${d.title}
+                      ${isDone ? '[Орындалды] ' : isCurrent ? '[Ағымдағы] ' : ''}${d.title}
                     </div>
                     <div style="font-size:12px;color:#94a3b8;margin-top:3px;">
                       Тақырыптар:
@@ -557,7 +557,7 @@ const App = {
       <div class="subject-tabs">
         ${subjects.map(s => `
           <button class="subj-tab ${this.selectedSubject === s.id ? 'active' : ''}" onclick="App.selectSubject('${s.id}')">
-            <span>${s.icon} ${s.name}</span>
+            <span>${s.name}</span>
             <span class="subj-badge">${s.maxPoints} балл • ${window.UBT_CURRICULUM.topics[s.id].length} модуль</span>
           </button>
         `).join("")}
@@ -566,7 +566,7 @@ const App = {
       <div class="curriculum-layout">
         <!-- Sidebar: Topics list -->
         <div class="topics-sidebar card">
-          <h4 style="margin:0 0 10px;">📚 Ресми 2026 тақырыптар тізімі</h4>
+          <h4 style="margin:0 0 10px;">Ресми 2026 тақырыптар тізімі</h4>
           <div class="topics-scroll">
             ${topicsList.map(t => `
               <div class="topic-nav-item ${t.code === activeTopic.code ? 'active' : ''}" onclick="App.selectTopic('${t.code}')">
@@ -591,19 +591,19 @@ const App = {
           <!-- 5 Sub-tabs inside Topic -->
           <div class="sub-tabs">
             <button class="sub-tab ${this.topicSubTab==='theory'?'active':''}" onclick="App.setTopicSubTab('theory')">
-              💡 1. Түсіндірме «На изи» & Формулалар
+              1. Негізгі тұжырымдама мен формулалар
             </button>
             <button class="sub-tab ${this.topicSubTab==='books'?'active':''}" onclick="App.setTopicSubTab('books')">
-              📖 2. Кітаптар & Беттер (${activeTopic.books.length})
+              2. Оқулықтар мен сілтемелер (${activeTopic.books.length})
             </button>
             <button class="sub-tab ${this.topicSubTab==='examples'?'active':''}" onclick="App.setTopicSubTab('examples')">
-              ✍️ 3. Есептер талдау & Үй жұмысы
+              3. Типтік есептерді талдау
             </button>
             <button class="sub-tab ${this.topicSubTab==='quiz'?'active':''}" onclick="App.setTopicSubTab('quiz')">
-              🎯 4. Тақырыптық тест
+              4. Тақырыптық тест
             </button>
             <button class="sub-tab ${this.topicSubTab==='quizizz'?'active':''}" onclick="App.setTopicSubTab('quizizz')">
-              🎮 5. Quizizz Тесттер (${((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code || (activeTopic.section && q.category && q.category.toLowerCase().includes(activeTopic.section.toLowerCase()))).length})
+              5. Quizizz тапсырмалары (${((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code || (activeTopic.section && q.category && q.category.toLowerCase().includes(activeTopic.section.toLowerCase()))).length})
             </button>
           </div>
 
@@ -639,7 +639,7 @@ const App = {
         <div class="easy-explanation-box">
           ${topic.easyExplanation}
         </div>
-        <h4 style="margin:18px 0 10px;">📐 Негізгі формулалар мен заңдылықтар (Жаттауға міндетті):</h4>
+        <h4 style="margin:18px 0 10px;">Негізгі формулалар мен заңдылықтар:</h4>
         <div class="formulas-grid">
           ${topic.formulas.map(f => `<div class="formula-box">$$${f}$$</div>`).join("")}
         </div>
@@ -655,12 +655,12 @@ const App = {
           ${topic.books.map(b => `
             <div class="book-link-card">
               <div>
-                <div style="font-weight:700;color:#f8fafc;font-size:15px;">📘 ${b.title}</div>
-                <div style="color:#38bdf8;font-size:13px;margin-top:4px;">📌 Оқитын беттер: <b>${b.pages}</b></div>
+                <div style="font-weight:700;color:#f8fafc;font-size:15px;">${b.title}</div>
+                <div style="color:#38bdf8;font-size:13px;margin-top:4px;">Оқитын беттер: <b>${b.pages}</b></div>
                 <div style="color:#64748b;font-size:12px;margin-top:2px;">Файл: ${b.file}</div>
               </div>
               <button class="btn btn-primary" onclick="App.openPdfModal('${b.file.replace(/'/g, "\\'")}', ${b.startPage || 1}, '${b.title.replace(/'/g, "\\'")}')">
-                📖 ${b.startPage || 1}-беттен ашу
+                ${b.startPage || 1}-беттен ашу
               </button>
             </div>
           `).join("")}
@@ -670,18 +670,18 @@ const App = {
 
     if (this.topicSubTab === "examples") {
       return `
-        <h4 style="margin:0 0 12px;">🔍 Типтік ҰБТ есептерін қадамдап талдау (Разбор):</h4>
+        <h4 style="margin:0 0 12px;">Типтік ҰБТ есептерін қадамдап талдау:</h4>
         <div class="examples-list">
           ${topic.examples.map((ex, i) => `
             <div class="example-card">
               <div class="ex-prob"><b>${i + 1}-мысал:</b> ${ex.problem}</div>
               <div class="ex-sol"><b>Шешу жолы:</b> ${ex.solution}</div>
-              <div class="ex-ans">✅ Жауабы: <b>${ex.answer}</b></div>
+              <div class="ex-ans">Жауабы: <b>${ex.answer}</b></div>
             </div>
           `).join("")}
         </div>
 
-        <h4 style="margin:20px 0 10px;">📝 Үй жұмысы (Орындаған соң белгіле):</h4>
+        <h4 style="margin:20px 0 10px;">Өз бетінше орындайтын тапсырмалар:</h4>
         <div class="schedule-list">
           ${topic.homework.map((hw, i) => {
             const hwKey = `${topic.code}_hw_${i}`;
@@ -701,11 +701,11 @@ const App = {
       return `
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
           <div>
-            <h4 style="margin:0;">🎯 «${topic.title}» бойынша бекіту тесті</h4>
+            <h4 style="margin:0;">«${topic.title}» бойынша бекіту сынағы</h4>
             <p style="margin:4px 0 0;color:#94a3b8;font-size:13px;">Қателескен сұрақтар автоматты түрде «Қатемен жұмыс (1-3-7-21)» банкіне түседі.</p>
           </div>
           <button class="btn btn-accent" onclick="App.startTopicQuiz('${topic.code}')">
-            🚀 Толық экранда тест тапсыру
+            Толық экранда тест тапсыру
           </button>
         </div>
         <div class="examples-list">
@@ -735,7 +735,7 @@ const App = {
           <div style="padding:20px;text-align:center;color:#94a3b8;">
             <p>Бұл нақты тақырыпқа арналған жеке Quizizz тесті табылмады.</p>
             <button class="btn btn-primary btn-sm" onclick="App.switchTab('quizizz')">
-              🎮 Барлық 238 Quizizz тесттерін ашу
+              Барлық 238 Quizizz тесттерін қарау
             </button>
           </div>
         `;
@@ -745,7 +745,7 @@ const App = {
 
       return `
         <div style="margin-bottom:14px;">
-          <h4 style="margin:0 0 6px;">🎮 «${topic.title}» бойынша интерактивті Quizizz тесттері (${topicQuizizz.length}):</h4>
+          <h4 style="margin:0 0 6px;">«${topic.title}» бойынша Quizizz жаттығулары (${topicQuizizz.length}):</h4>
           <p style="color:#94a3b8;font-size:13px;margin:0;">Сілтемені басып, Quizizz-те ойнап, біліміңізді тексеріңіз. Орындаған соң чекбоксты белгілеңіз:</p>
         </div>
         <div class="book-links-grid">
@@ -763,10 +763,10 @@ const App = {
                 <div style="display:flex;align-items:center;gap:10px;">
                   <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;user-select:none;">
                     <input type="checkbox" ${isDone ? 'checked' : ''} onchange="App.toggleQuizizzComplete('${qz.id}', this.checked)" />
-                    <span style="color:${isDone ? '#34d399' : '#94a3b8'};font-weight:600;">${isDone ? '✅ Орындалды' : 'Белгілеу'}</span>
+                    <span style="color:${isDone ? '#34d399' : '#94a3b8'};font-weight:600;">${isDone ? 'Орындалды' : 'Белгілеу'}</span>
                   </label>
                   <a href="${qz.url}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
-                    🚀 Ойнау (Quizizz)
+                    Quizizz ашу
                   </a>
                 </div>
               </div>
@@ -802,37 +802,37 @@ const App = {
       <div class="kpi-grid">
         <div class="card test-mode-card">
           <div class="badge badge-blue">КҮНДЕЛІКТІ ПРАКТИКА</div>
-          <h3>⚡ Күнделікті Блиц-Тест (15 сұрақ)</h3>
+          <h3>Күнделікті экспресс-тест (15 сұрақ)</h3>
           <p>Бүгінгі оқыған Физика, Математика, Тарих және МС тақырыптары бойынша жылдам тексеру (20 минут).</p>
-          <button class="btn btn-primary" onclick="App.startDailyQuiz(${this.state.currentDay || 1})">▶ Блиц-тестті бастау</button>
+          <button class="btn btn-primary" onclick="App.startDailyQuiz(${this.state.currentDay || 1})">Экспресс-тестті бастау</button>
         </div>
 
         <div class="card test-mode-card">
           <div class="badge badge-amber">ТОЛЫҚ ЕМТИХАН (130 БАЛЛ)</div>
-          <h3>🏆 Нағыз ҰБТ Симуляторы (4 пән)</h3>
+          <h3>Ресми ҰБТ сынамасы (4 пән, 130 балл)</h3>
           <p>Ресми Testcenter форматы: Бір жауапты (1 б), Контекст (1 б), Сәйкестендіру (2 б) және Көп жауапты (2 б). Таймер: 240 мин.</p>
-          <button class="btn btn-accent" onclick="App.startFullUbtSimulation()">🚀 130 балдық Симуляцияны бастау</button>
+          <button class="btn btn-accent" onclick="App.startFullUbtSimulation()">130 балдық сынаманы бастау</button>
         </div>
 
         <div class="card test-mode-card">
           <div class="badge badge-red">SPACED REPETITION (1-3-7-21)</div>
-          <h3>🔄 Қатемен жұмыс банкі (${errors.length} сұрақ)</h3>
+          <h3>Қатемен жұмыс банкі (${errors.length} сұрақ)</h3>
           <p>Бұрын қателескен сұрақтарыңды қайта тапсырып, 100% меңгергенше жаттық.</p>
           <button class="btn btn-outline" ${errors.length === 0 ? 'disabled' : ''} onclick="App.startErrorBankQuiz()">
-            🛠️ Қателермен жұмысты бастау (${errors.length})
+            Қателерді қайта талдау (${errors.length})
           </button>
         </div>
       </div>
 
       <div class="dash-two-col" style="margin-top:16px;">
         <div class="card">
-          <h3 style="margin:0 0 12px;">📈 Тапсырылған тесттер тарихы және Прогресс</h3>
+          <h3 style="margin:0 0 12px;">Сынамалар нәтижесі және үлгерім динамикасы</h3>
           <div class="days-list">
             ${history.map(h => `
               <div class="day-row">
                 <div>
                   <div style="font-weight:700;color:#f8fafc;">${h.title}</div>
-                  <div style="font-size:12px;color:#94a3b8;">📅 ${h.date} • Түрі: ${h.type}</div>
+                  <div style="font-size:12px;color:#94a3b8;">Күні: ${h.date} • Түрі: ${h.type}</div>
                 </div>
                 <div style="text-align:right;">
                   <div style="font-size:18px;font-weight:800;color:#38bdf8;">${h.score} / ${h.maxScore} балл</div>
@@ -844,10 +844,10 @@ const App = {
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 12px;">🧠 Қателер банкіндегі сұрақтар тізімі (${errors.length})</h3>
+          <h3 style="margin:0 0 12px;">Қателер банкіндегі сұрақтар (${errors.length})</h3>
           ${errors.length === 0 ? `
             <div style="padding:24px;text-align:center;color:#34d399;background:rgba(52,211,153,0.08);border-radius:10px;">
-              🎉 Жарайсың! Қазіргі сәтте қателер банкі таза!
+              Қателер банкі таза. Барлық сұрақтар меңгерілген.
             </div>
           ` : `
             <div class="days-list">
@@ -858,7 +858,7 @@ const App = {
                   <div class="example-card">
                     <div style="display:flex;justify-content:space-between;">
                       <span class="badge badge-red">${q.topic}</span>
-                      <button class="btn btn-xs btn-outline" onclick="App.removeError('${q.id}')">✓ Меңгердім (Өшіру)</button>
+                      <button class="btn btn-xs btn-outline" onclick="App.removeError('${q.id}')">Меңгерілді (Өшіру)</button>
                     </div>
                     <div style="margin-top:6px;font-weight:600;">${q.question}</div>
                     <div style="margin-top:6px;font-size:13px;color:#34d399;">Талдау: ${q.explanation}</div>
@@ -900,7 +900,7 @@ const App = {
   },
 
   startFullUbtSimulation() {
-    this.launchExam("🏆 Толық ҰБТ Симуляциясы (4 пән: Физ + Мат + Тарих + МС)", "ubt-sim", window.UBT_QUESTIONS);
+    this.launchExam("Толық ҰБТ сынамасы (4 пән: Физ + Мат + Тарих + МС)", "ubt-sim", window.UBT_QUESTIONS);
   },
 
   launchExam(title, type, questions) {
@@ -926,13 +926,13 @@ const App = {
             <span class="badge badge-amber">ТЕСТ РЕЖИМІ • ${ex.questions.length} ТАПСЫРМА • МАКСИМУМ ${totalMaxPoints} БАЛЛ</span>
             <h2 style="margin:6px 0 0;">${ex.title}</h2>
           </div>
-          <button class="btn btn-outline" onclick="App.closeExam()">✕ Тесттен шығу</button>
+          <button class="btn btn-outline" onclick="App.closeExam()">Тесттен шығу</button>
         </div>
 
         ${ex.submitted ? `
           <div class="exam-result-banner">
-            <h3>🎯 Тест нәтижесі: ${ex.result.earned} / ${ex.result.max} балл (${Math.round((ex.result.earned/ex.result.max)*100)}%)</h3>
-            <p>Экранды төмен айналдырып, әр есептің толық шығарылу жолын («На изи» талдауын) қарап шық. Қате кеткен сұрақтар автоматты түрде «Қатемен жұмыс» банкіне сақталды!</p>
+            <h3>Сынақ нәтижесі: ${ex.result.earned} / ${ex.result.max} балл (${Math.round((ex.result.earned/ex.result.max)*100)}%)</h3>
+            <p>Экранды төмен айналдырып, әр есептің толық шығарылу жолын (талдау мен түсіндірмесін) қарап шық. Қате кеткен сұрақтар автоматты түрде «Қатемен жұмыс» банкіне сақталды!</p>
           </div>
         ` : ""}
 
@@ -943,7 +943,7 @@ const App = {
         ${!ex.submitted ? `
           <div style="margin-top:20px;display:flex;justify-content:flex-end;">
             <button class="btn btn-accent btn-lg" onclick="App.submitExam()">
-              ✅ Тестті аяқтау және Баллды есептеу
+              Тестті аяқтау және баллды есептеу
             </button>
           </div>
         ` : ""}
@@ -958,10 +958,10 @@ const App = {
     if (ex.submitted) {
       const pts = this.scoreQuestion(q, userAns);
       statusBadge = pts === q.points
-        ? `<span class="badge badge-green">✓ Дұрыс (+${pts}/${q.points} балл)</span>`
+        ? `<span class="badge badge-green">Дұрыс (+${pts}/${q.points} балл)</span>`
         : pts > 0
           ? `<span class="badge badge-amber">◐ Жартылай (+${pts}/${q.points} балл)</span>`
-          : `<span class="badge badge-red">✕ Қате (0/${q.points} балл)</span>`;
+          : `<span class="badge badge-red">Қате (0/${q.points} балл)</span>`;
     }
 
     let bodyHtml = "";
@@ -985,7 +985,7 @@ const App = {
       `;
     } else if (q.type === "multiple") {
       bodyHtml = `
-        <div style="font-size:12px;color:#fbbf24;margin-bottom:8px;">⚠️ Көп жауапты сұрақ (3 дұрыс жауапқа дейін таңдаңыз — 2 балл):</div>
+        <div style="font-size:12px;color:#fbbf24;margin-bottom:8px;">Көп жауапты тапсырма (3 дұрыс жауапқа дейін таңдаңыз — 2 балл):</div>
         <div class="q-options">
           ${q.options.map((opt, oIdx) => {
             const selected = Array.isArray(userAns) && userAns.includes(oIdx);
@@ -1004,7 +1004,7 @@ const App = {
     } else if (q.type === "matching") {
       const pairAns = Array.isArray(userAns) ? userAns : [-1, -1];
       bodyHtml = `
-        <div style="font-size:12px;color:#38bdf8;margin-bottom:8px;">🔗 Сәйкестендіру тапсырмасы (Әр жұпқа сәйкес жауапты таңдаңыз — 2 балл):</div>
+        <div style="font-size:12px;color:#38bdf8;margin-bottom:8px;">Сәйкестендіру тапсырмасы (Әр жұпқа сәйкес жауапты таңдаңыз — 2 балл):</div>
         <div class="matching-box">
           ${q.leftItems.map((leftText, lIdx) => `
             <div class="match-row">
@@ -1034,7 +1034,7 @@ const App = {
         ${bodyHtml}
         ${ex.submitted ? `
           <div class="eq-explanation">
-            <b>💡 Талдау («На изи»):</b> ${q.explanation}
+            <b>Талдау және түсіндірме:</b> ${q.explanation}
           </div>
         ` : ""}
       </div>
@@ -1162,7 +1162,7 @@ const App = {
       <div class="card" style="margin-bottom:16px;">
         <div class="card-header">
           <div>
-            <h3 style="margin:0;">📚 Сенің локалды кітапханаң (<code>C:\\Users\\user\\Desktop\\ҰБТ</code>)</h3>
+            <h3 style="margin:0;">Оқулықтар мен әдебиеттер қоры (<code>C:\\Users\\user\\Desktop\\ҰБТ</code>)</h3>
             <p style="margin:4px 0 0;color:#94a3b8;font-size:13px;">
               Табылған PDF кітаптар: <b>${this.books.length}</b> (Толық жұмыс істейтін: <b>${validBooks.length}</b>, 0-байт бос файлдар: <b>${emptyBooks.length}</b>)
             </p>
@@ -1174,12 +1174,12 @@ const App = {
             <div class="lib-card">
               <div>
                 <span class="badge badge-blue">${b.folder}</span>
-                <div class="lib-title">📕 ${b.name}</div>
+                <div class="lib-title">${b.name}</div>
                 <div class="lib-meta">Көлемі: ${b.sizeMB} МБ</div>
               </div>
               <div style="display:flex;gap:6px;margin-top:10px;">
                 <button class="btn btn-sm btn-primary" onclick="App.openPdfModal('${b.relPath.replace(/'/g, "\\'")}', 1, '${b.name.replace(/'/g, "\\'")}')">
-                  📖 Кітапты ашу
+                  Оқулықты ашу
                 </button>
               </div>
             </div>
@@ -1188,7 +1188,7 @@ const App = {
 
         ${emptyBooks.length > 0 ? `
           <div style="margin-top:20px;padding:14px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:10px;">
-            <h4 style="margin:0 0 6px;color:#fbbf24;">⚠️ Жұмыс үстеліндегі 0-байт (бос) PDF файлдар (${emptyBooks.length}):</h4>
+            <h4 style="margin:0 0 6px;color:#fbbf24;">Ескерту: Бос файлдар (бос) PDF файлдар (${emptyBooks.length}):</h4>
             <p style="margin:0 0 8px;font-size:13px;color:#cbd5e1;">
               Төмендегі файлдар компьютерге жүктелгенде 0 КБ болып бос сақталған. Сондықтан біз Қазақстан тарихының 7–10 сынып оқулықтарындағы <b>барлық 55 тақырыптың теориясын, даталарын, хандарын және мәдениетін</b> платформаның «Оқу бағдарламасы → Қазақстан тарихы» бөліміне толық енгізіп қойдық!
             </p>
@@ -1210,7 +1210,7 @@ const App = {
     if (!modal || !iframe) return;
 
     this.currentPdfFile = relPath;
-    if (titleEl) titleEl.textContent = `📖 ${title} (${relPath})`;
+    if (titleEl) titleEl.textContent = `${title} (${relPath})`;
     if (pageInput) pageInput.value = page;
     const pdfUrl = `/api/pdf?file=${encodeURIComponent(relPath)}#page=${page}`;
     iframe.src = pdfUrl;
@@ -1280,7 +1280,7 @@ const App = {
         <div>
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
             <span class="badge ${net.publicUrl ? 'badge-green' : 'badge-amber'}">
-              ${net.publicUrl ? '🟢 ӘЛЕМДІК ОНЛАЙН HTTPS БЕЛСЕНДІ' : '🟡 ОНЛАЙН ТУННЕЛЬ ҚОСЫЛУДА...'}
+              ${net.publicUrl ? 'ОНЛАЙН РЕЖИМ БЕЛСЕНДІ' : 'ҚОСЫЛУ ЖҮРГІЗІЛУДЕ...'}
             </span>
             <span style="font-size:12px;color:#94a3b8;">4G / 5G / Кез келген Wi-Fi</span>
           </div>
@@ -1292,10 +1292,10 @@ const App = {
           </p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             ${net.publicUrl ? `
-              <button class="btn btn-xs btn-primary" onclick="App.copyText('${net.publicUrl}')">📋 Онлайн сілтемені көшіру</button>
+              <button class="btn btn-xs btn-primary" onclick="App.copyText('${net.publicUrl}')">Онлайн сілтемені көшіру</button>
             ` : ''}
-            <button class="btn btn-xs btn-outline" onclick="App.refreshNetworkInfo()">🔄 Мәртебені жаңарту</button>
-            <button class="btn btn-xs btn-outline" onclick="App.reconnectTunnel()">⚡ Жаңа онлайн сілтеме алу</button>
+            <button class="btn btn-xs btn-outline" onclick="App.refreshNetworkInfo()">Мәртебені жаңарту</button>
+            <button class="btn btn-xs btn-outline" onclick="App.reconnectTunnel()">Жаңа сілтеме генерациялау</button>
           </div>
         </div>
         <div style="text-align:center;">
@@ -1307,7 +1307,7 @@ const App = {
       <div style="background:#0d1322;border:1px solid #1e293b;padding:14px 16px;border-radius:12px;margin-bottom:14px;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
           <div>
-            <span class="badge badge-blue">📶 БІР WI-FI ЖЕЛІСІНДЕ (ЕҢ ЖЫЛДАМ ЛОКАЛДЫ СІЛТЕМЕ)</span>
+            <span class="badge badge-blue">ЖЕРГІЛІКТІ WI-FI БАЙЛАНЫСЫ</span>
             <div style="font-weight:800;font-size:15px;color:#f8fafc;margin-top:6px;">
               <a href="${net.lanUrl}" target="_blank" style="color:#34d399;">${net.lanUrl}</a>
             </div>
@@ -1315,12 +1315,12 @@ const App = {
               Егер телефоның мен ноутбугің бір Wi-Fi-ға (немесе телефоннан таратылған Hotspot-қа) қосылып тұрса, осы сілтеме интернетсіз де найзағайдай жылдам ашылады!
             </div>
           </div>
-          <button class="btn btn-xs btn-accent" onclick="App.copyText('${net.lanUrl}')">📋 Wi-Fi сілтемені көшіру</button>
+          <button class="btn btn-xs btn-accent" onclick="App.copyText('${net.lanUrl}')">Wi-Fi сілтемесін көшіру</button>
         </div>
       </div>
 
       <div style="background:rgba(56,189,248,0.07);border-left:4px solid #38bdf8;padding:12px 14px;border-radius:8px;font-size:13px;color:#cbd5e1;">
-        <b style="color:#f8fafc;">📲 Телефонның басты экранына Қосымша (App) ретінде орнату:</b>
+        <b style="color:#f8fafc;">Смартфон экранына қосымша ретінде сақтау:</b>
         <ul style="margin:6px 0 0;padding-left:18px;">
           <li><b>iPhone (Safari):</b> Жоғарыдағы сілтемені аш → төмендегі <b>«Бөлісу» (Поделиться)</b> батырмасын бас → <b>«Басты экранға қосу» (На экран «Домой»)</b> таңда.</li>
           <li><b>Android (Chrome):</b> Сілтемені аш → оң жақ жоғарыдағы <b>⋮ (Үш нүкте)</b> → <b>«Қосымшаны орнату» (Установить приложение / Добавить на гл. экран)</b>.</li>
@@ -1339,7 +1339,7 @@ const App = {
   copyText(text) {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text);
-      alert("✅ Сілтеме көшірілді: " + text);
+      alert("Сілтеме көшірілді: " + text);
     } else {
       prompt("Сілтемені көшіріп алыңыз:", text);
     }
@@ -1358,7 +1358,7 @@ const App = {
       <div class="dash-two-col">
         <div class="card">
           <span class="badge badge-blue">АВТО-ПАРСЕР • TELEGRAM & TESTCENTER</span>
-          <h3 style="margin:8px 0;">📥 Жаңа сливтер мен сұрақтарды базаға қосу</h3>
+          <h3 style="margin:8px 0;">Жаңа тапсырмалар мен сұрақтарды базаға енгізу</h3>
           <p style="color:#94a3b8;font-size:13px;">
             <b>Telegram</b> каналынан (<a href="https://t.me/hanahaki_laoshi/8" target="_blank" style="color:#38bdf8;">t.me/hanahaki_laoshi/8</a>) немесе Testcenter нұсқаларынан көшіріп алған есептерді төменгі өріске қой. Парсер оларды автоматты түрде интерактивті тестке айналдырып, базаңа сақтайды!
           </p>
@@ -1367,10 +1367,10 @@ const App = {
             <label>Пәнді және Тақырыпты таңда:</label>
             <div style="display:flex;gap:10px;">
               <select id="parser-subj" class="input-control">
-                <option value="phys">⚡ Физика</option>
-                <option value="math">📐 Математика</option>
-                <option value="hist">🏛️ Қазақстан тарихы</option>
-                <option value="msl">🧠 Математикалық сауаттылық</option>
+                <option value="phys">Физика</option>
+                <option value="math">Математика</option>
+                <option value="hist">Қазақстан тарихы</option>
+                <option value="msl">Математикалық сауаттылық</option>
               </select>
               <input id="parser-topic" class="input-control" value="PHYS-01" placeholder="Тақырып коды (мысалы: PHYS-01)" />
             </div>
@@ -1388,12 +1388,12 @@ D) 8 м/с²
           </div>
 
           <button class="btn btn-primary" onclick="App.parseAndSaveQuestion()">
-            ➕ Парсинг жасау және Базаға сақтау
+            Сұрақты өңдеп, базаға сақтау
           </button>
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 12px;">🗂️ Сен қосқан жеке слив сұрақтар (${customList.length})</h3>
+          <h3 style="margin:0 0 12px;">Қолданушы қосқан сұрақтар қоры (${customList.length})</h3>
           ${customList.length === 0 ? `
             <p style="color:#94a3b8;font-size:13px;">Әзірге қолмен қосылған сұрақтар жоқ. Сол жақтағы форма арқылы Telegram-дағы кез келген слив сұрақты 5 секундта қоса аласың!</p>
           ` : `
@@ -1463,7 +1463,7 @@ D) 8 м/с²
     this.saveState({ customQuestions });
     document.getElementById("parser-raw").value = "";
     this.renderParserView();
-    alert("✅ Сұрақ сәтті парсингтен өтіп, тест базасына қосылды!");
+    alert("Сұрақ базаға сәтті қосылды.");
   },
 
   // ==========================================================================
@@ -1502,7 +1502,7 @@ D) 8 м/с²
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
           <div>
             <span class="badge badge-blue">ИНТЕРАКТИВТІ QUIZIZZ БАЗАСЫ (238 ТЕСТ)</span>
-            <h2 style="margin:6px 0 4px;">🎮 ҰБТ Quizizz Тесттері (5–11 сынып + ФизМат)</h2>
+            <h2 style="margin:6px 0 4px;">ҰБТ Quizizz жаттығулары (5–11 сынып + ФизМат)</h2>
             <p style="color:#cbd5e1;font-size:13.5px;margin:0;">
               Word құжаттағы <b>159 тарих куизизі (5–11 сынып)</b> + интернеттен жинақталған <b>Физика (34), Математика (26), Мат. сауаттылық (19)</b> куизиздері! Тікелей ойнап, біліміңді пысықта.
             </p>
@@ -1517,19 +1517,19 @@ D) 8 м/с²
       <!-- Subject Tabs -->
       <div class="subject-tabs">
         <button class="subj-tab ${currentSubj === 'hist' ? 'active' : ''}" onclick="App.selectQuizizzSubj('hist')">
-          <span>🏛️ Қазақстан тарихы</span>
+          <span>Қазақстан тарихы</span>
           <span class="subj-badge">${data.hist.length} тест (5-11 сынып)</span>
         </button>
         <button class="subj-tab ${currentSubj === 'phys' ? 'active' : ''}" onclick="App.selectQuizizzSubj('phys')">
-          <span>⚡ Физика ҰБТ</span>
+          <span>Физика</span>
           <span class="subj-badge">${data.phys.length} тест</span>
         </button>
         <button class="subj-tab ${currentSubj === 'math' ? 'active' : ''}" onclick="App.selectQuizizzSubj('math')">
-          <span>📐 Математика ҰБТ</span>
+          <span>Математика</span>
           <span class="subj-badge">${data.math.length} тест</span>
         </button>
         <button class="subj-tab ${currentSubj === 'msl' ? 'active' : ''}" onclick="App.selectQuizizzSubj('msl')">
-          <span>🧠 Математикалық сауаттылық</span>
+          <span>Математикалық сауаттылық</span>
           <span class="subj-badge">${data.msl.length} тест</span>
         </button>
       </div>
@@ -1545,7 +1545,7 @@ D) 8 м/с²
             `).join("")}
           </div>
           <div style="min-width:260px;">
-            <input type="text" class="input-control" placeholder="🔍 Тақырып немесе сөз іздеу..." value="${this.quizizzSearch || ''}" oninput="App.onQuizizzSearch(this.value)" />
+            <input type="text" class="input-control" placeholder="Тақырып немесе бөлім атауын іздеу..." value="${this.quizizzSearch || ''}" oninput="App.onQuizizzSearch(this.value)" />
           </div>
         </div>
 
@@ -1575,10 +1575,10 @@ D) 8 м/с²
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid #1e293b;">
                   <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;cursor:pointer;user-select:none;">
                     <input type="checkbox" ${isDone ? 'checked' : ''} onchange="App.toggleQuizizzComplete('${q.id}', this.checked)" />
-                    <span style="color:${isDone ? '#34d399' : '#94a3b8'};font-weight:600;">${isDone ? '✅ Орындалды' : 'Орындалды'}</span>
+                    <span style="color:${isDone ? '#34d399' : '#94a3b8'};font-weight:600;">${isDone ? 'Орындалды' : 'Орындау'}</span>
                   </label>
                   <a href="${q.url}" target="_blank" class="btn btn-xs btn-primary" style="text-decoration:none;display:flex;align-items:center;gap:4px;">
-                    🚀 Quizizz ашу
+                    Quizizz ашу
                   </a>
                 </div>
               </div>
@@ -1635,28 +1635,28 @@ D) 8 м/с²
     earnedXP += Object.keys(this.state.homeworkChecks || {}).filter(k => this.state.homeworkChecks[k]).length * 10;
     earnedXP += Object.keys(this.state.completedQuizizz || {}).filter(k => this.state.completedQuizizz[k]).length * 15;
 
-    let rank = "🌱 Бастаушы Талапкер";
+    let rank = "Талапкер (I деңгей)";
     let level = 1;
     let minXP = 0;
     let nextLevelXP = 250;
 
     if (earnedXP >= 3500) {
-      rank = "👑 ҰБТ Гроссмейстері (130 / 130 Грант)";
+      rank = "Грант иегері (V деңгей • 130/130)";
       level = 5;
       minXP = 3500;
       nextLevelXP = 6000;
     } else if (earnedXP >= 1800) {
-      rank = "🦅 ФизМат Сұңқары (Грант Үміткері)";
+      rank = "ФизМат үміткері (IV деңгей)";
       level = 4;
       minXP = 1800;
       nextLevelXP = 3500;
     } else if (earnedXP >= 800) {
-      rank = "⚡ Алғыр Студент";
+      rank = "Білікті талапкер (III деңгей)";
       level = 3;
       minXP = 800;
       nextLevelXP = 1800;
     } else if (earnedXP >= 250) {
-      rank = "🔥 Еңбекқор Шәкірт";
+      rank = "Ізденуші (II деңгей)";
       level = 2;
       minXP = 250;
       nextLevelXP = 800;
@@ -1700,9 +1700,9 @@ D) 8 м/с²
               <span class="badge badge-amber">${rankInfo.level}-ДЕҢГЕЙ</span>
               <span style="font-size:13px;color:#94a3b8;">${rankInfo.rank}</span>
             </div>
-            <h2 style="margin:8px 0 6px;color:#f8fafc;">🏆 Жетістіктер, Ачивкалар & Тәжірибе (XP)</h2>
+            <h2 style="margin:8px 0 6px;color:#f8fafc;">Оқу көрсеткіштері және біліктілік дәрежелері</h2>
             <p style="color:#cbd5e1;font-size:13.5px;margin:0;">
-              Әрбір өткен сабақ, орындалған Quizizz және фокус минуты үшін XP жинап, <b>«130/130 Грант Иегері»</b> шеніне дейін көтеріл!
+              Әрбір өткен сабақ, орындалған Quizizz және фокус минуты үшін XP жинап, <b>130/130 жоғары көрсеткішіне</b> дейін сапалы дайындал!
             </p>
           </div>
           <div style="background:#0d1322;padding:14px 20px;border-radius:12px;border:1px solid #1e293b;text-align:center;min-width:180px;">
@@ -1727,7 +1727,7 @@ D) 8 м/с²
             `).join("")}
           </div>
           <button class="btn btn-xs btn-outline" onclick="App.openSyncModal()">
-            🔄 Прогресті телефонмен синхрондау
+            Прогресті телефонмен синхрондау
           </button>
         </div>
 
@@ -1737,13 +1737,13 @@ D) 8 м/с²
             const unlocked = ach.check(this.state);
             return `
               <div class="example-card" style="display:flex;gap:12px;align-items:flex-start;background:#0d1322;border:1px solid ${unlocked ? '#34d399' : '#1e293b'};${unlocked ? 'box-shadow:0 0 15px rgba(52,211,153,0.12);' : 'opacity:0.65;'}">
-                <div style="font-size:32px;line-height:1;background:${unlocked ? 'rgba(52,211,153,0.1)' : '#111827'};padding:10px;border-radius:10px;border:1px solid ${unlocked ? '#34d399' : '#334155'};">
-                  ${ach.icon}
+                <div style="min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;letter-spacing:0.5px;background:${unlocked ? 'rgba(16,185,129,0.12)' : '#111827'};color:${unlocked ? '#34d399' : '#94a3b8'};border-radius:8px;border:1px solid ${unlocked ? '#10b981' : '#334155'};">
+                  ${ach.code || 'ACH'}
                 </div>
                 <div style="flex:1;">
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
                     <span style="font-size:11px;font-weight:700;color:${unlocked ? '#34d399' : '#94a3b8'};">
-                      ${unlocked ? '✅ ҚОЛ ЖЕТКІЗІЛДІ' : '🔒 ҚҰЛЫПТАУЛЫ'}
+                      ${unlocked ? 'ҚОЛ ЖЕТКІЗІЛДІ' : 'ҚҰЛЫПТАУЛЫ'}
                     </span>
                     <span class="badge ${unlocked ? 'badge-green' : 'badge-blue'}">+${ach.xp} XP</span>
                   </div>
@@ -1780,7 +1780,7 @@ D) 8 м/с²
     const jsonStr = JSON.stringify(this.state);
     if (navigator.clipboard) {
       navigator.clipboard.writeText(jsonStr);
-      alert("✅ Синхрондау коды көшірілді! Енді оны телефондағы сайтты ашып, «Синхрондау → 2-қадамға» қойыңыз.");
+      alert("Синхрондау коды көшірілді. Енді телефондағы сайтты ашып, «Синхрондау → 2-қадам» өрісіне қойыңыз.");
     } else {
       prompt("Синхрондау кодын көшіріп алыңыз:", jsonStr);
     }
@@ -1810,7 +1810,7 @@ D) 8 м/с²
       this.saveState(this.state);
       this.closeSyncModal();
       this.renderAll();
-      alert("🎉 Прогресс, ачивкалар және барлық нәтижелер сәтті жаңартылды!");
+      alert("Прогресс және барлық нәтижелер сәтті жаңартылды.");
     } catch (err) {
       alert("Қате: Код дұрыс емес форматында. Қайта көшіріп көріңіз!");
     }
@@ -1828,7 +1828,7 @@ D) 8 м/с²
         this.saveState(this.state);
         this.closeSyncModal();
         this.renderAll();
-        alert("🎉 Прогресс файлдан сәтті жүктелді!");
+        alert("Прогресс файлдан сәтті жүктелді.");
       } catch (err) {
         alert("Файлды оқу мүмкін болмады: " + err.message);
       }

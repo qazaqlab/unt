@@ -3,46 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#090d16" />
+  <meta name="theme-color" content="#0a0e1a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="manifest" href="./manifest.json" />
-  <title>ҰБТ 130/130 • ФизМат Жеке Дайындық Платформасы</title>
+  <title>UNT 140 ACADEMY • ФизМат ҰБТ Дайындық Жүйесі</title>
   <!-- KaTeX for Math & Physics Formulas -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <style>
     :root {
-      --bg-main: #090d16;
+      --bg-main: #0a0e1a;
       --bg-card: #111827;
       --bg-card-hover: #1e293b;
-      --border: #1f2937;
+      --bg-subtle: #0f172a;
+      --border: #1f293d;
+      --border-focus: #3b82f6;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
+      --text-dim: #64748b;
       --blue: #38bdf8;
+      --blue-accent: #2563eb;
       --indigo: #818cf8;
       --amber: #fbbf24;
-      --green: #34d399;
-      --red: #f87171;
+      --green: #10b981;
+      --red: #ef4444;
     }
 
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-main);
       color: var(--text-main);
       line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Navigation Bar */
+    /* Top Navigation Bar - Khan Academy / 140 Style */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(10, 14, 26, 0.94);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       padding: 10px 24px;
       display: flex;
@@ -54,66 +59,86 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.3px;
+      gap: 16px;
     }
     .brand-logo {
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      color: #090d16;
-      font-weight: 900;
-      padding: 4px 10px;
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      color: #ffffff;
+      font-weight: 800;
+      padding: 5px 10px;
       border-radius: 8px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+    .brand-title {
+      font-weight: 800;
       font-size: 15px;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.2px;
     }
     .nav-links {
       display: flex;
-      gap: 6px;
+      gap: 4px;
       flex-wrap: wrap;
     }
     .nav-btn {
       background: transparent;
       color: var(--text-muted);
       border: 1px solid transparent;
-      padding: 8px 14px;
+      padding: 8px 13px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 13.5px;
-      transition: all 0.15s;
+      font-size: 13px;
+      transition: all 0.15s ease;
     }
     .nav-btn:hover {
       color: var(--text-main);
       background: var(--bg-card);
     }
     .nav-btn.active {
-      color: #090d16;
-      background: var(--blue);
+      color: #ffffff;
+      background: var(--blue-accent);
       font-weight: 700;
+      border-color: rgba(56, 189, 248, 0.3);
     }
     .header-stats {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      font-size: 13px;
+      font-size: 12.5px;
     }
     .stat-pill {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      padding: 5px 11px;
+      padding: 5px 12px;
       border-radius: 20px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       font-weight: 600;
+    }
+    .stat-pill-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-dim);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     /* Container & Views */
     .main-container {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 20px 24px 60px;
+      padding: 24px 24px 60px;
     }
     .view-section { display: none; }
     .view-section.active { display: block; }
@@ -122,37 +147,43 @@
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
+      border-radius: 12px;
+      padding: 20px;
     }
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .kpi-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 18px 20px;
       position: relative;
       overflow: hidden;
     }
-    .kpi-label { font-size: 12.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .kpi-value { font-size: 30px; font-weight: 800; margin: 6px 0; }
-    .kpi-sub { font-size: 15px; color: var(--text-muted); font-weight: 500; }
-    .kpi-bar { height: 7px; background: #1e293b; border-radius: 4px; overflow: hidden; margin: 8px 0; }
+    .kpi-label {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+    }
+    .kpi-value { font-size: 30px; font-weight: 800; margin: 6px 0; color: #ffffff; }
+    .kpi-sub { font-size: 14px; color: var(--text-muted); font-weight: 500; }
+    .kpi-bar { height: 6px; background: #1e293b; border-radius: 4px; overflow: hidden; margin: 8px 0; }
     .kpi-bar-fill { height: 100%; border-radius: 4px; }
-    .kpi-foot { font-size: 12.5px; color: var(--text-muted); }
+    .kpi-foot { font-size: 12px; color: var(--text-muted); }
 
     .dash-two-col {
       display: grid;
@@ -170,23 +201,23 @@
       gap: 10px;
     }
     .topic-pill {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 12px;
+      padding: 14px;
       cursor: pointer;
-      transition: transform 0.15s, border-color 0.15s;
+      transition: all 0.15s ease;
     }
     .topic-pill:hover {
-      transform: translateY(-2px);
       border-color: var(--blue);
+      transform: translateY(-1px);
     }
-    .topic-pill.phys { border-left: 4px solid var(--blue); }
-    .topic-pill.math { border-left: 4px solid var(--indigo); }
-    .topic-pill.hist { border-left: 4px solid var(--amber); }
-    .topic-pill.msl  { border-left: 4px solid var(--green); }
-    .tp-head { font-size: 12px; font-weight: 700; color: var(--text-muted); }
-    .tp-title { font-size: 13.5px; font-weight: 700; margin: 5px 0; color: #f1f5f9; }
+    .topic-pill.phys { border-left: 3px solid var(--blue); }
+    .topic-pill.math { border-left: 3px solid var(--indigo); }
+    .topic-pill.hist { border-left: 3px solid var(--amber); }
+    .topic-pill.msl  { border-left: 3px solid var(--green); }
+    .tp-head { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .tp-title { font-size: 13.5px; font-weight: 700; margin: 6px 0; color: #f1f5f9; line-height: 1.35; }
     .tp-link { font-size: 12px; color: var(--blue); font-weight: 600; }
 
     /* Schedule Checklist */
@@ -194,17 +225,18 @@
     .schedule-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      background: #0d1322;
+      gap: 12px;
+      padding: 11px 14px;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 13.5px;
+      transition: all 0.15s;
     }
     .schedule-item.is-break {
-      background: rgba(52, 211, 153, 0.05);
-      border-color: rgba(52, 211, 153, 0.2);
+      background: rgba(16, 185, 129, 0.05);
+      border-color: rgba(16, 185, 129, 0.2);
       color: #a7f3d0;
     }
     .schedule-item.done {
@@ -215,8 +247,8 @@
       background: #1e293b;
       color: var(--blue);
       padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 12px;
+      border-radius: 4px;
+      font-size: 11.5px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -224,7 +256,7 @@
     /* Pomodoro */
     .timer-display {
       font-size: 54px;
-      font-weight: 900;
+      font-weight: 800;
       text-align: center;
       letter-spacing: 2px;
       color: var(--blue);
@@ -232,7 +264,7 @@
       font-variant-numeric: tabular-nums;
     }
     .timer-hint {
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--text-muted);
       text-align: center;
       margin: 10px 0 0;
@@ -243,42 +275,52 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      font-size: 13.5px;
+      font-size: 13px;
       color: #cbd5e1;
     }
 
-    /* Buttons & Badges */
+    /* Buttons & Badges - Clean EdTech */
     .btn {
       border: none;
       border-radius: 8px;
-      padding: 9px 15px;
-      font-weight: 700;
-      font-size: 13.5px;
+      padding: 9px 16px;
+      font-weight: 600;
+      font-size: 13px;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: inherit;
     }
-    .btn-sm { padding: 6px 11px; font-size: 12.5px; }
-    .btn-xs { padding: 4px 9px; font-size: 11.5px; }
-    .btn-lg { padding: 12px 22px; font-size: 15px; }
-    .btn-primary { background: var(--blue); color: #090d16; }
-    .btn-primary:hover { background: #7dd3fc; }
-    .btn-accent { background: var(--amber); color: #090d16; }
-    .btn-accent:hover { background: #fde68a; }
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+    .btn-xs { padding: 4px 10px; font-size: 11.5px; }
+    .btn-lg { padding: 12px 24px; font-size: 14.5px; font-weight: 700; }
+    .btn-primary { background: var(--blue-accent); color: #ffffff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-accent { background: #f59e0b; color: #0a0e1a; }
+    .btn-accent:hover { background: #fbbf24; }
+    .btn-success { background: var(--green); color: #0a0e1a; }
+    .btn-success:hover { background: #34d399; }
     .btn-outline { background: transparent; color: var(--text-main); border: 1px solid #334155; }
-    .btn-outline:hover { background: #1e293b; }
+    .btn-outline:hover { background: #1e293b; border-color: #475569; }
 
     .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 3px 8px;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
     }
-    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--blue); }
-    .badge-amber { background: rgba(251, 191, 36, 0.15); color: var(--amber); }
-    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--green); }
-    .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--red); }
+    .badge-blue { background: rgba(56, 189, 248, 0.12); color: var(--blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .badge-amber { background: rgba(251, 191, 36, 0.12); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.25); }
+    .badge-green { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
+    .badge-red { background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+    .badge-slate { background: rgba(148, 163, 184, 0.12); color: var(--text-muted); border: 1px solid rgba(148, 163, 184, 0.25); }
 
     /* 5-Month Plan View */
     .months-grid {
@@ -287,42 +329,45 @@
       gap: 12px;
     }
     .month-card {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 14px;
+      padding: 16px;
       cursor: pointer;
+      transition: all 0.15s;
     }
     .month-card.active {
-      border-color: var(--blue);
-      background: rgba(56, 189, 248, 0.08);
+      border-color: var(--blue-accent);
+      background: rgba(37, 99, 235, 0.08);
     }
     .mc-top { display: flex; justify-content: space-between; align-items: center; }
-    .mc-score { font-size: 12px; font-weight: 700; color: var(--green); }
+    .mc-score { font-size: 11.5px; font-weight: 700; color: #34d399; }
     .mc-title { font-weight: 700; font-size: 14px; margin: 8px 0 6px; }
     .mc-desc { font-size: 12px; color: var(--text-muted); }
 
     .weeks-list, .days-list { display: flex; flex-direction: column; gap: 8px; }
     .week-item {
-      padding: 12px;
-      background: #0d1322;
+      padding: 12px 14px;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: all 0.15s;
     }
-    .week-item.active { border-color: var(--blue); background: rgba(56, 189, 248, 0.08); }
+    .week-item.active { border-color: var(--blue-accent); background: rgba(37, 99, 235, 0.08); }
     .day-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
       padding: 11px 14px;
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 9px;
+      border-radius: 8px;
+      transition: all 0.15s;
     }
     .day-row.current { border-color: var(--amber); }
-    .day-row.done { border-left: 4px solid var(--green); }
+    .day-row.done { border-left: 3px solid var(--green); }
     .day-row a { color: var(--blue); text-decoration: none; font-weight: 600; }
 
     /* Curriculum View */
@@ -337,19 +382,20 @@
       border: 1px solid var(--border);
       color: var(--text-main);
       padding: 12px 16px;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13.5px;
+      transition: all 0.15s;
     }
     .subj-tab.active {
-      border-color: var(--blue);
-      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--blue-accent);
+      background: rgba(37, 99, 235, 0.12);
     }
-    .subj-badge { font-size: 11.5px; color: var(--text-muted); font-weight: 500; }
+    .subj-badge { font-size: 11px; color: var(--text-muted); font-weight: 600; }
 
     .curriculum-layout {
       display: grid;
@@ -371,49 +417,52 @@
     .topic-nav-item {
       padding: 10px 12px;
       border-radius: 8px;
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
       cursor: pointer;
+      transition: all 0.15s;
     }
     .topic-nav-item.active {
-      border-color: var(--blue);
-      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--blue-accent);
+      background: rgba(37, 99, 235, 0.12);
     }
     .tni-meta { font-size: 11px; color: var(--blue); font-weight: 700; }
     .tni-title { font-size: 13px; font-weight: 600; margin-top: 2px; }
 
     .sub-tabs {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 12px;
       margin: 14px 0;
       flex-wrap: wrap;
     }
     .sub-tab {
-      background: #0d1322;
+      background: var(--bg-subtle);
       color: var(--text-muted);
       border: 1px solid var(--border);
       padding: 8px 14px;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 12.5px;
+      transition: all 0.15s;
     }
     .sub-tab.active {
-      background: var(--blue);
-      color: #090d16;
-      border-color: var(--blue);
+      background: var(--blue-accent);
+      color: #ffffff;
+      border-color: var(--blue-accent);
       font-weight: 700;
     }
     .easy-explanation-box {
-      background: #0d1322;
-      border-left: 4px solid var(--blue);
-      padding: 14px 18px;
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--blue-accent);
+      padding: 16px 20px;
       border-radius: 8px;
-      font-size: 14.5px;
+      font-size: 14px;
+      line-height: 1.6;
     }
-    .easy-explanation-box h4 { margin-top: 0; color: var(--blue); }
+    .easy-explanation-box h4 { margin-top: 0; color: #ffffff; font-size: 15px; font-weight: 700; }
     .easy-explanation-box ul { padding-left: 20px; margin-bottom: 0; }
     .easy-explanation-box li { margin-bottom: 8px; }
 
@@ -423,9 +472,9 @@
       gap: 10px;
     }
     .formula-box {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid #1e293b;
-      border-radius: 10px;
+      border-radius: 8px;
       padding: 12px;
       overflow-x: auto;
       text-align: center;
@@ -441,87 +490,90 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
       padding: 14px 16px;
-      border-radius: 10px;
+      border-radius: 8px;
       flex-wrap: wrap;
     }
     .example-card {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      padding: 14px 16px;
-      border-radius: 10px;
+      padding: 16px;
+      border-radius: 8px;
     }
-    .ex-prob { margin-bottom: 8px; color: #f8fafc; }
-    .ex-sol { color: #cbd5e1; font-size: 14px; margin-bottom: 6px; }
-    .ex-ans { color: var(--green); font-size: 14px; }
+    .ex-prob { margin-bottom: 8px; color: #f8fafc; font-size: 14px; }
+    .ex-sol { color: #cbd5e1; font-size: 13.5px; margin-bottom: 8px; }
+    .ex-ans { color: #34d399; font-size: 13.5px; }
 
     /* Testing Center */
-    .test-mode-card h3 { margin: 8px 0 6px; }
-    .test-mode-card p { color: var(--text-muted); font-size: 13.5px; margin-bottom: 14px; }
+    .test-mode-card h3 { margin: 8px 0 6px; font-size: 16px; }
+    .test-mode-card p { color: var(--text-muted); font-size: 13px; margin-bottom: 14px; }
     .exam-questions-list { display: flex; flex-direction: column; gap: 14px; }
     .exam-q-card {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
+      border-radius: 10px;
+      padding: 18px;
     }
     .eq-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .eq-question { font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+    .eq-question { font-weight: 700; font-size: 14.5px; margin-bottom: 12px; line-height: 1.5; }
     .context-box {
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 12px;
-      border-radius: 8px;
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      padding: 12px 14px;
+      border-radius: 6px;
       margin-bottom: 12px;
       font-size: 13.5px;
+      line-height: 1.5;
     }
     .q-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; }
     .q-opt {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 12px;
+      gap: 10px;
+      padding: 10px 14px;
       background: #111827;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13.5px;
+      transition: all 0.15s;
     }
-    .q-opt.selected { border-color: var(--blue); background: rgba(56, 189, 248, 0.1); }
-    .q-opt.correct { border-color: var(--green); background: rgba(52, 211, 153, 0.15); }
-    .q-opt.wrong { border-color: var(--red); background: rgba(248, 113, 113, 0.15); }
+    .q-opt.selected { border-color: var(--blue-accent); background: rgba(37, 99, 235, 0.12); }
+    .q-opt.correct { border-color: var(--green); background: rgba(16, 185, 129, 0.12); }
+    .q-opt.wrong { border-color: var(--red); background: rgba(239, 68, 68, 0.12); }
 
     .matching-box { display: flex; flex-direction: column; gap: 8px; }
     .match-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; }
-    .match-left { background: #111827; padding: 8px 12px; border-radius: 8px; font-weight: 600; }
+    .match-left { background: #111827; padding: 9px 12px; border-radius: 6px; font-weight: 600; font-size: 13px; }
     .match-select, .input-control {
-      background: #0d1322;
+      background: var(--bg-subtle);
       color: var(--text-main);
       border: 1px solid #334155;
       padding: 9px 12px;
-      border-radius: 8px;
+      border-radius: 6px;
       width: 100%;
       font-family: inherit;
-      font-size: 13.5px;
+      font-size: 13px;
     }
     .eq-explanation {
       margin-top: 12px;
-      padding: 10px 14px;
-      background: rgba(52, 211, 153, 0.08);
+      padding: 12px 14px;
+      background: rgba(16, 185, 129, 0.08);
       border-left: 3px solid var(--green);
       border-radius: 6px;
-      font-size: 13.5px;
+      font-size: 13px;
+      line-height: 1.5;
     }
     .exam-result-banner {
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid var(--blue);
-      padding: 16px;
-      border-radius: 10px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid var(--blue-accent);
+      padding: 18px;
+      border-radius: 8px;
       margin-bottom: 16px;
     }
-    .exam-result-banner h3 { margin: 0 0 6px; color: var(--blue); }
+    .exam-result-banner h3 { margin: 0 0 6px; color: #ffffff; font-size: 17px; }
     .exam-result-banner p { margin: 0; font-size: 13.5px; }
 
     /* Library Grid */
@@ -531,25 +583,25 @@
       gap: 12px;
     }
     .lib-card {
-      background: #0d1322;
+      background: var(--bg-subtle);
       border: 1px solid var(--border);
-      padding: 14px;
-      border-radius: 10px;
+      padding: 16px;
+      border-radius: 8px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .lib-title { font-weight: 700; font-size: 14px; margin: 8px 0 4px; word-break: break-word; }
-    .lib-meta { font-size: 12px; color: var(--text-muted); }
+    .lib-title { font-weight: 700; font-size: 13.5px; margin: 8px 0 4px; word-break: break-word; }
+    .lib-meta { font-size: 11.5px; color: var(--text-muted); }
 
     .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #cbd5e1; }
+    .form-group label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 6px; color: #cbd5e1; }
 
     /* PDF Viewer Modal */
     .pdf-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
+      background: rgba(0, 0, 0, 0.85);
       z-index: 999;
       display: none;
       flex-direction: column;
@@ -559,7 +611,7 @@
     .pdf-modal-bar {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 10px 10px 0 0;
+      border-radius: 8px 8px 0 0;
       padding: 10px 16px;
       display: flex;
       justify-content: space-between;
@@ -572,18 +624,18 @@
       flex: 1;
       border: 1px solid var(--border);
       border-top: none;
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 8px 8px;
       background: #1e293b;
     }
 
-    /* Mobile & Tablet Responsive Design (Phone / iPad / Laptop) */
+    /* Mobile & Tablet Responsive Design */
     @media (max-width: 768px) {
       .topbar {
-        padding: 10px 12px;
+        padding: 10px 14px;
         gap: 8px;
       }
       .brand {
-        font-size: 15px;
+        font-size: 14px;
         width: 100%;
         justify-content: space-between;
       }
@@ -597,7 +649,7 @@
       .nav-btn {
         white-space: nowrap;
         padding: 7px 11px;
-        font-size: 12.5px;
+        font-size: 12px;
       }
       .header-stats {
         width: 100%;
@@ -608,10 +660,10 @@
       .stat-pill {
         white-space: nowrap;
         font-size: 11.5px;
-        padding: 4px 9px;
+        padding: 4px 10px;
       }
       .main-container {
-        padding: 12px 12px 70px;
+        padding: 14px 14px 70px;
       }
       .card, .kpi-card {
         padding: 14px;
@@ -627,66 +679,81 @@
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Top Navigation Bar - Khan Academy / 140 Design -->
   <header class="topbar">
     <div class="brand">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <span class="brand-logo">130 / 130</span>
-        <span>ҰБТ ФизМат • Дисциплина Платформасы</span>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="brand-logo">140</span>
+        <div>
+          <div class="brand-title">UNT 140 ACADEMY</div>
+          <div class="brand-subtitle">ФизМат • Академиялық дайындық жүйесі</div>
+        </div>
       </div>
       <div style="display:flex;align-items:center;gap:6px;">
-        <button class="btn btn-xs btn-outline" onclick="App.openSyncModal()" style="border-radius:16px;display:flex;align-items:center;gap:5px;">
-          🔄 Синхрондау
+        <button class="btn btn-xs btn-outline" onclick="App.openSyncModal()" style="border-radius:16px;">
+          Синхрондау
         </button>
-        <button class="btn btn-xs btn-primary" onclick="App.openDeviceModal()" style="border-radius:16px;display:flex;align-items:center;gap:5px;">
-          📱 Онлайн & QR
+        <button class="btn btn-xs btn-primary" onclick="App.openDeviceModal()" style="border-radius:16px;">
+          Құрылғылар мен QR
         </button>
       </div>
     </div>
 
     <nav class="nav-links">
-      <button class="nav-btn active" data-nav="dashboard">🏠 Басты бет (Бүгін)</button>
-      <button class="nav-btn" data-nav="plan">🗓️ 5 Ай / 20 Апта / 140 Күн</button>
-      <button class="nav-btn" data-nav="curriculum">📚 Оқу бағдарламасы (108 Тақырып)</button>
-      <button class="nav-btn" data-nav="quizizz">🎮 Quizizz Тесттері (238 тест)</button>
-      <button class="nav-btn" data-nav="achievements">🏆 Ачивкалар & Прогресс</button>
-      <button class="nav-btn" data-nav="tests">🎯 Тест & Қатемен жұмыс</button>
-      <button class="nav-btn" data-nav="library">📖 Кітапхана (PDF)</button>
-      <button class="nav-btn" data-nav="parser">📥 Слив Парсері</button>
+      <button class="nav-btn active" data-nav="dashboard">Басты бет</button>
+      <button class="nav-btn" data-nav="curriculum">Оқу бағдарламасы</button>
+      <button class="nav-btn" data-nav="plan">Күнтізбелік жоспар</button>
+      <button class="nav-btn" data-nav="quizizz">Quizizz жаттығулары</button>
+      <button class="nav-btn" data-nav="tests">Сынама тесттер</button>
+      <button class="nav-btn" data-nav="achievements">Көрсеткіштер & XP</button>
+      <button class="nav-btn" data-nav="library">Оқулықтар қоры</button>
+      <button class="nav-btn" data-nav="parser">Сұрақтар банкі</button>
     </nav>
 
     <div class="header-stats">
-      <div class="stat-pill" title="Үздіксіз оқу стригі">🔥 <span id="hdr-streak">1 күн</span></div>
-      <div class="stat-pill" title="Ағымдағы оқу күні">📅 <span id="hdr-day">1 / 140 күн</span></div>
-      <div class="stat-pill" title="Фокус уақыты">⏱️ <span id="hdr-focus">0 мин</span></div>
-      <div class="stat-pill" title="Қатемен жұмыс банкі">⚠️ Қате: <span id="hdr-errors">0</span></div>
+      <div class="stat-pill" title="Үздіксіз сабақ оқу күндері">
+        <span class="stat-pill-label">Стрик</span>
+        <span id="hdr-streak" style="color:var(--amber);">1 күн</span>
+      </div>
+      <div class="stat-pill" title="140 күндік оқу марафоны">
+        <span class="stat-pill-label">Күн</span>
+        <span id="hdr-day">1 / 140</span>
+      </div>
+      <div class="stat-pill" title="Помодоро таза шоғырлану уақыты">
+        <span class="stat-pill-label">Фокус</span>
+        <span id="hdr-focus" style="color:var(--blue);">0 мин</span>
+      </div>
+      <div class="stat-pill" title="1-3-7-21 қатемен жұмыс банкі">
+        <span class="stat-pill-label">Қателер</span>
+        <span id="hdr-errors" style="color:var(--red);">0</span>
+      </div>
     </div>
   </header>
 
-  <!-- Main Workspace -->
+  <!-- Main Container -->
   <main class="main-container">
     <section id="view-dashboard" class="view-section active">
       <div id="dashboard-content"></div>
-    </section>
-
-    <section id="view-plan" class="view-section">
-      <div id="plan-content"></div>
     </section>
 
     <section id="view-curriculum" class="view-section">
       <div id="curriculum-content"></div>
     </section>
 
+    <section id="view-plan" class="view-section">
+      <div id="plan-content"></div>
+    </section>
+
     <section id="view-quizizz" class="view-section">
       <div id="quizizz-content"></div>
     </section>
 
-    <section id="view-achievements" class="view-section">
-      <div id="achievements-content"></div>
-    </section>
-
     <section id="view-tests" class="view-section">
       <div id="tests-content"></div>
+    </section>
+
+    <section id="view-achievements" class="view-section">
+      <div id="achievements-content"></div>
     </section>
 
     <section id="view-library" class="view-section">
@@ -698,79 +765,79 @@
     </section>
   </main>
 
-  <!-- Built-in Local PDF Reader Modal with Instant Page Jump -->
+  <!-- Built-in PDF Reader Modal -->
   <div id="pdf-modal" class="pdf-modal">
     <div class="pdf-modal-bar">
-      <div id="pdf-modal-title" style="font-weight:700;color:#f8fafc;">📖 PDF Кітап</div>
+      <div id="pdf-modal-title" style="font-weight:700;color:#f8fafc;font-size:14px;">PDF Оқулық құралы</div>
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <span style="font-size:13px;color:#94a3b8;">Бетке өту:</span>
-        <input id="pdf-page-input" type="number" min="1" value="1" style="width:70px;padding:5px 8px;background:#090d16;color:#fff;border:1px solid #334155;border-radius:6px;" />
+        <span style="font-size:12.5px;color:#94a3b8;">Бетке өту:</span>
+        <input id="pdf-page-input" type="number" min="1" value="1" style="width:70px;padding:5px 8px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;" />
         <button class="btn btn-sm btn-primary" onclick="App.jumpPdfPage()">Өту</button>
-        <a id="pdf-external-link" href="#" target="_blank" class="btn btn-sm btn-accent" style="text-decoration:none;">↗ Жаңа бетте ашу (Телефон үшін)</a>
-        <button class="btn btn-sm btn-outline" onclick="App.closePdfModal()">✕ Жабу</button>
+        <a id="pdf-external-link" href="#" target="_blank" class="btn btn-sm btn-accent" style="text-decoration:none;">Жаңа терезеде ашу</a>
+        <button class="btn btn-sm btn-outline" onclick="App.closePdfModal()">Жабу</button>
       </div>
     </div>
     <iframe id="pdf-iframe" class="pdf-iframe" src="about:blank"></iframe>
   </div>
 
-  <!-- Cross-Device Sync Modal (Phone ↔ Laptop Sync for GitHub & Vercel) -->
+  <!-- Cross-Device Sync Modal -->
   <div id="sync-modal" class="pdf-modal" style="align-items:center;justify-content:center;">
-    <div class="card" style="max-width:580px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid #34d399;box-shadow:0 20px 50px rgba(0,0,0,0.85);">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <div class="card" style="max-width:580px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid var(--border-focus);box-shadow:0 20px 50px rgba(0,0,0,0.85);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
         <div>
-          <span class="badge badge-green">24/7 ПРОГРЕСС ЖӘНЕ АЧИВКАЛАР САҚТАУ</span>
-          <h3 style="margin:6px 0 0;">🔄 Телефон мен Ноутбук арасында синхрондау</h3>
+          <span class="badge badge-green">Деректер тұрақтылығы</span>
+          <h3 style="margin:6px 0 0;font-size:17px;">Құрылғылар арасында прогресті синхрондау</h3>
         </div>
-        <button class="btn btn-sm btn-outline" onclick="App.closeSyncModal()">✕ Жабу</button>
+        <button class="btn btn-sm btn-outline" onclick="App.closeSyncModal()">Жабу</button>
       </div>
 
-      <p style="color:#cbd5e1;font-size:13.5px;margin-bottom:14px;">
-        Сайт <b>GitHub Pages / Vercel</b> бұлтында дербес жұмыс істейді. Егер ноутбуктен жинаған барлық прогрессіңізді (стрик, ачивкалар, оқылған күндер, қателер банкі) телефонға ауыстырғыңыз келсе:
+      <p style="color:#cbd5e1;font-size:13px;margin-bottom:14px;line-height:1.5;">
+        Платформа бұлтта және кез келген браузерде дербес жұмыс істейді. Егер ноутбуктен жинаған барлық прогресті (күндер, орындалған Quizizz жаттығулары, сынама баллдары, қателер банкі) телефонға көшіргіңіз келсе:
       </p>
 
-      <div style="background:#0d1322;border:1px solid #1e293b;padding:14px;border-radius:10px;margin-bottom:12px;">
-        <h4 style="margin:0 0 6px;color:#38bdf8;">📤 1. Осы құрылғыдан экспорттау (Көшіру):</h4>
-        <p style="color:#94a3b8;font-size:12.5px;margin:0 0 8px;">Төмендегі батырманы басып, синхрондау кодын көшіріп алыңыз немесе .json файлы ретінде сақтаңыз:</p>
+      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:8px;margin-bottom:12px;">
+        <h4 style="margin:0 0 6px;color:var(--blue);font-size:13.5px;">1. Осы құрылғыдан деректерді көшіру:</h4>
+        <p style="color:#94a3b8;font-size:12px;margin:0 0 8px;">Төмендегі батырма арқылы синхрондау кодын алмасу буферіне көшіріңіз немесе файл ретінде сақтаңыз:</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-sm btn-primary" onclick="App.copySyncData()">📋 Синхрондау кодын көшіру</button>
-          <button class="btn btn-sm btn-outline" onclick="App.downloadSyncFile()">💾 Файл ретінде сақтау (.json)</button>
+          <button class="btn btn-sm btn-primary" onclick="App.copySyncData()">Синхрондау кодын көшіру</button>
+          <button class="btn btn-sm btn-outline" onclick="App.downloadSyncFile()">Файл ретінде сақтау (.json)</button>
         </div>
       </div>
 
-      <div style="background:#0d1322;border:1px solid #1e293b;padding:14px;border-radius:10px;margin-bottom:14px;">
-        <h4 style="margin:0 0 6px;color:#34d399;">📥 2. Басқа құрылғыға импорттау (Жүктеу):</h4>
-        <p style="color:#94a3b8;font-size:12.5px;margin:0 0 8px;">Басқа гаджеттен көшірген кодты осы өріске қойыңыз немесе сақталған .json файлын жүктеңіз:</p>
-        <textarea id="sync-input-area" rows="3" class="input-control" placeholder="Көшірілген синхрондау кодын осында қойыңыз..."></textarea>
+      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:8px;margin-bottom:14px;">
+        <h4 style="margin:0 0 6px;color:#34d399;font-size:13.5px;">2. Басқа құрылғыға деректерді жүктеу:</h4>
+        <p style="color:#94a3b8;font-size:12px;margin:0 0 8px;">Көшірілген синхрондау кодын төмендегі өріске қойыңыз немесе сақталған .json файлын таңдаңыз:</p>
+        <textarea id="sync-input-area" rows="3" class="input-control" placeholder="Синхрондау кодын осында қойыңыз..."></textarea>
         <div style="display:flex;gap:8px;margin-top:8px;">
-          <button class="btn btn-sm btn-accent" onclick="App.importSyncData()">⚡ Прогресті жаңарту</button>
+          <button class="btn btn-sm btn-accent" onclick="App.importSyncData()">Прогресті жаңарту</button>
           <input type="file" id="sync-file-input" accept=".json" style="display:none;" onchange="App.onSyncFileSelected(this)" />
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('sync-file-input').click()">📁 Файлды таңдау</button>
+          <button class="btn btn-sm btn-outline" onclick="document.getElementById('sync-file-input').click()">Файлды таңдау</button>
         </div>
       </div>
 
-      <div style="background:rgba(52,211,153,0.08);border-left:4px solid #34d399;padding:10px 12px;border-radius:8px;font-size:12.5px;color:#cbd5e1;">
-        ✅ <b>Ескерту:</b> Барлық оқу прогресі, орындалған Quizizz-тер және ачивкалар құрылғының жергілікті сақтау қоймасына (<code>localStorage</code>) секунд сайын автоматты түрде сақталады. Интернет үзілсе де деректеріңіз жоғалмайды!
+      <div style="background:rgba(16,185,129,0.08);border-left:3px solid var(--green);padding:10px 14px;border-radius:6px;font-size:12px;color:#cbd5e1;line-height:1.5;">
+        <b>Ескерту:</b> Барлық оқу прогресі жергілікті сақтау қоймасына (<code>localStorage</code>) автоматты түрде сақталады. Интернет үзілген жағдайда да деректер толық сақталады.
       </div>
     </div>
   </div>
 
-  <!-- Multi-Gadget & Online Access Modal (Phone / Tablet / Laptop QR & Links) -->
+  <!-- Multi-Gadget Access Modal -->
   <div id="device-modal" class="pdf-modal" style="align-items:center;justify-content:center;">
-    <div class="card" style="max-width:680px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid #38bdf8;box-shadow:0 20px 50px rgba(0,0,0,0.75);">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <div class="card" style="max-width:640px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid var(--border-focus);box-shadow:0 20px 50px rgba(0,0,0,0.75);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
         <div>
-          <span class="badge badge-blue">ОНЛАЙН САЙТ & МУЛЬТИ-ГАДЖЕТ (24/7 СИНХРОНИЗАЦИЯ)</span>
-          <h3 style="margin:6px 0 0;">📱 Телефоннан, Планшеттен және Ноутбуктен кіру</h3>
+          <span class="badge badge-blue">Мульти-платформа</span>
+          <h3 style="margin:6px 0 0;font-size:17px;">Кез келген құрылғыдан қосылу</h3>
         </div>
-        <button class="btn btn-sm btn-outline" onclick="App.closeDeviceModal()">✕ Жабу</button>
+        <button class="btn btn-sm btn-outline" onclick="App.closeDeviceModal()">Жабу</button>
       </div>
       <div id="device-modal-body">
-        <p style="color:#94a3b8;font-size:13.5px;">Сілтемелер жүктелуде...</p>
+        <p style="color:#94a3b8;font-size:13px;">Сілтемелер тексерілуде...</p>
       </div>
     </div>
   </div>
 
-  <!-- Scripts (Relative paths for GitHub Pages and Vercel compatibility) -->
+  <!-- Scripts -->
   <script src="./js/curriculum_data.js"></script>
   <script src="./js/quizizz_data.js"></script>
   <script src="./js/achievements_data.js"></script>
