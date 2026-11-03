@@ -1,0 +1,35 @@
+{
+  "studentName": "Болашақ Грант Иегері (ФизМат)",
+  "targetScore": 130,
+  "startDate": "2026-11-02",
+  "examDate": "2027-03-31",
+  "streak": 1,
+  "lastActiveDate": "2026-11-03",
+  "totalFocusMinutes": 0,
+  "currentMonth": 1,
+  "currentWeek": 1,
+  "currentDay": 1,
+  "completedDays": {},
+  "completedBlocks": {},
+  "homeworkChecks": {},
+  "completedQuizizz": {},
+  "testHistory": [
+    {
+      "id": "diag-0",
+      "date": "2026-11-01",
+      "type": "diagnostic",
+      "title": "Бастапқы диагностика (Старт)",
+      "score": 78,
+      "maxScore": 130,
+      "breakdown": {
+        "phys": 28,
+        "math": 26,
+        "hist": 15,
+        "msl": 9
+      }
+    }
+  ],
+  "errorBank": [],
+  "customQuestions": [],
+  "notes": {}
+}

@@ -1,0 +1,10 @@
+{
+  "name": "ҰБТ 130/130 • ФизМат Дайындық Платформасы",
+  "short_name": "ҰБТ 130/130",
+  "description": "11-сынып Физика + Математика + Қазақстан тарихы + Мат. сауаттылық (130 балл)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "orientation": "portrait-primary"
+}

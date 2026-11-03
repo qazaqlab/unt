@@ -1,0 +1,8 @@
+# Environment & local files
+node_modules/
+.vercel
+data/tunnel_url.txt
+
+# OS files
+Thumbs.db
+.DS_Store
