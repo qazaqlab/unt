@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UNT 140 ACADEMY</string>
+    <string name="accessibility_service_label">UNT 140 Сабақ және Фокус Бұғаттауышы</string>
+    <string name="accessibility_service_desc">Сабақ оқу барысында алаңдататын әлеуметтік желілер мен ойындарды автоматты түрде бұғаттап, оқушының назарын ҰБТ-ға шоғырландырады.</string>
+</resources>

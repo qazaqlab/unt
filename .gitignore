@@ -2,6 +2,7 @@
 node_modules/
 .vercel
 data/tunnel_url.txt
+android_app/build/
 
 # OS files
 Thumbs.db

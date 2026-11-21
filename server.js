@@ -238,6 +238,50 @@ const server = http.createServer((req, res) => {
     }
   }
 
+  // API: Cloud Sync by Key
+  if (pathname === '/api/sync') {
+    const syncKey = parsedUrl.query.key;
+    if (!syncKey) {
+      res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: false, error: 'Синхрондау кілті қажет' }));
+      return;
+    }
+    const cleanKey = syncKey.replace(/[^a-zA-Z0-9_-]/g, '');
+    const keyFile = path.join(DATA_DIR, `sync_${cleanKey}.json`);
+
+    if (req.method === 'GET') {
+      if (fs.existsSync(keyFile)) {
+        try {
+          const raw = fs.readFileSync(keyFile, 'utf8');
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ ok: true, key: cleanKey, found: true, data: JSON.parse(raw) }));
+          return;
+        } catch (e) {}
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ ok: true, key: cleanKey, found: false, data: null }));
+      return;
+    }
+
+    if (req.method === 'POST') {
+      let body = '';
+      req.on('data', chunk => { body += chunk; });
+      req.on('end', () => {
+        try {
+          const parsed = JSON.parse(body);
+          const stateToSave = parsed.state || parsed;
+          fs.writeFileSync(keyFile, JSON.stringify(stateToSave, null, 2), 'utf8');
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ ok: true, key: cleanKey, updatedAt: new Date().toISOString() }));
+        } catch (err) {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ ok: false, error: err.message }));
+        }
+      });
+      return;
+    }
+  }
+
   // API: List all PDF books from Desktop\ҰБТ
   if (pathname === '/api/books' && req.method === 'GET') {
     const books = scanUbtBooks(UBT_DESKTOP_DIR);

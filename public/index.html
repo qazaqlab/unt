@@ -711,6 +711,10 @@
     </nav>
 
     <div class="header-stats">
+      <div class="stat-pill" title="Бұлттық синхрондау коды (барлық құрылғылар бірдей)" onclick="App.openSyncModal()" style="cursor:pointer;border-color:rgba(16,185,129,0.3);">
+        <span class="stat-pill-label">БҰЛТ</span>
+        <span id="hdr-cloud" style="color:var(--green);font-weight:700;">140-SYNC</span>
+      </div>
       <div class="stat-pill" title="Үздіксіз сабақ оқу күндері">
         <span class="stat-pill-label">Стрик</span>
         <span id="hdr-streak" style="color:var(--amber);">1 күн</span>
@@ -780,43 +784,92 @@
     <iframe id="pdf-iframe" class="pdf-iframe" src="about:blank"></iframe>
   </div>
 
-  <!-- Cross-Device Sync Modal -->
+  <!-- Cross-Device Real-Time Cloud Sync & Supabase Modal -->
   <div id="sync-modal" class="pdf-modal" style="align-items:center;justify-content:center;">
-    <div class="card" style="max-width:580px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid var(--border-focus);box-shadow:0 20px 50px rgba(0,0,0,0.85);">
+    <div class="card" style="max-width:680px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid var(--border-focus);box-shadow:0 25px 60px rgba(0,0,0,0.9);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
         <div>
-          <span class="badge badge-green">Деректер тұрақтылығы</span>
-          <h3 style="margin:6px 0 0;font-size:17px;">Құрылғылар арасында прогресті синхрондау</h3>
+          <span class="badge badge-green">НАҚТЫ УАҚЫТТА БҰЛТТЫҚ СИНХРОНДАУ</span>
+          <h3 style="margin:6px 0 0;font-size:18px;">Бұлттық сақтау, Supabase және Гаджеттер</h3>
         </div>
         <button class="btn btn-sm btn-outline" onclick="App.closeSyncModal()">Жабу</button>
       </div>
 
-      <p style="color:#cbd5e1;font-size:13px;margin-bottom:14px;line-height:1.5;">
-        Платформа бұлтта және кез келген браузерде дербес жұмыс істейді. Егер ноутбуктен жинаған барлық прогресті (күндер, орындалған Quizizz жаттығулары, сынама баллдары, қателер банкі) телефонға көшіргіңіз келсе:
-      </p>
+      <!-- Section 1: Real-Time Cloud Key -->
+      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:16px;border-radius:10px;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+          <div>
+            <div style="font-size:11.5px;color:#94a3b8;text-transform:uppercase;font-weight:700;letter-spacing:0.5px;">Сенің жеке Бұлттық Студенттік Кілтің:</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
+              <span id="sync-display-key" style="font-size:26px;font-weight:900;color:#38bdf8;letter-spacing:1px;font-family:monospace;">140-SYNC</span>
+              <button class="btn btn-xs btn-outline" onclick="App.copyCloudKey()">Көшіру</button>
+            </div>
+            <p style="font-size:12.5px;color:#cbd5e1;margin:8px 0 0;line-height:1.4;">
+              Кез келген телефоннан, планшеттен немесе ноутбуктен сайтты ашып, осы кодты енгізсеңіз немесе QR кодты сканерлесеңіз, <b>барлық прогресс (орындалған күндер, Quizizz тесттері, қателер банкі, XP) автоматты түрде нақты уақытта бірдей сақталып тұрады!</b>
+            </p>
+          </div>
+          <div style="text-align:center;">
+            <img id="sync-qr-img" src="" alt="QR" style="width:110px;height:110px;border-radius:8px;border:1px solid #38bdf8;background:#0a0e1a;" />
+            <div style="font-size:10.5px;color:#94a3b8;margin-top:3px;">Телефоннан сканерлеу</div>
+          </div>
+        </div>
 
-      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:8px;margin-bottom:12px;">
-        <h4 style="margin:0 0 6px;color:var(--blue);font-size:13.5px;">1. Осы құрылғыдан деректерді көшіру:</h4>
-        <p style="color:#94a3b8;font-size:12px;margin:0 0 8px;">Төмендегі батырма арқылы синхрондау кодын алмасу буферіне көшіріңіз немесе файл ретінде сақтаңыз:</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-sm btn-primary" onclick="App.copySyncData()">Синхрондау кодын көшіру</button>
-          <button class="btn btn-sm btn-outline" onclick="App.downloadSyncFile()">Файл ретінде сақтау (.json)</button>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid #1e293b;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <input id="sync-custom-key-input" class="input-control" style="max-width:220px;" placeholder="Басқа кілтті енгізу (мысалы: 140-7740)" />
+          <button class="btn btn-sm btn-primary" onclick="App.setCloudKeyFromInput()">Осы кілтке қосылу</button>
+          <button class="btn btn-sm btn-outline" onclick="App.generateNewCloudKey()">Жаңа кілт алу</button>
         </div>
       </div>
 
-      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:8px;margin-bottom:14px;">
-        <h4 style="margin:0 0 6px;color:#34d399;font-size:13.5px;">2. Басқа құрылғыға деректерді жүктеу:</h4>
-        <p style="color:#94a3b8;font-size:12px;margin:0 0 8px;">Көшірілген синхрондау кодын төмендегі өріске қойыңыз немесе сақталған .json файлын таңдаңыз:</p>
-        <textarea id="sync-input-area" rows="3" class="input-control" placeholder="Синхрондау кодын осында қойыңыз..."></textarea>
-        <div style="display:flex;gap:8px;margin-top:8px;">
-          <button class="btn btn-sm btn-accent" onclick="App.importSyncData()">Прогресті жаңарту</button>
+      <!-- Section 2: Android App (APK) with Focus Blocker -->
+      <div style="background:linear-gradient(135deg, rgba(37,99,235,0.12), rgba(16,185,129,0.12));border:1px solid rgba(56,189,248,0.3);padding:16px;border-radius:10px;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <span class="badge badge-blue">ANDROID ҚОСЫМШАСЫ (APK)</span>
+            <h4 style="margin:6px 0 2px;font-size:15px;color:#ffffff;">Әлеуметтік желілер мен ойындарды бұғаттаушы APK</h4>
+            <p style="font-size:12.5px;color:#cbd5e1;margin:0;line-height:1.4;">
+              Сабақ кезінде Instagram, TikTok, YouTube, Telegram және ойындар автоматты түрде бұғатталады.
+            </p>
+          </div>
+          <a href="./UNT_140_ACADEMY.apk" download class="btn btn-primary" style="text-decoration:none;font-weight:700;">
+            Android үшін APK жүктеу (136 КБ)
+          </a>
+        </div>
+        <div style="margin-top:10px;font-size:11.5px;color:#94a3b8;line-height:1.4;">
+          Орнату: 1) APK файлын телефонға жүктеп, орнатыңыз. 2) Баптаулардан «UNT 140 Сабақ және Фокус Бұғаттауышына» рұқсат беріңіз. 3) Сабақ басталғанда бөгде қосымшалар толық жабылады.
+        </div>
+      </div>
+
+      <!-- Section 3: Supabase Direct Database (Optional) -->
+      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:10px;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="App.toggleSupabasePanel()">
+          <h4 style="margin:0;font-size:14px;color:#38bdf8;">Жеке Supabase дерекқорын қосу (Қосымша)</h4>
+          <span id="supabase-panel-toggle" style="font-size:12px;color:#94a3b8;">Ашу ▼</span>
+        </div>
+        <div id="supabase-config-body" style="display:none;margin-top:12px;">
+          <p style="font-size:12px;color:#cbd5e1;margin-bottom:10px;">
+            Егер өз Supabase жобаңызды қосқыңыз келсе, Project URL және Anon Key енгізіңіз. Барлық деректер тікелей сіздің жеке PostgreSQL базаңызда сақталады:
+          </p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <input id="supabase-url-input" class="input-control" placeholder="Supabase Project URL (мысалы: https://xyz.supabase.co)" />
+            <input id="supabase-key-input" class="input-control" placeholder="Supabase Anon Public API Key (eyJhbGciOi...)" />
+            <div style="display:flex;gap:8px;margin-top:4px;">
+              <button class="btn btn-sm btn-accent" onclick="App.saveSupabaseConfig()">Supabase-ті сақтау және тексеру</button>
+              <button class="btn btn-sm btn-outline" onclick="App.copySupabaseSql()">SQL кесте сұранысын көшіру</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Manual Export / Import Backup -->
+      <div style="background:#0a0e1a;border:1px solid #1e293b;padding:12px 14px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:12px;color:#94a3b8;">Локалды резервтік көшірме (.json):</span>
+        <div style="display:flex;gap:6px;">
+          <button class="btn btn-xs btn-outline" onclick="App.copySyncData()">Код ретінде көшіру</button>
+          <button class="btn btn-xs btn-outline" onclick="App.downloadSyncFile()">Файл ретінде жүктеу</button>
+          <button class="btn btn-xs btn-outline" onclick="document.getElementById('sync-file-input').click()">Файлдан қалпына келтіру</button>
           <input type="file" id="sync-file-input" accept=".json" style="display:none;" onchange="App.onSyncFileSelected(this)" />
-          <button class="btn btn-sm btn-outline" onclick="document.getElementById('sync-file-input').click()">Файлды таңдау</button>
         </div>
-      </div>
-
-      <div style="background:rgba(16,185,129,0.08);border-left:3px solid var(--green);padding:10px 14px;border-radius:6px;font-size:12px;color:#cbd5e1;line-height:1.5;">
-        <b>Ескерту:</b> Барлық оқу прогресі жергілікті сақтау қоймасына (<code>localStorage</code>) автоматты түрде сақталады. Интернет үзілген жағдайда да деректер толық сақталады.
       </div>
     </div>
   </div>

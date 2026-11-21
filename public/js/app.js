@@ -22,12 +22,23 @@ const App = {
   quizizzSubj: "hist",
   quizizzCategory: "all",
   quizizzSearch: "",
+  // Real-time Cloud Sync & Supabase
+  syncKey: null,
+  syncDebounceTimer: null,
+  cloudPollInterval: null,
+  supabaseUrl: "",
+  supabaseKey: "",
+  isCloudSyncing: false,
+  // Android Native Focus & Blocker
+  webFocusActive: false,
+  webFocusTitle: "",
 
   async init() {
     await this.loadState();
     await this.loadBooks();
     this.checkStreak();
     this.bindNav();
+    this.initSync();
     this.renderAll();
   },
 
@@ -98,6 +109,7 @@ const App = {
       console.warn("Saved to localStorage (offline mode):", e);
     }
     this.updateHeaderStats();
+    this.pushToCloud();
   },
 
   async loadBooks() {
@@ -912,6 +924,7 @@ const App = {
       submitted: false,
       result: null
     };
+    this.startNativeFocus("ҰБТ Тесті: " + title, 240);
     this.switchTab("tests");
   },
 
@@ -1834,6 +1847,338 @@ D) 8 м/с²
       }
     };
     reader.readAsText(file);
+  },
+
+  // ==========================================================================
+  // 10. REAL-TIME CLOUD SYNC, SUPABASE & ANDROID FOCUS BLOCKER
+  // ==========================================================================
+  initSync() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryKey = urlParams.get('sync') || urlParams.get('key');
+    if (queryKey) {
+      this.syncKey = queryKey.trim().toUpperCase();
+      try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+    } else {
+      try { this.syncKey = localStorage.getItem('ubt140_sync_key'); } catch (e) {}
+      if (!this.syncKey) {
+        const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+        this.syncKey = '140-' + rand;
+        try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+      }
+    }
+
+    try {
+      this.supabaseUrl = localStorage.getItem('ubt_supabase_url') || "";
+      this.supabaseKey = localStorage.getItem('ubt_supabase_key') || "";
+    } catch (e) {}
+
+    this.updateCloudStatus();
+    this.pullFromCloud();
+
+    if (this.cloudPollInterval) clearInterval(this.cloudPollInterval);
+    this.cloudPollInterval = setInterval(() => {
+      this.pullFromCloud();
+    }, 20000);
+
+    window.addEventListener('focus', () => {
+      this.pullFromCloud();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && (this.webFocusActive || this.timerRunning)) {
+        console.warn("User switched window during active lesson!");
+      } else if (!document.hidden && (this.webFocusActive || this.timerRunning)) {
+        if (!window.Android) {
+          const toast = document.createElement("div");
+          toast.style.cssText = "position:fixed;bottom:20px;right:20px;background:#ef4444;color:#fff;padding:12px 18px;border-radius:8px;z-index:99999;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,0.8);font-size:13px;";
+          toast.textContent = "Ескерту: Сабақ барысында басқа терезелерге алаңдамаңыз! Назарыңызды сабақта ұстаңыз.";
+          document.body.appendChild(toast);
+          setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 4500);
+        }
+      }
+    });
+  },
+
+  updateCloudStatus() {
+    const el = document.getElementById('hdr-cloud');
+    if (el) {
+      el.textContent = this.syncKey || "140-SYNC";
+      el.title = `Бұлттық ID: ${this.syncKey}. Барлық құрылғыларда осы кодты енгізіңіз.`;
+    }
+    const displayKey = document.getElementById('sync-display-key');
+    if (displayKey) displayKey.textContent = this.syncKey || "140-SYNC";
+
+    const qrImg = document.getElementById('sync-qr-img');
+    if (qrImg && this.syncKey) {
+      const shareUrl = this.getCloudShareUrl();
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&bgcolor=0a0e1a&color=38bdf8&data=${encodeURIComponent(shareUrl)}`;
+    }
+
+    const sbUrlInp = document.getElementById('supabase-url-input');
+    const sbKeyInp = document.getElementById('supabase-key-input');
+    if (sbUrlInp && this.supabaseUrl) sbUrlInp.value = this.supabaseUrl;
+    if (sbKeyInp && this.supabaseKey) sbKeyInp.value = this.supabaseKey;
+  },
+
+  getCloudShareUrl() {
+    return `${window.location.origin}${window.location.pathname}?sync=${encodeURIComponent(this.syncKey || '140-SYNC')}`;
+  },
+
+  copyCloudKey() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.syncKey);
+      alert("Бұлттық кілт көшірілді: " + this.syncKey + "\nКез келген басқа құрылғыға осы кілтті енгізіңіз.");
+    } else {
+      prompt("Бұлттық кілтті көшіріп алыңыз:", this.syncKey);
+    }
+  },
+
+  setCloudKeyFromInput() {
+    const inp = document.getElementById('sync-custom-key-input');
+    if (!inp || !inp.value.trim()) {
+      alert("Синхрондау кілтін енгізіңіз!");
+      return;
+    }
+    this.syncKey = inp.value.trim().toUpperCase();
+    try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+    this.updateCloudStatus();
+    this.pullFromCloud();
+    alert("Жаңа кілтке сәтті қосылды: " + this.syncKey);
+  },
+
+  generateNewCloudKey() {
+    const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
+    this.syncKey = '140-' + rand;
+    try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+    this.updateCloudStatus();
+    this.pushToCloud();
+    alert("Жаңа бұлттық кілт генерацияланды: " + this.syncKey);
+  },
+
+  toggleSupabasePanel() {
+    const body = document.getElementById('supabase-config-body');
+    const toggle = document.getElementById('supabase-panel-toggle');
+    if (!body) return;
+    if (body.style.display === 'none') {
+      body.style.display = 'block';
+      if (toggle) toggle.textContent = 'Жабу ▲';
+    } else {
+      body.style.display = 'none';
+      if (toggle) toggle.textContent = 'Ашу ▼';
+    }
+  },
+
+  async saveSupabaseConfig() {
+    const urlInp = document.getElementById('supabase-url-input');
+    const keyInp = document.getElementById('supabase-key-input');
+    if (!urlInp || !keyInp) return;
+    this.supabaseUrl = urlInp.value.trim();
+    this.supabaseKey = keyInp.value.trim();
+    try {
+      localStorage.setItem('ubt_supabase_url', this.supabaseUrl);
+      localStorage.setItem('ubt_supabase_key', this.supabaseKey);
+    } catch (e) {}
+
+    if (this.supabaseUrl && this.supabaseKey) {
+      try {
+        const cleanUrl = this.supabaseUrl.replace(/\/$/, '');
+        const res = await fetch(`${cleanUrl}/rest/v1/ubt_sync?limit=1`, {
+          headers: {
+            'apikey': this.supabaseKey,
+            'Authorization': `Bearer ${this.supabaseKey}`
+          }
+        });
+        if (res.ok) {
+          alert("Supabase дерекқорымен байланыс сәтті орнатылды!");
+          this.pushToCloud();
+        } else {
+          alert("Supabase жауабы: " + res.status + ". URL мен Anon Key-ді тексеріңіз және SQL кестенің жасалғанына көз жеткізіңіз.");
+        }
+      } catch (err) {
+        alert("Supabase-ке қосылу кезінде қате: " + err.message);
+      }
+    } else {
+      alert("Supabase баптаулары тазартылды. Әдепкі бұлттық байланыс қолданылады.");
+    }
+  },
+
+  copySupabaseSql() {
+    const sql = `-- Supabase кестесін құру үшін SQL Editor-ге қойып, Run басыңыз:\n\ncreate table if not exists ubt_sync (\n  sync_key text primary key,\n  state_data jsonb not null,\n  updated_at timestamp with time zone default timezone('utc'::text, now()) not null\n);\n\nalter table ubt_sync enable row level security;\n\ncreate policy \"Allow all access by sync_key\"\non ubt_sync for all using (true) with check (true);`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(sql);
+      alert("SQL сұранысы көшірілді! Оны Supabase Dashboard -> SQL Editor ішіне қойып, орындаңыз.");
+    } else {
+      prompt("SQL сұранысын көшіріп алыңыз:", sql);
+    }
+  },
+
+  async pullFromCloud() {
+    if (!this.syncKey || this.isCloudSyncing) return;
+    this.isCloudSyncing = true;
+    try {
+      let remoteState = null;
+
+      // 1. Supabase
+      if (this.supabaseUrl && this.supabaseKey) {
+        try {
+          const cleanUrl = this.supabaseUrl.replace(/\/$/, '');
+          const res = await fetch(`${cleanUrl}/rest/v1/ubt_sync?sync_key=eq.${encodeURIComponent(this.syncKey)}&select=*`, {
+            headers: {
+              'apikey': this.supabaseKey,
+              'Authorization': `Bearer ${this.supabaseKey}`
+            }
+          });
+          if (res.ok) {
+            const rows = await res.json();
+            if (rows && rows.length > 0 && rows[0].state_data) {
+              remoteState = rows[0].state_data;
+            }
+          }
+        } catch (err) {}
+      }
+
+      // 2. Vercel Serverless /api/sync
+      if (!remoteState) {
+        try {
+          const res = await fetch(`/api/sync?key=${encodeURIComponent(this.syncKey)}`);
+          if (res.ok) {
+            const json = await res.json();
+            if (json.found && json.data) {
+              remoteState = json.data;
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 3. Merge states
+      if (remoteState && typeof remoteState === 'object') {
+        let changed = false;
+        const local = this.state || {};
+
+        const mergedDays = { ...(local.completedDays || {}), ...(remoteState.completedDays || {}) };
+        if (JSON.stringify(mergedDays) !== JSON.stringify(local.completedDays)) {
+          local.completedDays = mergedDays;
+          changed = true;
+        }
+
+        const mergedBlocks = { ...(local.completedBlocks || {}), ...(remoteState.completedBlocks || {}) };
+        if (JSON.stringify(mergedBlocks) !== JSON.stringify(local.completedBlocks)) {
+          local.completedBlocks = mergedBlocks;
+          changed = true;
+        }
+
+        const mergedQuizizz = { ...(local.completedQuizizz || {}), ...(remoteState.completedQuizizz || {}) };
+        if (JSON.stringify(mergedQuizizz) !== JSON.stringify(local.completedQuizizz)) {
+          local.completedQuizizz = mergedQuizizz;
+          changed = true;
+        }
+
+        const mergedHw = { ...(local.homeworkChecks || {}), ...(remoteState.homeworkChecks || {}) };
+        if (JSON.stringify(mergedHw) !== JSON.stringify(local.homeworkChecks)) {
+          local.homeworkChecks = mergedHw;
+          changed = true;
+        }
+
+        const maxStreak = Math.max(local.streak || 1, remoteState.streak || 1);
+        if (maxStreak !== local.streak) {
+          local.streak = maxStreak;
+          changed = true;
+        }
+
+        const maxFocus = Math.max(local.totalFocusMinutes || 0, remoteState.totalFocusMinutes || 0);
+        if (maxFocus !== local.totalFocusMinutes) {
+          local.totalFocusMinutes = maxFocus;
+          changed = true;
+        }
+
+        const localErr = new Set(local.errorBank || []);
+        (remoteState.errorBank || []).forEach(id => localErr.add(id));
+        const mergedErr = Array.from(localErr);
+        if (mergedErr.length !== (local.errorBank || []).length) {
+          local.errorBank = mergedErr;
+          changed = true;
+        }
+
+        if (changed) {
+          this.state = local;
+          try { localStorage.setItem("ubt130_state_backup", JSON.stringify(this.state)); } catch (e) {}
+          this.updateHeaderStats();
+          if (this.activeTab === "dashboard") this.renderDashboard();
+          else if (this.activeTab === "plan") this.renderPlanView();
+          else if (this.activeTab === "achievements") this.renderAchievementsView();
+          else if (this.activeTab === "quizizz") this.renderQuizizzView();
+        }
+      }
+    } finally {
+      this.isCloudSyncing = false;
+    }
+  },
+
+  pushToCloud() {
+    if (!this.syncKey) return;
+    if (this.syncDebounceTimer) clearTimeout(this.syncDebounceTimer);
+
+    this.syncDebounceTimer = setTimeout(async () => {
+      // 1. Supabase push if configured
+      if (this.supabaseUrl && this.supabaseKey) {
+        try {
+          const cleanUrl = this.supabaseUrl.replace(/\/$/, '');
+          await fetch(`${cleanUrl}/rest/v1/ubt_sync`, {
+            method: 'POST',
+            headers: {
+              'apikey': this.supabaseKey,
+              'Authorization': `Bearer ${this.supabaseKey}`,
+              'Content-Type': 'application/json',
+              'Prefer': 'resolution=merge-duplicates'
+            },
+            body: JSON.stringify({
+              sync_key: this.syncKey,
+              state_data: this.state,
+              updated_at: new Date().toISOString()
+            })
+          });
+        } catch (e) {
+          console.warn("Supabase push failed:", e);
+        }
+      }
+
+      // 2. Vercel Serverless /api/sync push
+      try {
+        await fetch(`/api/sync`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key: this.syncKey, state: this.state })
+        });
+      } catch (e) {}
+    }, 1200);
+  },
+
+  // Android Native Focus & Blocker controls
+  startNativeFocus(title, minutes = 50) {
+    this.webFocusActive = true;
+    this.webFocusTitle = title;
+    if (window.Android && window.Android.startFocusSession) {
+      window.Android.startFocusSession(title, minutes);
+    }
+  },
+
+  stopNativeFocus() {
+    this.webFocusActive = false;
+    if (window.Android && window.Android.stopFocusSession) {
+      window.Android.stopFocusSession();
+    }
+  },
+
+  openAndroidAccessibility() {
+    if (window.Android && window.Android.openAccessibilitySettings) {
+      window.Android.openAccessibilitySettings();
+    } else {
+      alert("Бұл мүмкіндік Android қосымшасында (APK) қолжетімді. Телефонға UNT_140_ACADEMY.apk файлын орнатып, баптаулардан рұқсат беріңіз.");
+    }
+  },
+
+  onAndroidResume() {
+    this.pullFromCloud();
   }
 };
 
