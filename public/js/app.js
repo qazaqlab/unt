@@ -678,12 +678,14 @@ const App = {
         title: activeTopic.title + " (Қазақша толық видео түсіндірме)",
         channel: "140 Academy / ҰБТ Онлайн",
         duration: "25 мин",
-        youtubeId: "8Z1aY0_a2w0",
-        searchQuery: activeTopic.title + " ҰБТ қазақша түсіндіру"
+        youtubeId: "_3IXnFVSiFg",
+        searchQuery: activeTopic.title.replace(/^\d+[\–\-]?\d*\s*/, "").replace(/\$[^$]+\$/g, "") + " ҰБТ қазақша"
       }
     ];
+    this.activeLessonVideos = vList;
     const primaryVid = vList[0];
-    const ytSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(activeTopic.title + " ҰБТ қазақша түсіндірме");
+    const cleanQuery = primaryVid.searchQuery || (activeTopic.title.replace(/^\d+[\–\-]?\d*\s*/, "").replace(/\$[^$]+\$/g, "") + " ҰБТ қазақша");
+    const ytSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(cleanQuery);
     const completedQuizizzMap = (this.state && this.state.completedQuizizz) || {};
 
     container.innerHTML = `
@@ -825,12 +827,12 @@ const App = {
           <div id="lesson-sec-video" style="background:#0b1120;border:1px solid #1e293b;border-radius:12px;padding:16px;margin-bottom:24px;">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
               <div>
-                <span class="badge badge-amber">2-ҚАДАМ • YOUTUBE БЕЙНЕСАБАҚ (ҚАЗАҚША ТҮСІНДІРМЕ)</span>
-                <h3 style="margin:6px 0 2px;color:#f8fafc;font-size:17px;">${primaryVid.title}</h3>
-                <div style="font-size:12.5px;color:#94a3b8;">Арна: <b>${primaryVid.channel}</b> • Ұзақтығы: <b>${primaryVid.duration}</b></div>
+                <span class="badge badge-amber">2-ҚАДАМ • YOUTUBE БЕЙНЕСАБАҚ (ҚАЗАҚША ТҮСІНДІРМЕ • ${vList.length} ВИДЕО)</span>
+                <h3 id="lesson-video-title" style="margin:6px 0 2px;color:#f8fafc;font-size:17px;">${primaryVid.title}</h3>
+                <div id="lesson-video-meta" style="font-size:12.5px;color:#94a3b8;">Арна: <b>${primaryVid.channel}</b> • Ұзақтығы: <b>${primaryVid.duration}</b></div>
               </div>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <a href="https://www.youtube.com/watch?v=${primaryVid.youtubeId}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
+                <a id="lesson-video-ext-link" href="https://www.youtube.com/watch?v=${primaryVid.youtubeId}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
                   YouTube-те ашу ↗
                 </a>
                 <a href="${ytSearchUrl}" target="_blank" class="btn btn-sm btn-outline" style="text-decoration:none;">
@@ -839,10 +841,21 @@ const App = {
               </div>
             </div>
 
+            ${vList.length > 1 ? `
+              <div id="lesson-video-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+                ${vList.map((v, vIdx) => `
+                  <button class="btn btn-xs ${vIdx === 0 ? 'btn-primary' : 'btn-outline'}" data-vid-idx="${vIdx}" onclick="App.selectLessonVideo(${vIdx})" style="border-radius:8px;text-align:left;max-width:100%;">
+                    <b>Видео #${vIdx + 1}:</b> ${v.title.length > 48 ? v.title.slice(0, 48) + '…' : v.title} <span style="opacity:0.85;">(${v.duration})</span>
+                  </button>
+                `).join("")}
+              </div>
+            ` : ""}
+
             <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid #1e293b;background:#000;margin-bottom:12px;">
-              <iframe src="https://www.youtube-nocookie.com/embed/${primaryVid.youtubeId}?rel=0"
+              <iframe id="lesson-video-iframe" src="https://www.youtube.com/embed/${primaryVid.youtubeId}?rel=0&modestbranding=1"
                 style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
               </iframe>
             </div>
@@ -971,6 +984,27 @@ const App = {
     this.inlinePdfDoc = null;
     this.inlinePdfFile = null;
     this.renderCurriculumView();
+  },
+
+  selectLessonVideo(vIdx) {
+    const vList = this.activeLessonVideos || [];
+    const vid = vList[vIdx];
+    if (!vid) return;
+    const iframe = document.getElementById("lesson-video-iframe");
+    const titleEl = document.getElementById("lesson-video-title");
+    const metaEl = document.getElementById("lesson-video-meta");
+    const extLink = document.getElementById("lesson-video-ext-link");
+    if (iframe) iframe.src = `https://www.youtube.com/embed/${vid.youtubeId}?rel=0&modestbranding=1`;
+    if (titleEl) titleEl.textContent = vid.title;
+    if (metaEl) metaEl.innerHTML = `Арна: <b>${vid.channel}</b> • Ұзақтығы: <b>${vid.duration}</b>`;
+    if (extLink) extLink.href = `https://www.youtube.com/watch?v=${vid.youtubeId}`;
+    const tabs = document.getElementById("lesson-video-tabs");
+    if (tabs) {
+      tabs.querySelectorAll("button[data-vid-idx]").forEach(btn => {
+        const i = parseInt(btn.getAttribute("data-vid-idx"), 10);
+        btn.className = `btn btn-xs ${i === vIdx ? 'btn-primary' : 'btn-outline'}`;
+      });
+    }
   },
 
   toggleInlinePdfMode() {

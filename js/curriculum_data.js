@@ -1,6 +1,4 @@
-// ============================================================================
-// ҰБТ 140/140 ФИЗМАТ — ТОЛЫҚ ОҚУ БАҒДАРЛАМАСЫ (100% ТЕКСЕРІЛГЕН КІТАП БЕТТЕРІ + YOUTUBE + QUIZIZZ)
-// ============================================================================
+// ҰБТ 140/140 ФИЗМАТ — ТОЛЫҚ ОҚУ БАҒДАРЛАМАСЫ (100% ТЕКСЕРІЛГЕН КІТАП БЕТТЕРІ + НАҚТЫ YOUTUBE + QUIZIZZ)
 window.UBT_CURRICULUM = {
   "meta": {
     "title": "ҰБТ 130/130 ФизМат — 5 Айлық Анти-Выгорание Бағдарламасы",
@@ -206,12 +204,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Кинематика: барлық формулалар мен есептер талдауы",
-            "channel": "Educon ҰБТ",
-            "duration": "22 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 01 Кинематика (Түзусызықты, қисықсызықты және шеңбер бойымен қозғалыс) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+01+Кинематика+(Түзусызықты,+қисықсызықты+және+шеңбер+бойымен+қозғалыс)+қазақша+түсіндіру"
+            "title": "КИНЕМАТИКА 15-минутта 0-ден бастап | ҰБТ ФИЗИКА",
+            "channel": "Информатика Математика Физика | infoLogia ҰБТ",
+            "duration": "15:37",
+            "youtubeId": "_3IXnFVSiFg",
+            "searchQuery": "ҰБТ Физика Кинематика қазақша толық түсіндіру",
+            "url": "https://www.youtube.com/watch?v=_3IXnFVSiFg"
+          },
+          {
+            "title": "ТОЛЫҚ КИНЕМАТИКА 0- ДЕН",
+            "channel": "Аток Физика",
+            "duration": "5:12:54",
+            "youtubeId": "OlKjVUFtNpc",
+            "searchQuery": "ҰБТ Физика Кинематика қазақша толық түсіндіру",
+            "url": "https://www.youtube.com/watch?v=OlKjVUFtNpc"
+          },
+          {
+            "title": "ҰБТ-да физикадан 35+ жинау құпиясы! ҰБТ| физика",
+            "channel": "gulnur.sundetqyzy",
+            "duration": "7:22",
+            "youtubeId": "QCRx7nwQ0M4",
+            "searchQuery": "ҰБТ Физика Кинематика қазақша толық түсіндіру",
+            "url": "https://www.youtube.com/watch?v=QCRx7nwQ0M4"
           }
         ],
         "books": [
@@ -277,12 +291,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Динамика және Ньютон заңдары",
-            "channel": "Juz40 Физика",
-            "duration": "26 мин",
-            "youtubeId": "YgYq0jN6E4k",
-            "searchQuery": "ҰБТ 02 Динамика (Ньютон заңдары, Бүкіләлемдік тартылыс, Үйкеліс, Серпімділік, Лифт) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+02+Динамика+(Ньютон+заңдары,+Бүкіләлемдік+тартылыс,+Үйкеліс,+Серпімділік,+Лифт)+қазақша+түсіндіру"
+            "title": "Динамика! Нютон заңдары! Күш түрлері! Ғарыштық жылдамдықтар! #Динамика #физика #жомартағай",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "28:12",
+            "youtubeId": "RZudssPRpnw",
+            "searchQuery": "ҰБТ Физика Динамика Ньютон заңдары қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=RZudssPRpnw"
+          },
+          {
+            "title": "Физика | ҰБТ | 9-сабақ. Ньютонның заңдары",
+            "channel": "Zhandos Baizhuma",
+            "duration": "6:13",
+            "youtubeId": "YHtuY8gMxlo",
+            "searchQuery": "ҰБТ Физика Динамика Ньютон заңдары қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=YHtuY8gMxlo"
+          },
+          {
+            "title": "2.7-сабақ. Ньютон заңдары",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "10:57",
+            "youtubeId": "g2Usi26B64g",
+            "searchQuery": "ҰБТ Физика Динамика Ньютон заңдары қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=g2Usi26B64g"
           }
         ],
         "books": [
@@ -342,12 +372,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Статика және Денелердің тепе-теңдігі",
-            "channel": "ҰБТ Академиясы",
-            "duration": "19 мин",
-            "youtubeId": "K7qP9gYQc6w",
-            "searchQuery": "ҰБТ 03 Статика (Күш моменті, Иіндік, Ауырлық центрі, Жай механизмдер, ПӘК) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+03+Статика+(Күш+моменті,+Иіндік,+Ауырлық+центрі,+Жай+механизмдер,+ПӘК)+қазақша+түсіндіру"
+            "title": "Статика. Күш моменті  / Физика пәнінен ҰБТ-ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "37:17",
+            "youtubeId": "K5eFLY1oOSw",
+            "searchQuery": "ҰБТ Физика Статика Күш моменті Иінтірек қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=K5eFLY1oOSw"
+          },
+          {
+            "title": "3.3-сабақ. Күш моменті",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "11:43",
+            "youtubeId": "0T5NCID-Tsc",
+            "searchQuery": "ҰБТ Физика Статика Күш моменті Иінтірек қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=0T5NCID-Tsc"
+          },
+          {
+            "title": "ҰБТ-ға дайындық (физика): Статика/ Күш моменті",
+            "channel": "Ustudy Online",
+            "duration": "0:55",
+            "youtubeId": "xfq_Iu_sGLU",
+            "searchQuery": "ҰБТ Физика Статика Күш моменті Иінтірек қазақша сабақ",
+            "url": "https://www.youtube.com/watch?v=xfq_Iu_sGLU"
           }
         ],
         "books": [
@@ -401,12 +447,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Сақталу заңдары: Импульс және Энергия",
-            "channel": "LETS Физика",
-            "duration": "24 мин",
-            "youtubeId": "XmP8sY0tL2s",
-            "searchQuery": "ҰБТ 04 Сақталу заңдары (Импульс, Механикалық жұмыс, Қуат, Кинетикалық және Потенциалдық энергия) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+04+Сақталу+заңдары+(Импульс,+Механикалық+жұмыс,+Қуат,+Кинетикалық+және+Потенциалдық+энергия)+қазақша+түсіндіру"
+            "title": "Физика | ЭНЕРГИЯНЫҢ САҚТАЛУ ЗАҢЫ | Әсет ағай | ҰБТ 2025",
+            "channel": "AIPLUS ЕНТ | ҰБТ",
+            "duration": "1:08:59",
+            "youtubeId": "fm_UqoQm5bw",
+            "searchQuery": "ҰБТ Физика Импульс Энергия Сақталу заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=fm_UqoQm5bw"
+          },
+          {
+            "title": "Энергия. Энергияның сақталу заңы  /  Физика пәнінен ҰБТ -ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "34:16",
+            "youtubeId": "Xwfo74MZcdU",
+            "searchQuery": "ҰБТ Физика Импульс Энергия Сақталу заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=Xwfo74MZcdU"
+          },
+          {
+            "title": "12.2. Энергияның сақталу заңы. 1-бөлім",
+            "channel": "Физика | Орынбек Нурмаханов | ҰБТ",
+            "duration": "20:59",
+            "youtubeId": "uHTRdnTc1fI",
+            "searchQuery": "ҰБТ Физика Импульс Энергия Сақталу заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=uHTRdnTc1fI"
           }
         ],
         "books": [
@@ -459,12 +521,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Гидростатика және Сұйықтар механикасы",
-            "channel": "Educon",
-            "duration": "18 мин",
-            "youtubeId": "V_8Q3u1tH7g",
-            "searchQuery": "ҰБТ 05 Сұйықтар мен газдардың механикасы (Гидростатика, Архимед, Паскаль, Бернулли) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+05+Сұйықтар+мен+газдардың+механикасы+(Гидростатика,+Архимед,+Паскаль,+Бернулли)+қазақша+түсіндіру"
+            "title": "Гидродинамика! Қысым! Архимед күші! Бернулли заңы! #гидродинамика #физика  #жомартағай",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "17:34",
+            "youtubeId": "ZHqqJBpxV4E",
+            "searchQuery": "ҰБТ Физика Гидростатика Қысым Архимед Паскаль заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=ZHqqJBpxV4E"
+          },
+          {
+            "title": "Қысым. Архимед күші / Физика ҰБТ-ға дайындық / Арман Әскербекұлы / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "43:08",
+            "youtubeId": "_E1fewMpIuk",
+            "searchQuery": "ҰБТ Физика Гидростатика Қысым Архимед Паскаль заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=_E1fewMpIuk"
+          },
+          {
+            "title": "Гидродинамика! Қысым! Архимед күші! Бернулли заңы! Есептер шығару-1 #гидродинамика #жомартағай",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "20:13",
+            "youtubeId": "9J5n7uVFPgc",
+            "searchQuery": "ҰБТ Физика Гидростатика Қысым Архимед Паскаль заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=9J5n7uVFPgc"
           }
         ],
         "books": [
@@ -517,12 +595,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Механикалық тербелістер мен толқындар",
-            "channel": "Juz40",
-            "duration": "28 мин",
-            "youtubeId": "J_7p9xN1k4g",
-            "searchQuery": "ҰБТ 06 Молекулалық-кинетикалық теория (МКТ) негіздері қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+06+Молекулалық-кинетикалық+теория+(МКТ)+негіздері+қазақша+түсіндіру"
+            "title": "Малекулалық физика! Малекула кинетикалық теория негіздері! МКТ! #физика #жомартағай #мкт",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "21:57",
+            "youtubeId": "HjFWPVHh25I",
+            "searchQuery": "ҰБТ Физика МКТ Молекулалық кинетикалық теория қазақша",
+            "url": "https://www.youtube.com/watch?v=HjFWPVHh25I"
+          },
+          {
+            "title": "Малекулалық физика! Малекула кинетикалық теория негіздері! Есептер шығару-1 МКТ! #физика #жомартағай",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "20:10",
+            "youtubeId": "iMbhx7yBVSM",
+            "searchQuery": "ҰБТ Физика МКТ Молекулалық кинетикалық теория қазақша",
+            "url": "https://www.youtube.com/watch?v=iMbhx7yBVSM"
+          },
+          {
+            "title": "ҰБТ-2026 | МОЛЕКУЛАЛЫҚ ФИЗИКА | ШАРИНГАН АҒАЙ",
+            "channel": "Нұрболат Мұхамеджан",
+            "duration": "1:44:06",
+            "youtubeId": "XbkAN4yOVMg",
+            "searchQuery": "ҰБТ Физика МКТ Молекулалық кинетикалық теория қазақша",
+            "url": "https://www.youtube.com/watch?v=XbkAN4yOVMg"
           }
         ],
         "books": [
@@ -575,12 +669,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "МКТ негіздері және Идеал газ күйі",
-            "channel": "ҰБТ Физика",
-            "duration": "25 мин",
-            "youtubeId": "m1_8YqZ0k4w",
-            "searchQuery": "ҰБТ 07 Газ заңдары (Менделеев–Клапейрон, Изопроцестер, Дальтон заңы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+07+Газ+заңдары+(Менделеев–Клапейрон,+Изопроцестер,+Дальтон+заңы)+қазақша+түсіндіру"
+            "title": "4.4-сабақ. Газ заңдары",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "15:14",
+            "youtubeId": "yU2vVYO3xPw",
+            "searchQuery": "ҰБТ Физика Газ заңдары Изопроцестер Менделеев Клапейрон қазақша",
+            "url": "https://www.youtube.com/watch?v=yU2vVYO3xPw"
+          },
+          {
+            "title": "4.3-сабақ. Идеал газ теңдеуі",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "18:17",
+            "youtubeId": "d36Pq-B-gSA",
+            "searchQuery": "ҰБТ Физика Газ заңдары Изопроцестер Менделеев Клапейрон қазақша",
+            "url": "https://www.youtube.com/watch?v=d36Pq-B-gSA"
+          },
+          {
+            "title": "16.1. Менделеев-Клапейрон теңдеуі",
+            "channel": "Физика | Орынбек Нурмаханов | ҰБТ",
+            "duration": "32:30",
+            "youtubeId": "0esw6siInEI",
+            "searchQuery": "ҰБТ Физика Газ заңдары Изопроцестер Менделеев Клапейрон қазақша",
+            "url": "https://www.youtube.com/watch?v=0esw6siInEI"
           }
         ],
         "books": [
@@ -633,12 +743,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Газ заңдары: Изопроцесстер мен графиктер",
-            "channel": "LETS",
-            "duration": "21 мин",
-            "youtubeId": "T9_1kY8p2mA",
-            "searchQuery": "ҰБТ 08 Термодинамика негіздері (Ішкі энергия, Жұмыс, І және ІІ заңдар, Карно циклі) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+08+Термодинамика+негіздері+(Ішкі+энергия,+Жұмыс,+І+және+ІІ+заңдар,+Карно+циклі)+қазақша+түсіндіру"
+            "title": "ФИЗИКА ТЕГІН САБАҚ | ТЕРМОДИНМИКА ЗАҢДАРЫ | АЙЙ АПАЙ | ҰБТ",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:01:14",
+            "youtubeId": "ZgnzI0o7xtQ",
+            "searchQuery": "Термодинамика ҰБТ физика",
+            "url": "https://www.youtube.com/watch?v=ZgnzI0o7xtQ"
+          },
+          {
+            "title": "Термодинамика! Ішкі энергия! Іштен жану қозғалтқышы! Термодинамиканың бірінші заңы! #физика",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "17:50",
+            "youtubeId": "W8Q-AmPBeNY",
+            "searchQuery": "Термодинамика ҰБТ физика",
+            "url": "https://www.youtube.com/watch?v=W8Q-AmPBeNY"
+          },
+          {
+            "title": "Термодинамика 2 сағатта | Жылу физика бөлімі | Аток Физика | ҰБТ 2025",
+            "channel": "Аток Физика",
+            "duration": "1:54:57",
+            "youtubeId": "QnhGFjegjj4",
+            "searchQuery": "Термодинамика ҰБТ физика",
+            "url": "https://www.youtube.com/watch?v=QnhGFjegjj4"
           }
         ],
         "books": [
@@ -691,12 +817,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Термодинамика негіздері және ПӘК",
-            "channel": "Juz40",
-            "duration": "23 мин",
-            "youtubeId": "E1_7pY9k3mB",
-            "searchQuery": "ҰБТ 09 Сұйық және қатты денелер (Калориметрия, Ылғалдылық, Беттік керілу, Механикалық кернеу) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+09+Сұйық+және+қатты+денелер+(Калориметрия,+Ылғалдылық,+Беттік+керілу,+Механикалық+кернеу)+қазақша+түсіндіру"
+            "title": "Жылу мөлшері, жылусыйымдылық. Ішкі энергия және жұмыс формулаларына есептер шығару",
+            "channel": "Физика ЖИ",
+            "duration": "1:51",
+            "youtubeId": "71GGsaC5mME",
+            "searchQuery": "ҰБТ Физика Жылу мөлшері Ылғалдылық Сұйық және қатты денелер қазақша",
+            "url": "https://www.youtube.com/watch?v=71GGsaC5mME"
+          },
+          {
+            "title": "Физика - Будың, сұйықтың және қатты денелердің қасиеті",
+            "channel": "DARYN.ONLINE",
+            "duration": "32:34",
+            "youtubeId": "n_vXYgN-4T8",
+            "searchQuery": "ҰБТ Физика Жылу мөлшері Ылғалдылық Сұйық және қатты денелер қазақша",
+            "url": "https://www.youtube.com/watch?v=n_vXYgN-4T8"
+          },
+          {
+            "title": "5.2-сабақ. Жылу мөлшеріне қатысты есептер",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "17:19",
+            "youtubeId": "gcfecPNefH0",
+            "searchQuery": "ҰБТ Физика Жылу мөлшері Ылғалдылық Сұйық және қатты денелер қазақша",
+            "url": "https://www.youtube.com/watch?v=gcfecPNefH0"
           }
         ],
         "books": [
@@ -742,12 +884,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Қаныққан бу, Ылғалдылық және Беттік керілу",
-            "channel": "Educon",
-            "duration": "19 мин",
-            "youtubeId": "N2_6tY8k4mC",
-            "searchQuery": "ҰБТ 10 Электростатика (Кулон заңы, Өріс кернеулігі, Потенциал, Конденсаторлар) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+10+Электростатика+(Кулон+заңы,+Өріс+кернеулігі,+Потенциал,+Конденсаторлар)+қазақша+түсіндіру"
+            "title": "6.1-сабақ. Электростатика. Кулон заңы",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "13:22",
+            "youtubeId": "6KrJYqoqSyk",
+            "searchQuery": "ҰБТ Физика Электростатика Кулон заңы Конденсатор қазақша",
+            "url": "https://www.youtube.com/watch?v=6KrJYqoqSyk"
+          },
+          {
+            "title": "ҰБТ | ФИЗИКА | ЭЛЕКТРОСТАТИКА | ҚАЗАҚША БЕЙНЕСАБАҚ",
+            "channel": "Maks Plank",
+            "duration": "7:05",
+            "youtubeId": "g52DNlamwt0",
+            "searchQuery": "ҰБТ Физика Электростатика Кулон заңы Конденсатор қазақша",
+            "url": "https://www.youtube.com/watch?v=g52DNlamwt0"
+          },
+          {
+            "title": "Зарядтың сақталу заңы. Кулон заңы. 8 сынып.",
+            "channel": "MEKTEП OnLine ФИЗИКА",
+            "duration": "11:38",
+            "youtubeId": "XPt_iutRmfY",
+            "searchQuery": "ҰБТ Физика Электростатика Кулон заңы Конденсатор қазақша",
+            "url": "https://www.youtube.com/watch?v=XPt_iutRmfY"
           }
         ],
         "books": [
@@ -800,12 +958,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Электростатика: Кулон заңы және Потенциал",
-            "channel": "ҰБТ Академиясы",
-            "duration": "27 мин",
-            "youtubeId": "P3_5yZ7k5mD",
-            "searchQuery": "ҰБТ 11 Тұрақты ток (Ом заңдары, Кедергі, Джоуль–Ленц заңы, Қуат, Қысқа тұйықталу) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+11+Тұрақты+ток+(Ом+заңдары,+Кедергі,+Джоуль–Ленц+заңы,+Қуат,+Қысқа+тұйықталу)+қазақша+түсіндіру"
+            "title": "Ом заңын түсінудің жылдам тәсілі! Формуласы қандай? Ом заңы дегеніміз не? | Ұбт Физика 2021.",
+            "channel": "Физика iStudy",
+            "duration": "5:56",
+            "youtubeId": "Hz7d8hY2-PM",
+            "searchQuery": "Тұрақты ток Ом заңы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=Hz7d8hY2-PM"
+          },
+          {
+            "title": "Тұрақты ток бойынша ҰБТ-да келетін ТОП10 есеп",
+            "channel": "Dostyq Physics",
+            "duration": "25:24",
+            "youtubeId": "sFMLiHNdhVk",
+            "searchQuery": "Тұрақты ток Ом заңы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=sFMLiHNdhVk"
+          },
+          {
+            "title": "ФИЗИКА | ҰБТ-ҒА ТЕГІН ДАЙЫНДЫҚ | ОМ ЗАҢЫ | ҰБТ-2024",
+            "channel": "Нұрболат Мұхамеджан",
+            "duration": "55:48",
+            "youtubeId": "fqYfQLsmvNw",
+            "searchQuery": "Тұрақты ток Ом заңы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=fqYfQLsmvNw"
           }
         ],
         "books": [
@@ -857,12 +1031,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Электр сыйымдылығы және Конденсаторлар",
-            "channel": "Juz40",
-            "duration": "20 мин",
-            "youtubeId": "D4_4kY6p6mE",
-            "searchQuery": "ҰБТ 12 Әртүрлі ортадағы электр тогы (Металдар, Жартылай өткізгіштер, Электролиттер, Газдар, Вакуум) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+12+Әртүрлі+ортадағы+электр+тогы+(Металдар,+Жартылай+өткізгіштер,+Электролиттер,+Газдар,+Вакуум)+қазақша+түсіндіру"
+            "title": "7.7-сабақ. Әртүрлі ортадағы электр тогы",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "21:08",
+            "youtubeId": "ocu4DNcyHZY",
+            "searchQuery": "Электролиз электр тогы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=ocu4DNcyHZY"
+          },
+          {
+            "title": "Электролиз. Сұйықтықтарда электр тогы",
+            "channel": "Физиканы оқып үйренейік",
+            "duration": "1:14",
+            "youtubeId": "u-yO0cw8IbE",
+            "searchQuery": "Электролиз электр тогы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=u-yO0cw8IbE"
+          },
+          {
+            "title": "8.7- сабақ. Электролиз. Ерітінді электролизі",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "15:53",
+            "youtubeId": "MgSmONJQLwY",
+            "searchQuery": "Электролиз электр тогы физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=MgSmONJQLwY"
           }
         ],
         "books": [
@@ -907,12 +1097,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Тұрақты электр тогы және Ом заңдары",
-            "channel": "LETS",
-            "duration": "25 мин",
-            "youtubeId": "I5_3pY5k7mF",
-            "searchQuery": "ҰБТ 13 Магнит өрісі (Ампер күші, Лоренц күші, Зарядталған бөлшектің шеңбер бойымен қозғалысы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+13+Магнит+өрісі+(Ампер+күші,+Лоренц+күші,+Зарядталған+бөлшектің+шеңбер+бойымен+қозғалысы)+қазақша+түсіндіру"
+            "title": "Магнит өрісі. Оң қол және сол қол ережесі.",
+            "channel": "Балкерім Батырбекова",
+            "duration": "3:17",
+            "youtubeId": "mJzCXPS_ACw",
+            "searchQuery": "Магнит өрісі Ампер Лоренц физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=mJzCXPS_ACw"
+          },
+          {
+            "title": "Магнит өрісі. 3-бөлім. Заттардың магниттік қасиеті.",
+            "channel": "Физика ҰБТ",
+            "duration": "3:12",
+            "youtubeId": "-QO5CEE1eLc",
+            "searchQuery": "Магнит өрісі Ампер Лоренц физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=-QO5CEE1eLc"
+          },
+          {
+            "title": "Электромагниттік индукция заңы. 10 сынып.",
+            "channel": "MEKTEП OnLine ФИЗИКА",
+            "duration": "9:39",
+            "youtubeId": "jlnO8MDsxoU",
+            "searchQuery": "Магнит өрісі Ампер Лоренц физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=jlnO8MDsxoU"
           }
         ],
         "books": [
@@ -964,12 +1170,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Токтың жұмысы мен қуаты, Джоуль-Ленц заңы",
-            "channel": "Educon",
-            "duration": "18 мин",
-            "youtubeId": "G6_2tY4p8mG",
-            "searchQuery": "ҰБТ 14 Электромагниттік индукция (Магнит ағыны, Фарадей заңы, Өздік индукция, Магнит өрісінің энергиясы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+14+Электромагниттік+индукция+(Магнит+ағыны,+Фарадей+заңы,+Өздік+индукция,+Магнит+өрісінің+энергиясы)+қазақша+түсіндіру"
+            "title": "Электромагниттік индукция заңы / Физика пәнінен ҰБТ-ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "46:43",
+            "youtubeId": "o8l5DxQMeuQ",
+            "searchQuery": "ҰБТ Физика Электромагниттік индукция Фарадей заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=o8l5DxQMeuQ"
+          },
+          {
+            "title": "Электромагниттік индукция заңы. 10 сынып.",
+            "channel": "MEKTEП OnLine ФИЗИКА",
+            "duration": "9:39",
+            "youtubeId": "jlnO8MDsxoU",
+            "searchQuery": "ҰБТ Физика Электромагниттік индукция Фарадей заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=jlnO8MDsxoU"
+          },
+          {
+            "title": "Майкл Фарадейің электромагниттік индукция заңы",
+            "channel": "Электроэнергетика",
+            "duration": "3:13",
+            "youtubeId": "Vn4qg5jVxGc",
+            "searchQuery": "ҰБТ Физика Электромагниттік индукция Фарадей заңы қазақша",
+            "url": "https://www.youtube.com/watch?v=Vn4qg5jVxGc"
           }
         ],
         "books": [
@@ -1014,12 +1236,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Әртүрлі ортадағы электр тогы",
-            "channel": "ҰБТ Физика",
-            "duration": "17 мин",
-            "youtubeId": "S7_1yZ3k9mH",
-            "searchQuery": "ҰБТ 15 Механикалық тербелістер (Гармоникалық тербеліс теңдеуі, Математикалық және серіппелі маятник, Резонанс) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+15+Механикалық+тербелістер+(Гармоникалық+тербеліс+теңдеуі,+Математикалық+және+серіппелі+маятник,+Резонанс)+қазақша+түсіндіру"
+            "title": "29.1. Механикалық тербеліс. Математикалық маятник.",
+            "channel": "Физика | Орынбек Нурмаханов | ҰБТ",
+            "duration": "28:16",
+            "youtubeId": "viMeIyPYJxg",
+            "searchQuery": "ҰБТ Физика Механикалық тербелістер маятник қазақша",
+            "url": "https://www.youtube.com/watch?v=viMeIyPYJxg"
+          },
+          {
+            "title": "Механикалық толқындармен тербелістер! Есептер шыңару-1 #Тербеліс #толқын #дыбыстолқыны #ұбт #физика",
+            "channel": "Жомарт Кайракбаев [Физика ҰБТ]",
+            "duration": "19:23",
+            "youtubeId": "VHNh7Qy7nnk",
+            "searchQuery": "ҰБТ Физика Механикалық тербелістер маятник қазақша",
+            "url": "https://www.youtube.com/watch?v=VHNh7Qy7nnk"
+          },
+          {
+            "title": "Механикалық тербелістер / Физика ҰБТ-ға дайындық",
+            "channel": "Арман Мырзақұлов",
+            "duration": "58:14",
+            "youtubeId": "ISrN3JgO3Eo",
+            "searchQuery": "ҰБТ Физика Механикалық тербелістер маятник қазақша",
+            "url": "https://www.youtube.com/watch?v=ISrN3JgO3Eo"
           }
         ],
         "books": [
@@ -1072,12 +1310,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Магнит өрісі және Ампер, Лоренц күштері",
-            "channel": "Juz40",
-            "duration": "26 мин",
-            "youtubeId": "V8_0kY2p0mI",
-            "searchQuery": "ҰБТ 16 Электромагниттік тербелістер. Айнымалы ток. Трансформатор қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+16+Электромагниттік+тербелістер.+Айнымалы+ток.+Трансформатор+қазақша+түсіндіру"
+            "title": "Еріксіз электромагниттік тербелістер. Айнымалы ток 11 сынып жи түсіндірме",
+            "channel": "Физика ЖИ",
+            "duration": "1:31",
+            "youtubeId": "2SChOkPS8QQ",
+            "searchQuery": "ҰБТ Физика Электромагниттік тербелістер Айнымалы ток Трансформатор қазақша",
+            "url": "https://www.youtube.com/watch?v=2SChOkPS8QQ"
+          },
+          {
+            "title": "Еркін және еріксіз электромагниттік тербелістер  11 сынып жи түсіндірме",
+            "channel": "Физика ЖИ",
+            "duration": "1:21",
+            "youtubeId": "P-fpvSnHmRs",
+            "searchQuery": "ҰБТ Физика Электромагниттік тербелістер Айнымалы ток Трансформатор қазақша",
+            "url": "https://www.youtube.com/watch?v=P-fpvSnHmRs"
+          },
+          {
+            "title": "Электромагниттік тербелістер. Айнымалы ток / Физика пәнінен ҰБТ-ға дайындық",
+            "channel": "QAZBILIM TV",
+            "duration": "44:07",
+            "youtubeId": "6hHt6F99RG8",
+            "searchQuery": "ҰБТ Физика Электромагниттік тербелістер Айнымалы ток Трансформатор қазақша",
+            "url": "https://www.youtube.com/watch?v=6hHt6F99RG8"
           }
         ],
         "books": [
@@ -1129,12 +1383,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Электромагниттік индукция және Фарадей заңы",
-            "channel": "Educon",
-            "duration": "24 мин",
-            "youtubeId": "H1_9kY7p1mA",
-            "searchQuery": "ҰБТ 17 Механикалық толқындық қозғалыс және Акустика (Дыбыс) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+17+Механикалық+толқындық+қозғалыс+және+Акустика+(Дыбыс)+қазақша+түсіндіру"
+            "title": "Толқындық қозғалыс. 9 сынып.",
+            "channel": "MEKTEП OnLine ФИЗИКА",
+            "duration": "8:38",
+            "youtubeId": "0ymN0dxTqsQ",
+            "searchQuery": "ҰБТ Физика Толқындық қозғалыс Дыбыс Акустика қазақша",
+            "url": "https://www.youtube.com/watch?v=0ymN0dxTqsQ"
+          },
+          {
+            "title": "Толқындық қозғалыс. Толқындар",
+            "channel": "Физика. Теория. Практика",
+            "duration": "13:05",
+            "youtubeId": "1Gg_FQz8ojg",
+            "searchQuery": "ҰБТ Физика Толқындық қозғалыс Дыбыс Акустика қазақша",
+            "url": "https://www.youtube.com/watch?v=1Gg_FQz8ojg"
+          },
+          {
+            "title": "ЭЛЕКТРОМАГНИТТІК ТОЛҚЫНДАР. КҮРДЕЛІ ТАҚЫРЫП ЖЕҢІЛ ТІЛМЕН | ҰБТ 2025-2026 | АТОК ФИЗИКА",
+            "channel": "Аток Физика",
+            "duration": "21:46",
+            "youtubeId": "6n7ShvXmT2Y",
+            "searchQuery": "ҰБТ Физика Толқындық қозғалыс Дыбыс Акустика қазақша",
+            "url": "https://www.youtube.com/watch?v=6n7ShvXmT2Y"
           }
         ],
         "books": [
@@ -1184,12 +1454,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Электромагниттік тербелістер және Томсон формуласы",
-            "channel": "LETS",
-            "duration": "22 мин",
-            "youtubeId": "H2_8pY6k2mB",
-            "searchQuery": "ҰБТ 18 Электромагниттік толқындар және Радиолокация қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+18+Электромагниттік+толқындар+және+Радиолокация+қазақша+түсіндіру"
+            "title": "ЭЛЕКТРОМАГНИТТІК ТОЛҚЫНДАР. КҮРДЕЛІ ТАҚЫРЫП ЖЕҢІЛ ТІЛМЕН | ҰБТ 2025-2026 | АТОК ФИЗИКА",
+            "channel": "Аток Физика",
+            "duration": "21:46",
+            "youtubeId": "6n7ShvXmT2Y",
+            "searchQuery": "ҰБТ Физика Электромагниттік толқындар Радиолокация қазақша",
+            "url": "https://www.youtube.com/watch?v=6n7ShvXmT2Y"
+          },
+          {
+            "title": "9.9-сабақ. Электромагниттік толқындар",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "17:08",
+            "youtubeId": "tWgQe4FofHM",
+            "searchQuery": "ҰБТ Физика Электромагниттік толқындар Радиолокация қазақша",
+            "url": "https://www.youtube.com/watch?v=tWgQe4FofHM"
+          },
+          {
+            "title": "Электромагниттік толқын энергиясы",
+            "channel": "Физика. Теория. Практика",
+            "duration": "20:12",
+            "youtubeId": "3E81F9kBmi8",
+            "searchQuery": "ҰБТ Физика Электромагниттік толқындар Радиолокация қазақша",
+            "url": "https://www.youtube.com/watch?v=3E81F9kBmi8"
           }
         ],
         "books": [
@@ -1233,12 +1519,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Айнымалы ток және Трансформатор",
-            "channel": "Juz40",
-            "duration": "20 мин",
-            "youtubeId": "H3_7tY5p3mC",
-            "searchQuery": "ҰБТ 19 Толқындық оптика (Интерференция, Дифракция, Дисперсия, Поляризация) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+19+Толқындық+оптика+(Интерференция,+Дифракция,+Дисперсия,+Поляризация)+қазақша+түсіндіру"
+            "title": "Толқындық оптика. Интерференция. Дифракция",
+            "channel": "Аток Физика",
+            "duration": "52:44",
+            "youtubeId": "Ml9nANc84AE",
+            "searchQuery": "ҰБТ Физика Толқындық оптика Интерференция Дифракция қазақша",
+            "url": "https://www.youtube.com/watch?v=Ml9nANc84AE"
+          },
+          {
+            "title": "ТОЛҚЫНДЫҚ ОПТИКА",
+            "channel": "ФИЗИКА | ҰБТ | БАУЫРЖАН АҒАЙ",
+            "duration": "26:28",
+            "youtubeId": "vVR-1yeSIuM",
+            "searchQuery": "ҰБТ Физика Толқындық оптика Интерференция Дифракция қазақша",
+            "url": "https://www.youtube.com/watch?v=vVR-1yeSIuM"
+          },
+          {
+            "title": "Физика | ТОЛҚЫНДЫҚ ОПТИКА | Әсет ағай | ҰБТ 2025",
+            "channel": "AIPLUS ЕНТ | ҰБТ",
+            "duration": "1:00:57",
+            "youtubeId": "RmKhIujSe_o",
+            "searchQuery": "ҰБТ Физика Толқындық оптика Интерференция Дифракция қазақша",
+            "url": "https://www.youtube.com/watch?v=RmKhIujSe_o"
           }
         ],
         "books": [
@@ -1282,12 +1584,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Электромагниттік толқындар және Шкала",
-            "channel": "ҰБТ Академиясы",
-            "duration": "18 мин",
-            "youtubeId": "H4_6yZ4k4mD",
-            "searchQuery": "ҰБТ 20 Геометриялық оптика (Шағылу, Сыну, Толық ішкі шағылу, Айналар мен Жұқа линзалар) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+20+Геометриялық+оптика+(Шағылу,+Сыну,+Толық+ішкі+шағылу,+Айналар+мен+Жұқа+линзалар)+қазақша+түсіндіру"
+            "title": "ОПТИКА | ЛИНЗА АРҚЫЛЫ КЕСКІН АЛУ | ҰБТ ФИЗИКА - 2027",
+            "channel": "FM ONLINE",
+            "duration": "1:32:35",
+            "youtubeId": "KWyfySYnHfE",
+            "searchQuery": "Геометриялық оптика линза физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=KWyfySYnHfE"
+          },
+          {
+            "title": "ФИЗИКА ҰБТ2022-23 ГЕОМЕТРИЯЛЫҚ ОПТИКА/ЛИНЗА/ТЕГІН САБАҚ/ЖАҢА ЕСЕПТЕРМЕН",
+            "channel": "JUZ40 ONLINE",
+            "duration": "55:55",
+            "youtubeId": "bFn1Q7Oy8oI",
+            "searchQuery": "Геометриялық оптика линза физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=bFn1Q7Oy8oI"
+          },
+          {
+            "title": "10.1-сабақ. Геометриялық оптика",
+            "channel": "GEOID_EDU | ҰБТ-2027",
+            "duration": "23:11",
+            "youtubeId": "H7KBrojNLp8",
+            "searchQuery": "Геометриялық оптика линза физика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=H7KBrojNLp8"
           }
         ],
         "books": [
@@ -1338,12 +1656,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Геометриялық оптика: Шағылу, Сыну, Линзалар",
-            "channel": "Educon",
-            "duration": "30 мин",
-            "youtubeId": "H5_5kY3p5mE",
-            "searchQuery": "ҰБТ 21 Салыстырмалылық теориясының элементтері (Эйнштейн постулаттары, Релятивистік масса, ұзындық, уақыт, энергия) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+21+Салыстырмалылық+теориясының+элементтері+(Эйнштейн+постулаттары,+Релятивистік+масса,+ұзындық,+уақыт,+энергия)+қазақша+түсіндіру"
+            "title": "Физика  Терең 11 сынып  №49 сабақ  Салыстырмалылық теорияның постулаттары",
+            "channel": "Даркей Ертисхан",
+            "duration": "30:38",
+            "youtubeId": "JOZLvuk_qzQ",
+            "searchQuery": "ҰБТ Физика Салыстырмалылық теориясы Эйнштейн постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=JOZLvuk_qzQ"
+          },
+          {
+            "title": "ФИЗИКА | ҰБТ-ға ТЕГІН ДАЙЫНДЫҚ | СТЭ | салыстырмалы теория элементтері | ҰБТ-2024",
+            "channel": "Нұрболат Мұхамеджан",
+            "duration": "45:32",
+            "youtubeId": "FniigrStQbw",
+            "searchQuery": "ҰБТ Физика Салыстырмалылық теориясы Эйнштейн постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=FniigrStQbw"
+          },
+          {
+            "title": "Эйнштейн және Арнайы салыстырмалылық теориясы",
+            "channel": "Физика және Ғарыш",
+            "duration": "1:50",
+            "youtubeId": "d_vDbMQjaWU",
+            "searchQuery": "ҰБТ Физика Салыстырмалылық теориясы Эйнштейн постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=d_vDbMQjaWU"
           }
         ],
         "books": [
@@ -1395,12 +1729,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Толқындық оптика: Интерференция және Дифракция",
-            "channel": "Juz40",
-            "duration": "21 мин",
-            "youtubeId": "H6_4pY2k6mF",
-            "searchQuery": "ҰБТ 22 Атомдық және кванттық физика (Планк гипотезасы, Фотоэффект, Фотон импульсі, Бор постулаттары, Рентген) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+22+Атомдық+және+кванттық+физика+(Планк+гипотезасы,+Фотоэффект,+Фотон+импульсі,+Бор+постулаттары,+Рентген)+қазақша+түсіндіру"
+            "title": "ФИЗИКА | ТЕГІН САБАҚ | ҰБТ | КВАНТТЫҚ ФИЗИКА",
+            "channel": "Нұрболат Мұхамеджан",
+            "duration": "1:47:00",
+            "youtubeId": "Zv7tB6WypEU",
+            "searchQuery": "ҰБТ Физика Кванттық физика Фотоэффект Бор постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=Zv7tB6WypEU"
+          },
+          {
+            "title": "Альфа-бөлшектердің шашырауы туралы Резерфорд тәжірибелері. Бор постулаттары",
+            "channel": "Физика. Теория. Практика",
+            "duration": "14:12",
+            "youtubeId": "stoDx7tjFT8",
+            "searchQuery": "ҰБТ Физика Кванттық физика Фотоэффект Бор постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=stoDx7tjFT8"
+          },
+          {
+            "title": "Физика | КВАНТТЫҚ ОПТИКА | Әсет ағай | ҰБТ 2025",
+            "channel": "AIPLUS ЕНТ | ҰБТ",
+            "duration": "1:09:01",
+            "youtubeId": "tBiuY_gQayQ",
+            "searchQuery": "ҰБТ Физика Кванттық физика Фотоэффект Бор постулаттары қазақша",
+            "url": "https://www.youtube.com/watch?v=tBiuY_gQayQ"
           }
         ],
         "books": [
@@ -1452,12 +1802,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Салыстырмалылық теориясының элементтері (СТО)",
-            "channel": "LETS",
-            "duration": "16 мин",
-            "youtubeId": "H7_3tY1p7mG",
-            "searchQuery": "ҰБТ 23 Атом ядросының физикасы (Ядро құрамы, Масса ақауы, Байланыс энергиясы, Радиоактивті ыдырау заңы, Ядролық реакциялар) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+23+Атом+ядросының+физикасы+(Ядро+құрамы,+Масса+ақауы,+Байланыс+энергиясы,+Радиоактивті+ыдырау+заңы,+Ядролық+реакциялар)+қазақша+түсіндіру"
+            "title": "Атом ядросының физикасы бойынша ҰБТ-да келетін ТОП10 есеп",
+            "channel": "Dostyq Physics",
+            "duration": "30:14",
+            "youtubeId": "w_uYCs8wx-s",
+            "searchQuery": "ҰБТ Физика Атом ядросының физикасы Радиоактивті ыдырау қазақша",
+            "url": "https://www.youtube.com/watch?v=w_uYCs8wx-s"
+          },
+          {
+            "title": "Радиоактивті ыдырау заңы.",
+            "channel": "MEKTEП OnLine ФИЗИКА",
+            "duration": "8:29",
+            "youtubeId": "Ab1Ly3Zi--s",
+            "searchQuery": "ҰБТ Физика Атом ядросының физикасы Радиоактивті ыдырау қазақша",
+            "url": "https://www.youtube.com/watch?v=Ab1Ly3Zi--s"
+          },
+          {
+            "title": "ФИЗИКА | ҰБТ-ға ТЕГІН ДАЙЫНДЫҚ | РАДИОАКТИВТІ ЫДЫРАУ | ҰБТ-2024",
+            "channel": "Нұрболат Мұхамеджан",
+            "duration": "1:00:18",
+            "youtubeId": "AxVIxaclTZM",
+            "searchQuery": "ҰБТ Физика Атом ядросының физикасы Радиоактивті ыдырау қазақша",
+            "url": "https://www.youtube.com/watch?v=AxVIxaclTZM"
           }
         ],
         "books": [
@@ -1507,12 +1873,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Кванттық физика және Фотоэффект",
-            "channel": "ҰБТ Физика",
-            "duration": "25 мин",
-            "youtubeId": "H8_2yZ0k8mH",
-            "searchQuery": "ҰБТ 24 Нанотехнология және наноматериалдар қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+24+Нанотехнология+және+наноматериалдар+қазақша+түсіндіру"
+            "title": "НАНОТЕХНОЛОГИЯ НЕГІЗІ.  НАНОМАТЕРИАЛДАР",
+            "channel": "Нұрлан Алтаев",
+            "duration": "14:29",
+            "youtubeId": "5ab3Wsp66A8",
+            "searchQuery": "ҰБТ Физика Нанотехнология және наноматериалдар қазақша",
+            "url": "https://www.youtube.com/watch?v=5ab3Wsp66A8"
+          },
+          {
+            "title": "Нанотехнологияның  негізгі жетістіктері, өзекті мәселелер және даму кезеңдері. Наноматериалдар",
+            "channel": "Физика ЖИ",
+            "duration": "2:06",
+            "youtubeId": "D1AiNM7RZpU",
+            "searchQuery": "ҰБТ Физика Нанотехнология және наноматериалдар қазақша",
+            "url": "https://www.youtube.com/watch?v=D1AiNM7RZpU"
+          },
+          {
+            "title": "ЖАҢА НҰСҚА ТАЛДАУ ФИЗИКА | ҚАҢТАР ҰБТ-2027 | ҚАЙЫРЖАН АҒАЙ",
+            "channel": "FM ONLINE",
+            "duration": "2:47:13",
+            "youtubeId": "rAmxjo8Y-Jw",
+            "searchQuery": "ҰБТ Физика Нанотехнология және наноматериалдар қазақша",
+            "url": "https://www.youtube.com/watch?v=rAmxjo8Y-Jw"
           }
         ],
         "books": [
@@ -1563,12 +1945,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Атом және Атом ядросының физикасы",
-            "channel": "Juz40",
-            "duration": "27 мин",
-            "youtubeId": "H9_1kY9p9mI",
-            "searchQuery": "ҰБТ 25 Космология және Астрофизика (Кеплер заңдары, Хаббл заңы, Жұлдыздар, Парсек) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+25+Космология+және+Астрофизика+(Кеплер+заңдары,+Хаббл+заңы,+Жұлдыздар,+Парсек)+қазақша+түсіндіру"
+            "title": "24-Физика(қаз). Емтихан шешуі. Кеплер заңдары",
+            "channel": "DARYN ORTALYĞY . ЦЕНТР ДАРЫН",
+            "duration": "10:42",
+            "youtubeId": "cR5q4Ai1Xjg",
+            "searchQuery": "ҰБТ Физика Космология Астрономия Кеплер заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=cR5q4Ai1Xjg"
+          },
+          {
+            "title": "Кеплердің 3 заңы  Бүкіл әлемдік тартылыс заңы",
+            "channel": "Физиканы оқып үйренейік",
+            "duration": "2:02",
+            "youtubeId": "SDu-zHD3amE",
+            "searchQuery": "ҰБТ Физика Космология Астрономия Кеплер заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=SDu-zHD3amE"
+          },
+          {
+            "title": "№4 Бүкіләлемдік тартылыс заңы | #ҰБТ | #ФИЗИКА | #ТЕГІН САБАҚ | #EDUSER ONLINE | Нұрдаулет Мақсатұлы",
+            "channel": "EDUSER ONLINE",
+            "duration": "13:19",
+            "youtubeId": "2HiI6gOutPg",
+            "searchQuery": "ҰБТ Физика Космология Астрономия Кеплер заңдары қазақша",
+            "url": "https://www.youtube.com/watch?v=2HiI6gOutPg"
           }
         ],
         "books": [
@@ -1615,12 +2013,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Нақты сандар, Дәрежелер және Түбірлер",
-            "channel": "Juz40 Математика",
-            "duration": "25 мин",
-            "youtubeId": "M1_9tY7k1mA",
-            "searchQuery": "ҰБТ 01 Нақты сандар. Проценттер.Пропорция. $n$-ші дәрежелі түбір және оның қасиеттері қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+01+Нақты+сандар.+Проценттер.Пропорция.+$n$-ші+дәрежелі+түбір+және+оның+қасиеттері+қазақша+түсіндіру"
+            "title": "Пропорция. Кері пропорция. Математикалық сауаттылық",
+            "channel": "Bakhdaulet Kelissov",
+            "duration": "11:54",
+            "youtubeId": "7IyAMx8hc7U",
+            "searchQuery": "ҰБТ Математика Түбірлер Процент Пропорция есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=7IyAMx8hc7U"
+          },
+          {
+            "title": "4. Пропорция / ҰБТ МАТЕМАТИКА",
+            "channel": "Жамбыл Қабдешов Жангерейұлы",
+            "duration": "14:28",
+            "youtubeId": "O5w8veGi9Ow",
+            "searchQuery": "ҰБТ Математика Түбірлер Процент Пропорция есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=O5w8veGi9Ow"
+          },
+          {
+            "title": "ҰБТ. Математикалық сауаттылық. Концентрация. Пропорция.",
+            "channel": "Нұртас Айтілеу.Математикалық сауаттылық.",
+            "duration": "29:25",
+            "youtubeId": "SBJ3cnXW1M8",
+            "searchQuery": "ҰБТ Математика Түбірлер Процент Пропорция есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=SBJ3cnXW1M8"
           }
         ],
         "books": [
@@ -1665,12 +2079,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Алгебралық өрнектер және Қысқаша көбейту",
-            "channel": "Educon",
-            "duration": "22 мин",
-            "youtubeId": "M2_8yZ6p2mB",
-            "searchQuery": "ҰБТ 02 Бүтін және рационал көрсеткішті дәреже. Стандарт түрдегі сан қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+02+Бүтін+және+рационал+көрсеткішті+дәреже.+Стандарт+түрдегі+сан+қазақша+түсіндіру"
+            "title": "№6 Дәреженің қасиеттері | #ҰБТ | #МАТЕМАТИКА | #ТЕГІН САБАҚ | #EDUSER ONLINE | Ерсұлтан Ерғалиұлы",
+            "channel": "EDUSER ONLINE",
+            "duration": "30:26",
+            "youtubeId": "SsJPXjcfT7g",
+            "searchQuery": "Дәреже қасиеттері математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=SsJPXjcfT7g"
+          },
+          {
+            "title": "ҰБТ | Математика| 7 cынып Дәреже тақырыбы",
+            "channel": "Математика ҰБТ | Нұрғазы Оразкелдиев",
+            "duration": "18:16",
+            "youtubeId": "bnyTUhuF11M",
+            "searchQuery": "Дәреже қасиеттері математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=bnyTUhuF11M"
+          },
+          {
+            "title": "ДӘРЕЖЕ | 15 минутта түсініп шық! | 1-бөлім",
+            "channel": "Margo ағай | Физик Эксперт",
+            "duration": "15:43",
+            "youtubeId": "ta33yWRn3z4",
+            "searchQuery": "Дәреже қасиеттері математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=ta33yWRn3z4"
           }
         ],
         "books": [
@@ -1716,12 +2146,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Теңдеулер мен теңдеулер жүйесі",
-            "channel": "LETS",
-            "duration": "24 мин",
-            "youtubeId": "M3_7kY5k3mC",
-            "searchQuery": "ҰБТ 03 Тригонометриялық өрнектер мен формулалар. Келтіру формулалары. Кері тригонометриялық функциялар қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+03+Тригонометриялық+өрнектер+мен+формулалар.+Келтіру+формулалары.+Кері+тригонометриялық+функциялар+қазақша+түсіндіру"
+            "title": "ТРИГОНОМЕТРИЯ ФОРМУЛАЛАРЫ 0-ДЕН 100-ГЕ ДЕЙІН. ЕНДІ ФОРМУЛА ЖАТТАМАЙСЫҢ! ҰБТ 2026",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:14:00",
+            "youtubeId": "OKbjsrAtJHM",
+            "searchQuery": "Тригонометрия формулалары математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=OKbjsrAtJHM"
+          },
+          {
+            "title": "ТРИГОНОМЕТРИЯ 0-ДЕН БАСТАП 20 МИНУТТА ҮЙРЕН | МАТЕМАТИКА ҰБТ",
+            "channel": "Информатика Математика Физика | infoLogia ҰБТ",
+            "duration": "19:42",
+            "youtubeId": "6oS77t_aD8g",
+            "searchQuery": "Тригонометрия формулалары математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=6oS77t_aD8g"
+          },
+          {
+            "title": "ТРИГОНОМЕТРИЯ. 0-ДЕН БАСТАП | МАТЕМАТИКА | ҰБТ",
+            "channel": "Математика | ННН ағай | Nurdaulet Nurdin",
+            "duration": "1:53:39",
+            "youtubeId": "h8IMPN2sMQQ",
+            "searchQuery": "Тригонометрия формулалары математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=h8IMPN2sMQQ"
           }
         ],
         "books": [
@@ -1767,12 +2213,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Теңсіздіктер мен олардың жүйелері (Интервал әдісі)",
-            "channel": "Juz40",
-            "duration": "26 мин",
-            "youtubeId": "M4_6pY4p4mD",
-            "searchQuery": "ҰБТ 04 Қысқаша көбейту формулалары (ҚКФ). Рационал бөлшектер. Көпмүшелер (Безу теоремасы, Горнер схемасы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+04+Қысқаша+көбейту+формулалары+(ҚКФ).+Рационал+бөлшектер.+Көпмүшелер+(Безу+теоремасы,+Горнер+схемасы)+қазақша+түсіндіру"
+            "title": "8. Қысқаша көбейту формуласы / ҰБТ МАТЕМАТИКА",
+            "channel": "Жамбыл Қабдешов Жангерейұлы",
+            "duration": "9:44",
+            "youtubeId": "Clt3f1dKlg8",
+            "searchQuery": "ҰБТ Математика Қысқаша көбейту формулалары Алгебралық өрнектер қазақша",
+            "url": "https://www.youtube.com/watch?v=Clt3f1dKlg8"
+          },
+          {
+            "title": "Қысқаша көбейту формулалары",
+            "channel": "МАТЕМАТИКА",
+            "duration": "22:49",
+            "youtubeId": "q-vEYdCSVxU",
+            "searchQuery": "ҰБТ Математика Қысқаша көбейту формулалары Алгебралық өрнектер қазақша",
+            "url": "https://www.youtube.com/watch?v=q-vEYdCSVxU"
+          },
+          {
+            "title": "Алгебралық өрнектерді ықшамдау 1 - бөлім | ҰБТ математика 2023 | Қысқаша көбейту формулалары",
+            "channel": "МАТЕМАТИКА ҰБТ ДАЙЫНДЫҚ",
+            "duration": "24:22",
+            "youtubeId": "ogf6GxY8yog",
+            "searchQuery": "ҰБТ Математика Қысқаша көбейту формулалары Алгебралық өрнектер қазақша",
+            "url": "https://www.youtube.com/watch?v=ogf6GxY8yog"
           }
         ],
         "books": [
@@ -1817,12 +2279,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Функциялар және олардың қасиеттері мен графиктері",
-            "channel": "Educon",
-            "duration": "28 мин",
-            "youtubeId": "M5_5tY3k5mE",
-            "searchQuery": "ҰБТ 05 Алгебралық теңдеулер (Сызықтық, Квадраттық, Виет теоремасы, Модульдік, Параметрлі теңдеулер) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+05+Алгебралық+теңдеулер+(Сызықтық,+Квадраттық,+Виет+теоремасы,+Модульдік,+Параметрлі+теңдеулер)+қазақша+түсіндіру"
+            "title": "КВАДРАТ ЖӘНЕ КҮРДЕЛІ ТЕҢДЕУЛЕР| МАТЕМАТИКА НАҒЫЗ ҰБТ-2025 | ВИЕТ ТЕОРЕМАСЫ | МЕЙРАМБЕК АҒАЙ",
+            "channel": "FM ONLINE",
+            "duration": "2:32:06",
+            "youtubeId": "4G9x807LlTw",
+            "searchQuery": "ҰБТ Математика Квадрат теңдеу Виет теоремасы Модульді теңдеу қазақша",
+            "url": "https://www.youtube.com/watch?v=4G9x807LlTw"
+          },
+          {
+            "title": "Квадрат теңдеу шешу әдістері, дискриминант,  Виет теоремасы",
+            "channel": "Математика ҰБТ | Нұрғазы Оразкелдиев",
+            "duration": "23:03",
+            "youtubeId": "Nsq21VCDKAQ",
+            "searchQuery": "ҰБТ Математика Квадрат теңдеу Виет теоремасы Модульді теңдеу қазақша",
+            "url": "https://www.youtube.com/watch?v=Nsq21VCDKAQ"
+          },
+          {
+            "title": "МАТЕМАТИКА ҰБТ | МОДУЛЬ | ЕНДІ ШАШАТЫН БОЛАСЫҢ",
+            "channel": "ФИЗИКА МАТЕМАТИКА АКАДЕМИЯСЫ",
+            "duration": "15:19",
+            "youtubeId": "kd77UBFfst0",
+            "searchQuery": "ҰБТ Математика Квадрат теңдеу Виет теоремасы Модульді теңдеу қазақша",
+            "url": "https://www.youtube.com/watch?v=kd77UBFfst0"
           }
         ],
         "books": [
@@ -1867,12 +2345,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Арифметикалық және геометриялық прогрессия",
-            "channel": "ҰБТ Математика",
-            "duration": "23 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 06 Тригонометриялық және Иррационал теңдеулер қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+06+Тригонометриялық+және+Иррационал+теңдеулер+қазақша+түсіндіру"
+            "title": "Тригонометриялық теңдеулер. 10 сынып.",
+            "channel": "MEKTEП OnLine MATEMATИKA",
+            "duration": "11:40",
+            "youtubeId": "-zSvQCVNW0k",
+            "searchQuery": "Тригонометриялық теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=-zSvQCVNW0k"
+          },
+          {
+            "title": "ТРИГОНОМЕТРИЯ | ТЕҢДЕУ ЖӘНЕ ТЕҢСІЗДІКТЕР | МАТЕМАТИКА ҰБТ-2027",
+            "channel": "FM ONLINE",
+            "duration": "1:12:49",
+            "youtubeId": "bhYXbch8S4g",
+            "searchQuery": "Тригонометриялық теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=bhYXbch8S4g"
+          },
+          {
+            "title": "ТРИГОНОМЕТРИЯ | ҰБТ Есептеріне Практика!",
+            "channel": "Математика | ННН ағай | Nurdaulet Nurdin",
+            "duration": "2:06:11",
+            "youtubeId": "5xw-SOOOURc",
+            "searchQuery": "Тригонометриялық теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=5xw-SOOOURc"
           }
         ],
         "books": [
@@ -1916,12 +2410,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Тригонометрия: Формулалар мен Өрнектерді ықшамдау",
-            "channel": "Juz40",
-            "duration": "32 мин",
-            "youtubeId": "YgYq0jN6E4k",
-            "searchQuery": "ҰБТ 07 Көрсеткіштік және Логарифмдік өрнектер мен теңдеулер қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+07+Көрсеткіштік+және+Логарифмдік+өрнектер+мен+теңдеулер+қазақша+түсіндіру"
+            "title": "Логарифм 0-ден бастап 20 минутта үйрен | Математика ҰБТ",
+            "channel": "Информатика Математика Физика | infoLogia ҰБТ",
+            "duration": "23:06",
+            "youtubeId": "bBdJ-Bs2xBg",
+            "searchQuery": "ҰБТ Математика Көрсеткіштік және логарифмдік теңдеулер қазақша",
+            "url": "https://www.youtube.com/watch?v=bBdJ-Bs2xBg"
+          },
+          {
+            "title": "Көрсеткіштік және логарифмдік теңдеулер және олардың жүйелері. 1 бөлім. 11 сынып.",
+            "channel": "MEKTEП OnLine MATEMATИKA",
+            "duration": "11:08",
+            "youtubeId": "srXBXqAfr54",
+            "searchQuery": "ҰБТ Математика Көрсеткіштік және логарифмдік теңдеулер қазақша",
+            "url": "https://www.youtube.com/watch?v=srXBXqAfr54"
+          },
+          {
+            "title": "Логорифмдік теңдеу және теңсіздік.+3 балл қосатын спецификация тақырыптары",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:06:11",
+            "youtubeId": "XvG3mW2HQ4c",
+            "searchQuery": "ҰБТ Математика Көрсеткіштік және логарифмдік теңдеулер қазақша",
+            "url": "https://www.youtube.com/watch?v=XvG3mW2HQ4c"
           }
         ],
         "books": [
@@ -1964,12 +2474,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Тригонометриялық теңдеулер мен теңсіздіктер",
-            "channel": "Educon",
-            "duration": "27 мин",
-            "youtubeId": "K7qP9gYQc6w",
-            "searchQuery": "ҰБТ 08 Алгебралық теңдеулер жүйесі және мәтіндік есептер қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+08+Алгебралық+теңдеулер+жүйесі+және+мәтіндік+есептер+қазақша+түсіндіру"
+            "title": "Теңдеулер жүйесі | Математика | НЗМ | Манас ағай",
+            "channel": "Математик Манас ағай | НЗМ БИЛ РФМШ",
+            "duration": "1:25:54",
+            "youtubeId": "UU5hF9UpCOo",
+            "searchQuery": "ҰБТ Математика Теңдеулер жүйесі Мәтіндік есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=UU5hF9UpCOo"
+          },
+          {
+            "title": "Теңдеулер жүйесін құру арқылы шығарылатын мәтінді есептер. 9 сынып.",
+            "channel": "MEKTEП OnLine MATEMATИKA",
+            "duration": "7:49",
+            "youtubeId": "v997M4O6ckc",
+            "searchQuery": "ҰБТ Математика Теңдеулер жүйесі Мәтіндік есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=v997M4O6ckc"
+          },
+          {
+            "title": "ҰБТ МАТЕМАТИКА. ТЕҢСІЗДІКТЕР",
+            "channel": "Мөлдір Әділқызы",
+            "duration": "1:09:39",
+            "youtubeId": "odQ31qVCwAQ",
+            "searchQuery": "ҰБТ Математика Теңдеулер жүйесі Мәтіндік есептер қазақша",
+            "url": "https://www.youtube.com/watch?v=odQ31qVCwAQ"
           }
         ],
         "books": [
@@ -2012,12 +2538,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Көрсеткіштік және Логарифмдік өрнектер",
-            "channel": "LETS",
-            "duration": "25 мин",
-            "youtubeId": "XmP8sY0tL2s",
-            "searchQuery": "ҰБТ 09 Аралас теңдеулер жүйесі (Иррационал, Көрсеткіштік, Логарифмдік, Тригонометриялық жүйелер) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+09+Аралас+теңдеулер+жүйесі+(Иррационал,+Көрсеткіштік,+Логарифмдік,+Тригонометриялық+жүйелер)+қазақша+түсіндіру"
+            "title": "Иррационал теңдеулер",
+            "channel": "МАТЕМАТИКА",
+            "duration": "42:05",
+            "youtubeId": "ltMCu3V6hGs",
+            "searchQuery": "Иррационал теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=ltMCu3V6hGs"
+          },
+          {
+            "title": "ИРРАЦИОНАЛ| ТЕҢДЕУ ЖӘНЕ ТЕҢСІЗДІКТЕР| МАТЕМАТИКА ҰБТ-2027",
+            "channel": "FM ONLINE",
+            "duration": "1:38:52",
+            "youtubeId": "7MDWJwK71cc",
+            "searchQuery": "Иррационал теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=7MDWJwK71cc"
+          },
+          {
+            "title": "14. Иррационал теңдеулер",
+            "channel": "Talaply",
+            "duration": "57:31",
+            "youtubeId": "x0p-gt8_x8g",
+            "searchQuery": "Иррационал теңдеулер математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=x0p-gt8_x8g"
           }
         ],
         "books": [
@@ -2061,12 +2603,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Көрсеткіштік және Логарифмдік теңдеулер мен теңсіздіктер",
-            "channel": "Juz40",
-            "duration": "29 мин",
-            "youtubeId": "V_8Q3u1tH7g",
-            "searchQuery": "ҰБТ 10 Теңсіздіктер (Рационал, Интервалдар әдісі, Модульдік, Иррационал, Көрсеткіштік, Логарифмдік) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+10+Теңсіздіктер+(Рационал,+Интервалдар+әдісі,+Модульдік,+Иррационал,+Көрсеткіштік,+Логарифмдік)+қазақша+түсіндіру"
+            "title": "Логорифмдік теңдеу және теңсіздік.+3 балл қосатын спецификация тақырыптары",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:06:11",
+            "youtubeId": "XvG3mW2HQ4c",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер Интервалдар әдісі Логарифмдік теңсіздік қазақша",
+            "url": "https://www.youtube.com/watch?v=XvG3mW2HQ4c"
+          },
+          {
+            "title": "ЛОГАРИФМДІК ТЕҢСІЗДІКТЕР | МАТЕМАТИКА | РАЦИОНАЛИЗАЦИЯ ӘДІСІ | МЕЙРАМБЕК АҒАЙ",
+            "channel": "FM ONLINE",
+            "duration": "2:24:15",
+            "youtubeId": "WbaGezs9dTA",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер Интервалдар әдісі Логарифмдік теңсіздік қазақша",
+            "url": "https://www.youtube.com/watch?v=WbaGezs9dTA"
+          },
+          {
+            "title": "Сені ҰБТда ҚАДАЙТЫН тақырып | Иррационал теңсіздіктер",
+            "channel": "Молдиманов Ғани | MathPro",
+            "duration": "13:30",
+            "youtubeId": "s2vGtLHDxkI",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер Интервалдар әдісі Логарифмдік теңсіздік қазақша",
+            "url": "https://www.youtube.com/watch?v=s2vGtLHDxkI"
           }
         ],
         "books": [
@@ -2109,12 +2667,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Туынды және оның қолданылуы (Экстремумдар, Жанама)",
-            "channel": "Educon",
-            "duration": "30 мин",
-            "youtubeId": "J_7p9xN1k4g",
-            "searchQuery": "ҰБТ 11 Теңсіздіктер жүйесі және Функционалдық анықталу облысы (АМЖ) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+11+Теңсіздіктер+жүйесі+және+Функционалдық+анықталу+облысы+(АМЖ)+қазақша+түсіндіру"
+            "title": "ҰБТ МАТЕМАТИКА. ТЕҢСІЗДІКТЕР",
+            "channel": "Мөлдір Әділқызы",
+            "duration": "1:09:39",
+            "youtubeId": "odQ31qVCwAQ",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер жүйесі Функция анықталу облысы қазақша",
+            "url": "https://www.youtube.com/watch?v=odQ31qVCwAQ"
+          },
+          {
+            "title": "Функция және график: анықталу облысы, нөлдер, мәндер жиыны | ҰБТ",
+            "channel": "Динара | ЕНТ Математика",
+            "duration": "6:45",
+            "youtubeId": "5inUTlCLEzM",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер жүйесі Функция анықталу облысы қазақша",
+            "url": "https://www.youtube.com/watch?v=5inUTlCLEzM"
+          },
+          {
+            "title": "Сені ҰБТда ҚАДАЙТЫН тақырып | Иррационал теңсіздіктер",
+            "channel": "Молдиманов Ғани | MathPro",
+            "duration": "13:30",
+            "youtubeId": "s2vGtLHDxkI",
+            "searchQuery": "ҰБТ Математика Теңсіздіктер жүйесі Функция анықталу облысы қазақша",
+            "url": "https://www.youtube.com/watch?v=s2vGtLHDxkI"
           }
         ],
         "books": [
@@ -2158,12 +2732,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Алғашқы функция және Анықталған интеграл",
-            "channel": "ҰБТ Математика",
-            "duration": "28 мин",
-            "youtubeId": "m1_8YqZ0k4w",
-            "searchQuery": "ҰБТ 12 Арифметикалық және Геометриялық прогрессиялар. Шексіз кемімелі геометриялық прогрессия қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+12+Арифметикалық+және+Геометриялық+прогрессиялар.+Шексіз+кемімелі+геометриялық+прогрессия+қазақша+түсіндіру"
+            "title": "Арифметикалық  прогрессия. Арифметикалық  прогрессияның n-мүшесінің формуласы. 9 сынып.",
+            "channel": "MEKTEП OnLine MATEMATИKA",
+            "duration": "8:04",
+            "youtubeId": "hAFxkTJVhMc",
+            "searchQuery": "Арифметикалық прогрессия математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=hAFxkTJVhMc"
+          },
+          {
+            "title": "ҰБТ МАТЕМАТИКА АРИФМЕТИКАЛЫҚ ПРОГРЕССИЯ",
+            "channel": "Мөлдір Әділқызы",
+            "duration": "59:54",
+            "youtubeId": "LqT_drFFyfg",
+            "searchQuery": "Арифметикалық прогрессия математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=LqT_drFFyfg"
+          },
+          {
+            "title": "ҰБТ 2025 | АРИФМЕТИКАЛЫҚ ПРОГРЕССИЯ 1 - САБАҚ",
+            "channel": "Samat Bolatov",
+            "duration": "28:18",
+            "youtubeId": "QmaQzBiueGA",
+            "searchQuery": "Арифметикалық прогрессия математика ҰБТ",
+            "url": "https://www.youtube.com/watch?v=QmaQzBiueGA"
           }
         ],
         "books": [
@@ -2209,12 +2799,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Планиметрия: Үшбұрыштар және Төртбұрыштар",
-            "channel": "Juz40",
-            "duration": "31 мин",
-            "youtubeId": "T9_1kY8p2mA",
-            "searchQuery": "ҰБТ 13 Функция, Шектер, Туынды, Жанама теңдеуі, Экстремумдар, Алғашқы функция және Интеграл қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+13+Функция,+Шектер,+Туынды,+Жанама+теңдеуі,+Экстремумдар,+Алғашқы+функция+және+Интеграл+қазақша+түсіндіру"
+            "title": "ИНТЕГРАЛ, АЛҒАШҚЫ ФУНКЦИЯ || МАТЕМАТИКАНЫ ТОЛЫҚ ҚАЙТАЛАУ-5 ||МАТЕМАТИКА ҰБТ-2025| МЕЙРАМБЕК АҒАЙ",
+            "channel": "Meirambek Satybaldy",
+            "duration": "4:16:26",
+            "youtubeId": "UzT1qRhTmoI",
+            "searchQuery": "ҰБТ Математика Туынды Алғашқы функция Интеграл ҰБТ есептері қазақша",
+            "url": "https://www.youtube.com/watch?v=UzT1qRhTmoI"
+          },
+          {
+            "title": "Туынды 0-ден бастап 20 минутта үйрен | Математика ҰБТ",
+            "channel": "Информатика Математика Физика | infoLogia ҰБТ",
+            "duration": "19:13",
+            "youtubeId": "72oViUGSnZ4",
+            "searchQuery": "ҰБТ Математика Туынды Алғашқы функция Интеграл ҰБТ есептері қазақша",
+            "url": "https://www.youtube.com/watch?v=72oViUGSnZ4"
+          },
+          {
+            "title": "ИНТЕГРАЛ 0-ден үйреніп, +7 балл қос | Математика ҰБТ",
+            "channel": "Информатика Математика Физика | infoLogia ҰБТ",
+            "duration": "30:01",
+            "youtubeId": "q6QcPQ0hDgo",
+            "searchQuery": "ҰБТ Математика Туынды Алғашқы функция Интеграл ҰБТ есептері қазақша",
+            "url": "https://www.youtube.com/watch?v=q6QcPQ0hDgo"
           }
         ],
         "books": [
@@ -2259,12 +2865,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Планиметрия: Шеңбер, Дөңгелек және олардың элементтері",
-            "channel": "Educon",
-            "duration": "24 мин",
-            "youtubeId": "E1_7pY9k3mB",
-            "searchQuery": "ҰБТ 14 Планиметрия фигуралары (Үшбұрыштар, Төртбұрыштар, Шеңбер, Іштей және сырттай сызылған шеңберлер) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+14+Планиметрия+фигуралары+(Үшбұрыштар,+Төртбұрыштар,+Шеңбер,+Іштей+және+сырттай+сызылған+шеңберлер)+қазақша+түсіндіру"
+            "title": "Геометрияны ОҢАЙ әрі ТЕЗ түсініп ал | ҰБТ 2026 | JUZ40",
+            "channel": "JUZ40 ONLINE",
+            "duration": "57:03",
+            "youtubeId": "G_9V6w2kf5E",
+            "searchQuery": "ҰБТ Математика Планиметрия Үшбұрыш Төртбұрыш Шеңбер қазақша",
+            "url": "https://www.youtube.com/watch?v=G_9V6w2kf5E"
+          },
+          {
+            "title": "ҰБТ дайындық. Планиметрия. Шеңбер, Ауданы көлемі т.с.с.",
+            "channel": "«Qazaq úni»",
+            "duration": "11:43",
+            "youtubeId": "Qohe6sG2AWE",
+            "searchQuery": "ҰБТ Математика Планиметрия Үшбұрыш Төртбұрыш Шеңбер қазақша",
+            "url": "https://www.youtube.com/watch?v=Qohe6sG2AWE"
+          },
+          {
+            "title": "ПЛАНИМЕТРИЯ ТОЛЫҚ ҚАЙТАЛАУ | МАТЕМАТИКА | ҰБТ 2026",
+            "channel": "Kuanysh Zhanysbek",
+            "duration": "5:01:01",
+            "youtubeId": "bWisVAbHlYo",
+            "searchQuery": "ҰБТ Математика Планиметрия Үшбұрыш Төртбұрыш Шеңбер қазақша",
+            "url": "https://www.youtube.com/watch?v=bWisVAbHlYo"
           }
         ],
         "books": [
@@ -2316,12 +2938,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Стереометрия: Түзулер мен жазықтықтардың өзара орналасуы",
-            "channel": "LETS",
-            "duration": "22 мин",
-            "youtubeId": "N2_6tY8k4mC",
-            "searchQuery": "ҰБТ 15 Планиметриядағы метрикалық қатыстар (Синустар және Косинустар теоремасы, Медиана, Биссектриса, Жазықтықтағы векторлар мен түзу теңдеуі) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+15+Планиметриядағы+метрикалық+қатыстар+(Синустар+және+Косинустар+теоремасы,+Медиана,+Биссектриса,+Жазықтықтағы+векторлар+мен+түзу+теңдеуі)+қазақша+түсіндіру"
+            "title": "ЖАЗЫҚТЫҚТАҒЫ ВЕКТОРЛАР | МАТЕМАТИКА | НҰРТІЛЕУ АҒАЙ",
+            "channel": "FM ONLINE",
+            "duration": "1:42:57",
+            "youtubeId": "uKq1OkBJw1c",
+            "searchQuery": "ҰБТ Математика Синустар Косинустар теоремасы Жазықтықтағы векторлар қазақша",
+            "url": "https://www.youtube.com/watch?v=uKq1OkBJw1c"
+          },
+          {
+            "title": "Косинустар теоремасы #ұбт #математика",
+            "channel": "Esep Time",
+            "duration": "3:04",
+            "youtubeId": "v7rbapH9i8g",
+            "searchQuery": "ҰБТ Математика Синустар Косинустар теоремасы Жазықтықтағы векторлар қазақша",
+            "url": "https://www.youtube.com/watch?v=v7rbapH9i8g"
+          },
+          {
+            "title": "Векторларға берілген есеп. Косинустар теоремасы. ҰБТ",
+            "channel": "Математика ҰБТ",
+            "duration": "6:26",
+            "youtubeId": "l3j8c1WYz5M",
+            "searchQuery": "ҰБТ Математика Синустар Косинустар теоремасы Жазықтықтағы векторлар қазақша",
+            "url": "https://www.youtube.com/watch?v=l3j8c1WYz5M"
           }
         ],
         "books": [
@@ -2373,12 +3011,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Көпжақтар: Призма және Пирамида",
-            "channel": "Juz40",
-            "duration": "27 мин",
-            "youtubeId": "P3_5yZ7k5mD",
-            "searchQuery": "ҰБТ 16 Кеңістіктегі түзулер мен жазықтықтар. Көпжақтар (Призма, Пирамида, Куб, Параллелепипед) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+16+Кеңістіктегі+түзулер+мен+жазықтықтар.+Көпжақтар+(Призма,+Пирамида,+Куб,+Параллелепипед)+қазақша+түсіндіру"
+            "title": "Стереометрия: Куб, призма, параллелепипед | Онлайн сабақ (ҰБТ есептері)",
+            "channel": "QazaqMath | Dildar Academy",
+            "duration": "1:48:43",
+            "youtubeId": "bSkTqO_sFUY",
+            "searchQuery": "ҰБТ Математика Стереометрия Призма Пирамида Куб көлемі қазақша",
+            "url": "https://www.youtube.com/watch?v=bSkTqO_sFUY"
+          },
+          {
+            "title": "Призма, Параллелепипед, Куб - ҰБТ-ға дайындық | Математика",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "16:08",
+            "youtubeId": "aa_CLCg5ypc",
+            "searchQuery": "ҰБТ Математика Стереометрия Призма Пирамида Куб көлемі қазақша",
+            "url": "https://www.youtube.com/watch?v=aa_CLCg5ypc"
+          },
+          {
+            "title": "Геометрияны ОҢАЙ әрі ТЕЗ түсініп ал | ҰБТ 2026 | JUZ40",
+            "channel": "JUZ40 ONLINE",
+            "duration": "57:03",
+            "youtubeId": "G_9V6w2kf5E",
+            "searchQuery": "ҰБТ Математика Стереометрия Призма Пирамида Куб көлемі қазақша",
+            "url": "https://www.youtube.com/watch?v=G_9V6w2kf5E"
           }
         ],
         "books": [
@@ -2423,12 +3077,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Айналу денелері: Цилиндр, Конус, Шар",
-            "channel": "Educon",
-            "duration": "26 мин",
-            "youtubeId": "D4_4kY6p6mE",
-            "searchQuery": "ҰБТ 17 Айналу денелері (Цилиндр, Конус, Қиық конус, Шар мен Сфера) және Олардың комбинациялары қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+17+Айналу+денелері+(Цилиндр,+Конус,+Қиық+конус,+Шар+мен+Сфера)+және+Олардың+комбинациялары+қазақша+түсіндіру"
+            "title": "Стереометрия: Шар / Сфера | Онлайн сабақ (ҰБТ есептері)",
+            "channel": "QazaqMath | Dildar Academy",
+            "duration": "44:03",
+            "youtubeId": "vIDQXJVvyg0",
+            "searchQuery": "ҰБТ Математика Стереометрия Цилиндр Конус Шар Сфера қазақша",
+            "url": "https://www.youtube.com/watch?v=vIDQXJVvyg0"
+          },
+          {
+            "title": "Цилиндр. Конус. 0-ден бастап",
+            "channel": "Математика | ННН ағай | Nurdaulet Nurdin",
+            "duration": "2:17:24",
+            "youtubeId": "gGxz6yYfhMc",
+            "searchQuery": "ҰБТ Математика Стереометрия Цилиндр Конус Шар Сфера қазақша",
+            "url": "https://www.youtube.com/watch?v=gGxz6yYfhMc"
+          },
+          {
+            "title": "Стереометрия: Конус / Қиық конус | Онлайн сабақ (ҰБТ есептері)",
+            "channel": "QazaqMath | Dildar Academy",
+            "duration": "58:00",
+            "youtubeId": "oFVC9uRzh1w",
+            "searchQuery": "ҰБТ Математика Стереометрия Цилиндр Конус Шар Сфера қазақша",
+            "url": "https://www.youtube.com/watch?v=oFVC9uRzh1w"
           }
         ],
         "books": [
@@ -2473,12 +3143,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "Векторлар және Кеңістіктегі координаттар әдісі",
-            "channel": "ҰБТ Математика",
-            "duration": "21 мин",
-            "youtubeId": "I5_3pY5k7mF",
-            "searchQuery": "ҰБТ 18 Кеңістіктегі векторлар, Скаляр көбейтінді, Түзу мен Жазықтық теңдеулері, Нүктеден жазықтыққа дейінгі қашықтық қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+18+Кеңістіктегі+векторлар,+Скаляр+көбейтінді,+Түзу+мен+Жазықтық+теңдеулері,+Нүктеден+жазықтыққа+дейінгі+қашықтық+қазақша+түсіндіру"
+            "title": "Вектор | Оңай жолмен түсіндіру - ҰБТ | MegaMath",
+            "channel": "Margo ағай | Физик Эксперт",
+            "duration": "27:17",
+            "youtubeId": "PN9jvFjuDGg",
+            "searchQuery": "ҰБТ Математика Кеңістіктегі векторлар Жазықтық теңдеуі қазақша",
+            "url": "https://www.youtube.com/watch?v=PN9jvFjuDGg"
+          },
+          {
+            "title": "Аналитикалық геометрия, 1 сабақ, Кеңістіктегі векторлар",
+            "channel": "Видеокурсы DA VINCI",
+            "duration": "15:06",
+            "youtubeId": "aQdGSeZsDGk",
+            "searchQuery": "ҰБТ Математика Кеңістіктегі векторлар Жазықтық теңдеуі қазақша",
+            "url": "https://www.youtube.com/watch?v=aQdGSeZsDGk"
+          },
+          {
+            "title": "Кеңістіктегі жазықтық 3 сабақ",
+            "channel": "Talgat Akhazhanov",
+            "duration": "46:50",
+            "youtubeId": "LyriHzmc7X8",
+            "searchQuery": "ҰБТ Математика Кеңістіктегі векторлар Жазықтық теңдеуі қазақша",
+            "url": "https://www.youtube.com/watch?v=LyriHzmc7X8"
           }
         ],
         "books": [
@@ -2523,12 +3209,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "01 Сандық өрнектер, Соңғы цифр, Бөлінгіштік, Логикалық амалдар: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 01 Сандық өрнектер, Соңғы цифр, Бөлінгіштік, Логикалық амалдар қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+01+Сандық+өрнектер,+Соңғы+цифр,+Бөлінгіштік,+Логикалық+амалдар+қазақша+түсіндіру"
+            "title": "15 САННЫҢ СОҢҒЫ ЦИФРЫН ТАБУ. МАТ САУАТТЫЛЫҚ. АҚЖОЛ КНЯЗОВ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "8:51",
+            "youtubeId": "GJuRH8Pvxq8",
+            "searchQuery": "Соңғы цифр математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=GJuRH8Pvxq8"
+          },
+          {
+            "title": "МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ. САННЫҢ СОҢҒЫ ЦИФРЫ.",
+            "channel": "ҰБТ мектебі",
+            "duration": "22:07",
+            "youtubeId": "a3A99rV_Gpo",
+            "searchQuery": "Соңғы цифр математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=a3A99rV_Gpo"
+          },
+          {
+            "title": "Соңғы цифрды анықтау !  Ұбт !  Математикалық сауаттылық !",
+            "channel": "MATEMATIKA TRENDI",
+            "duration": "12:03",
+            "youtubeId": "OUCxI58q5_Q",
+            "searchQuery": "Соңғы цифр математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=OUCxI58q5_Q"
           }
         ],
         "books": [
@@ -2578,12 +3280,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "02 Теңдеу құруға берілген мәтінді есептер (Жасқа, аяқ-басқа, бет нөмірлеуге, қол алысуға есептер): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 02 Теңдеу құруға берілген мәтінді есептер (Жасқа, аяқ-басқа, бет нөмірлеуге, қол алысуға есептер) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+02+Теңдеу+құруға+берілген+мәтінді+есептер+(Жасқа,+аяқ-басқа,+бет+нөмірлеуге,+қол+алысуға+есептер)+қазақша+түсіндіру"
+            "title": "№3 Кітап беті | #ҰБТ | #МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | #ТЕГІН САБАҚ | #EDUSER ONLINE | Бекасыл Бекжанұлы",
+            "channel": "EDUSER ONLINE",
+            "duration": "23:00",
+            "youtubeId": "H693U-EHQDo",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Теңдеу құру Жасқа есептер Бет нөмірлеу қазақша",
+            "url": "https://www.youtube.com/watch?v=H693U-EHQDo"
+          },
+          {
+            "title": "Кітап беттері.Нөмірлеу",
+            "channel": "KEMEL SCHOOL",
+            "duration": "2:58",
+            "youtubeId": "eEpUJGhnXys",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Теңдеу құру Жасқа есептер Бет нөмірлеу қазақша",
+            "url": "https://www.youtube.com/watch?v=eEpUJGhnXys"
+          },
+          {
+            "title": "Сандарға байланысты есептер  !  Ұбт !  Математикалық сауаттылық !",
+            "channel": "MATEMATIKA TRENDI",
+            "duration": "15:15",
+            "youtubeId": "psf2NF7ZJSw",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Теңдеу құру Жасқа есептер Бет нөмірлеу қазақша",
+            "url": "https://www.youtube.com/watch?v=psf2NF7ZJSw"
           }
         ],
         "books": [
@@ -2633,12 +3351,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "03 Пайыз, Қоспа мен Ерітінді, Диаграммалар мен Графиктер: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 03 Пайыз, Қоспа мен Ерітінді, Диаграммалар мен Графиктер қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+03+Пайыз,+Қоспа+мен+Ерітінді,+Диаграммалар+мен+Графиктер+қазақша+түсіндіру"
+            "title": "ПАЙЫЗ | КҮРДЕЛІ ПАЙЫЗ | МС | МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | НАЗЕРКЕ АПАЙ | ҰБТ",
+            "channel": "Назерке Алтынбек",
+            "duration": "23:54",
+            "youtubeId": "cXeV9Dkv8MU",
+            "searchQuery": "Пайыз қоспа математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=cXeV9Dkv8MU"
+          },
+          {
+            "title": "Пайыз дегеніміз не? /Пайыз бен бөліктің байланысы қандай?",
+            "channel": "Максат Каралтаев",
+            "duration": "5:08",
+            "youtubeId": "8PK6GFotB1Y",
+            "searchQuery": "Пайыз қоспа математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=8PK6GFotB1Y"
+          },
+          {
+            "title": "19 ПАЙЫЗ. МАТ САУАТТЫЛЫҚ. АҚЖОЛ КНЯЗОВ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "54:26",
+            "youtubeId": "hKUSp3o4K10",
+            "searchQuery": "Пайыз қоспа математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=hKUSp3o4K10"
           }
         ],
         "books": [
@@ -2688,12 +3422,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "04 Статистикалық сипаттамалар (Арифметикалық орта, Медиана, Мода, Өзгеріс құлашы): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 04 Статистикалық сипаттамалар (Арифметикалық орта, Медиана, Мода, Өзгеріс құлашы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+04+Статистикалық+сипаттамалар+(Арифметикалық+орта,+Медиана,+Мода,+Өзгеріс+құлашы)+қазақша+түсіндіру"
+            "title": "МОДА, МЕДИАНА, АРИФМЕТИКАЛЫҚ ОРТА, ӨЗГЕРІС АУҚЫМЫ | МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | ҰБТ - 2025",
+            "channel": "Ерсайын Ақзамұлы",
+            "duration": "25:01",
+            "youtubeId": "zNNvXUBI82c",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Арифметикалық орта Медиана Мода Өзгеріс ауқымы",
+            "url": "https://www.youtube.com/watch?v=zNNvXUBI82c"
+          },
+          {
+            "title": "№1 Мода. Медиана. Өзгеріс ауқымы | #ҰБТ | #МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | #ТЕГІН САБАҚ | #EDUSER ONLINE",
+            "channel": "EDUSER ONLINE",
+            "duration": "14:07",
+            "youtubeId": "6jKoSBeMaT4",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Арифметикалық орта Медиана Мода Өзгеріс ауқымы",
+            "url": "https://www.youtube.com/watch?v=6jKoSBeMaT4"
+          },
+          {
+            "title": "1-сабақ. Арифметиткалық орта.Өзгеріс ауқымы. Мода. Медиана",
+            "channel": "Математика оңай",
+            "duration": "20:08",
+            "youtubeId": "XLfFj-_hzs8",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Арифметикалық орта Медиана Мода Өзгеріс ауқымы",
+            "url": "https://www.youtube.com/watch?v=XLfFj-_hzs8"
           }
         ],
         "books": [
@@ -2743,12 +3493,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "05 Жиындар (Эйлер–Венн дөңгелектері), Комбинаторика және Ықтималдықтар теориясы: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 05 Жиындар (Эйлер–Венн дөңгелектері), Комбинаторика және Ықтималдықтар теориясы қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+05+Жиындар+(Эйлер–Венн+дөңгелектері),+Комбинаторика+және+Ықтималдықтар+теориясы+қазақша+түсіндіру"
+            "title": "ҰБТ 2023/ЫҚТИМАЛДЫҚ ТЕОРИЯСЫНАН ЕСЕП",
+            "channel": "Zhanalidenov Nurbol",
+            "duration": "5:24",
+            "youtubeId": "R1dyd6I-UaA",
+            "searchQuery": "Ықтималдықтар теориясы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=R1dyd6I-UaA"
+          },
+          {
+            "title": "Ықтималдықтар теориясы | 1 - БӨЛІМ",
+            "channel": "matemGO",
+            "duration": "41:45",
+            "youtubeId": "clUb7OH0ly4",
+            "searchQuery": "Ықтималдықтар теориясы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=clUb7OH0ly4"
+          },
+          {
+            "title": "Ықтималдықтар теориясы / Математикалық сауаттылық ҰБТ - ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "30:44",
+            "youtubeId": "GgrL0ngRnz8",
+            "searchQuery": "Ықтималдықтар теориясы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=GgrL0ngRnz8"
           }
         ],
         "books": [
@@ -2798,12 +3564,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "06 Қозғалыс (Судағы, Пойыз, Шеңбер бойымен), Бірлескен жұмыс және Сағат тілдері: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 06 Қозғалыс (Судағы, Пойыз, Шеңбер бойымен), Бірлескен жұмыс және Сағат тілдері қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+06+Қозғалыс+(Судағы,+Пойыз,+Шеңбер+бойымен),+Бірлескен+жұмыс+және+Сағат+тілдері+қазақша+түсіндіру"
+            "title": "Бірлескен жұмыс. Математикалық сауаттылық",
+            "channel": "afisonne",
+            "duration": "15:53",
+            "youtubeId": "yeomMorHCpU",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Қозғалыс Бірлескен жұмыс Сағат тілдері қазақша",
+            "url": "https://www.youtube.com/watch?v=yeomMorHCpU"
+          },
+          {
+            "title": "29 БІРЛЕСКЕН ЖҰМЫСҚА АРНАЛҒАН ЕСЕПТЕР. МАТ САУАТТЫЛЫҚ. АҚЖОЛ КНЯЗОВ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "20:26",
+            "youtubeId": "0H6O7afSFt0",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Қозғалыс Бірлескен жұмыс Сағат тілдері қазақша",
+            "url": "https://www.youtube.com/watch?v=0H6O7afSFt0"
+          },
+          {
+            "title": "сағат тілдері арасындағы бұрыштарға байланысты есептер",
+            "channel": "Білім Әлемі ( химия және математика)",
+            "duration": "13:20",
+            "youtubeId": "CSZfvt1TYtM",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Қозғалыс Бірлескен жұмыс Сағат тілдері қазақша",
+            "url": "https://www.youtube.com/watch?v=CSZfvt1TYtM"
           }
         ],
         "books": [
@@ -2846,12 +3628,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "07 Сандық тізбектер, Кестелер және Жаңа логикалық операторлар ($a \\\\ast b$): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 07 Сандық тізбектер, Кестелер және Жаңа логикалық операторлар ($a \\\\ast b$) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+07+Сандық+тізбектер,+Кестелер+және+Жаңа+логикалық+операторлар+($a+\\\\ast+b$)+қазақша+түсіндіру"
+            "title": "Сандық тізбектер. ҰБТ есептері",
+            "channel": "Bilim negizi",
+            "duration": "6:26",
+            "youtubeId": "QYL8vtDeNVU",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Сандық тізбектер Кестелер Логикалық амалдар",
+            "url": "https://www.youtube.com/watch?v=QYL8vtDeNVU"
+          },
+          {
+            "title": "ҰБТ-2027 | Математикалық сауаттылық | Аида апаймен",
+            "channel": "Aida Zhiyenbay",
+            "duration": "15:00",
+            "youtubeId": "eU73Eg71HFo",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Сандық тізбектер Кестелер Логикалық амалдар",
+            "url": "https://www.youtube.com/watch?v=eU73Eg71HFo"
+          },
+          {
+            "title": "58 ЖАҢА ЛОГИКАЛЫҚ АМАЛ. МАТ САУАТТЫЛЫҚ. АҚЖОЛ КНЯЗОВ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "17:23",
+            "youtubeId": "6slZqfuEBSI",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Сандық тізбектер Кестелер Логикалық амалдар",
+            "url": "https://www.youtube.com/watch?v=6slZqfuEBSI"
           }
         ],
         "books": [
@@ -2894,12 +3692,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "08 Геометриялық логикалық есептер (Фигуралар санау, Сіріңке, Баспалдақ, Торкөздегі аудан — Пик формуласы): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 08 Геометриялық логикалық есептер (Фигуралар санау, Сіріңке, Баспалдақ, Торкөздегі аудан — Пик формуласы) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+08+Геометриялық+логикалық+есептер+(Фигуралар+санау,+Сіріңке,+Баспалдақ,+Торкөздегі+аудан+—+Пик+формуласы)+қазақша+түсіндіру"
+            "title": "48 АРАЛАС ГЕОМЕТРИЯЛЫҚ ЕСЕПТЕР. МАТ САУАТТЫЛЫҚ. АҚЖОЛ КНЯЗОВ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "7:59",
+            "youtubeId": "njQEGCEheXQ",
+            "searchQuery": "Геометриялық есептер математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=njQEGCEheXQ"
+          },
+          {
+            "title": "ҰБТ-ға дайындық / Математикалық сауаттылық / Геометриялық есептер",
+            "channel": "Zerdeli Online мектебі",
+            "duration": "1:00:44",
+            "youtubeId": "KYjd9FnSQcs",
+            "searchQuery": "Геометриялық есептер математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=KYjd9FnSQcs"
+          },
+          {
+            "title": "ГЕОМЕТРИЯ | МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | НҰСҚА ТАЛДАУ | АРУ АПАЙ | МАҚАТОВА АРУЖАН",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:26:29",
+            "youtubeId": "cZWqiB39Gkg",
+            "searchQuery": "Геометриялық есептер математикалық сауаттылық ҰБТ",
+            "url": "https://www.youtube.com/watch?v=cZWqiB39Gkg"
           }
         ],
         "books": [
@@ -2942,12 +3756,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "09 Жазық фигуралардың периметрі мен ауданы (Боялған бөлік ауданы, Шеңбер секторы, Масштаб): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 09 Жазық фигуралардың периметрі мен ауданы (Боялған бөлік ауданы, Шеңбер секторы, Масштаб) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+09+Жазық+фигуралардың+периметрі+мен+ауданы+(Боялған+бөлік+ауданы,+Шеңбер+секторы,+Масштаб)+қазақша+түсіндіру"
+            "title": "Фигуралардың ауданын табу / Математика пәнінен НЗМ және БИЛ емтиханына дайындық",
+            "channel": "QAZBILIM TV",
+            "duration": "16:18",
+            "youtubeId": "8plHv6JMx50",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Фигуралардың периметрі мен ауданы Масштаб",
+            "url": "https://www.youtube.com/watch?v=8plHv6JMx50"
+          },
+          {
+            "title": "ҰБТ-2027 | Математикалық сауаттылық | Аида апаймен",
+            "channel": "Aida Zhiyenbay",
+            "duration": "15:00",
+            "youtubeId": "eU73Eg71HFo",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Фигуралардың периметрі мен ауданы Масштаб",
+            "url": "https://www.youtube.com/watch?v=eU73Eg71HFo"
+          },
+          {
+            "title": "АУДАН ЖӘНЕ ПЕРИМЕТР ТАБУ | МАТЕМАТИКАЛЫҚ САУАТТЫЛЫҚ | БІРЖАН АҒАЙ",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:13:11",
+            "youtubeId": "t1Mxu90Kumo",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Фигуралардың периметрі мен ауданы Масштаб",
+            "url": "https://www.youtube.com/watch?v=t1Mxu90Kumo"
           }
         ],
         "books": [
@@ -2997,12 +3827,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "10 Кеңістік денелерінің бет ауданы мен көлемі (Боялған кубиктерді кесу, Жазбалар, Ыдыстағы су деңгейі): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 10 Кеңістік денелерінің бет ауданы мен көлемі (Боялған кубиктерді кесу, Жазбалар, Ыдыстағы су деңгейі) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+10+Кеңістік+денелерінің+бет+ауданы+мен+көлемі+(Боялған+кубиктерді+кесу,+Жазбалар,+Ыдыстағы+су+деңгейі)+қазақша+түсіндіру"
+            "title": "Көлем / Математикалық сауаттылық пәнінен көлемге байланысты есептер /  ҰБТ - ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "24:13",
+            "youtubeId": "0EcZOafaBzE",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Боялған куб Көлем Бет ауданы есептері",
+            "url": "https://www.youtube.com/watch?v=0EcZOafaBzE"
+          },
+          {
+            "title": "Текше (куб)  / Математикалық сауаттылық ҰБТ - ға дайындық / ЕНТ",
+            "channel": "QAZBILIM TV",
+            "duration": "20:46",
+            "youtubeId": "wkWuiNq2qCE",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Боялған куб Көлем Бет ауданы есептері",
+            "url": "https://www.youtube.com/watch?v=wkWuiNq2qCE"
+          },
+          {
+            "title": "Стереометрия: Куб, призма, параллелепипед | Онлайн сабақ (ҰБТ есептері)",
+            "channel": "QazaqMath | Dildar Academy",
+            "duration": "1:48:43",
+            "youtubeId": "bSkTqO_sFUY",
+            "searchQuery": "ҰБТ Математикалық сауаттылық Боялған куб Көлем Бет ауданы есептері",
+            "url": "https://www.youtube.com/watch?v=bSkTqO_sFUY"
           }
         ],
         "books": [
@@ -3054,12 +3900,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "01 Тас дәуірі (Палеолит, Мезолит, Неолит), Энеолит (Ботай) және Қола дәуірі (Андрон, Беғазы-Дәндібай): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 01 Тас дәуірі (Палеолит, Мезолит, Неолит), Энеолит (Ботай) және Қола дәуірі (Андрон, Беғазы-Дәндібай) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+01+Тас+дәуірі+(Палеолит,+Мезолит,+Неолит),+Энеолит+(Ботай)+және+Қола+дәуірі+(Андрон,+Беғазы-Дәндібай)+қазақша+түсіндіру"
+            "title": "Қазақстан тарихы қола дәуірі",
+            "channel": "Tanym",
+            "duration": "17:57",
+            "youtubeId": "3bUpp73Tv1g",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тас дәуірі Энеолит Ботай Қола дәуірі Андрон",
+            "url": "https://www.youtube.com/watch?v=3bUpp73Tv1g"
+          },
+          {
+            "title": "1 ҚЫСҚА ДА НҰСҚА ТАРИХ. ТАС ДӘУІРІ",
+            "channel": "AKZHOL KNYAZOV",
+            "duration": "13:06",
+            "youtubeId": "wHOcT6is1us",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тас дәуірі Энеолит Ботай Қола дәуірі Андрон",
+            "url": "https://www.youtube.com/watch?v=wHOcT6is1us"
+          },
+          {
+            "title": "ҰБТ ТАРИХ | НЕОЛИТ ПЕН ЭНЕОЛИТ ДӘУІРІ | БОТАЙ ТҰРАҒЫ",
+            "channel": "HISTORICA",
+            "duration": "29:23",
+            "youtubeId": "5laqDRpSDLU",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тас дәуірі Энеолит Ботай Қола дәуірі Андрон",
+            "url": "https://www.youtube.com/watch?v=5laqDRpSDLU"
           }
         ],
         "books": [
@@ -3102,12 +3964,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "02 Ерте темір дәуірі: Сақтар, Сарматтар, Үйсіндер, Қаңлылар, Ғұндар: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 02 Ерте темір дәуірі: Сақтар, Сарматтар, Үйсіндер, Қаңлылар, Ғұндар қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+02+Ерте+темір+дәуірі:+Сақтар,+Сарматтар,+Үйсіндер,+Қаңлылар,+Ғұндар+қазақша+түсіндіру"
+            "title": "Сақтар туралы 5 минут: Томирис, Алтын адам және көшпенді тайпа құпиялары",
+            "channel": "QalamBalam — нағыз негештерге арналған ғалам",
+            "duration": "4:55",
+            "youtubeId": "vGz8OZa_3fk",
+            "searchQuery": "Сақтар Ғұндар Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=vGz8OZa_3fk"
+          },
+          {
+            "title": "tarıhqa sholý | ҒҰНДАР ДЕГЕН КІМДЕР?",
+            "channel": "koz qaras",
+            "duration": "3:25",
+            "youtubeId": "VeDkzxuMsu8",
+            "searchQuery": "Сақтар Ғұндар Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=VeDkzxuMsu8"
+          },
+          {
+            "title": "Қазақстан тарихы. Үйсін. Қаңлы. Ғұн тайпалары / ҰБТ",
+            "channel": "QAZBILIM TV",
+            "duration": "52:00",
+            "youtubeId": "sLuta-ElTEo",
+            "searchQuery": "Сақтар Ғұндар Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=sLuta-ElTEo"
           }
         ],
         "books": [
@@ -3150,12 +4028,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "03–06 Ерте орта ғасырлық мемлекеттер: Түрік, Батыс Түрік, Түргеш, Қарлұқ, Оғыз, Қимақ қағанаттары (VI–XI ғ.): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 03–06 Ерте орта ғасырлық мемлекеттер: Түрік, Батыс Түрік, Түргеш, Қарлұқ, Оғыз, Қимақ қағанаттары (VI–XI ғ.) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+03–06+Ерте+орта+ғасырлық+мемлекеттер:+Түрік,+Батыс+Түрік,+Түргеш,+Қарлұқ,+Оғыз,+Қимақ+қағанаттары+(VI–XI+ғ.)+қазақша+түсіндіру"
+            "title": "ТҮРІК ҚАҒАНАТЫ: КӨШПЕЛІЛЕР ИМПЕРИЯСЫ. КАРТА-АНИМАЦИЯ. Толық тарихы Түркілер. Тюрки. Тюркский каганат",
+            "channel": "qaztarih",
+            "duration": "15:01",
+            "youtubeId": "AsU-_V82OI0",
+            "searchQuery": "Түрік қағанаты Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=AsU-_V82OI0"
+          },
+          {
+            "title": "Түрік қағанаты | Қазақстан тарихы ҰБТ",
+            "channel": "HISTORICA",
+            "duration": "13:49",
+            "youtubeId": "hcMO5xsDLec",
+            "searchQuery": "Түрік қағанаты Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=hcMO5xsDLec"
+          },
+          {
+            "title": "FOUNDATION САБАҚ | ҚАЗАҚСТАН ТАРИХ | БИБА АПАЙ | ТҮРІК ҚАҒАНАТЫ",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:01:20",
+            "youtubeId": "vzdOTw3Agx0",
+            "searchQuery": "Түрік қағанаты Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=vzdOTw3Agx0"
           }
         ],
         "books": [
@@ -3198,12 +4092,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "07–08 Дамыған орта ғасырлар: Қарахан мемлекеті, Найман, Керейіт, Жалайыр, Қарақытай және Қыпшақ хандығы: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 07–08 Дамыған орта ғасырлар: Қарахан мемлекеті, Найман, Керейіт, Жалайыр, Қарақытай және Қыпшақ хандығы қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+07–08+Дамыған+орта+ғасырлар:+Қарахан+мемлекеті,+Найман,+Керейіт,+Жалайыр,+Қарақытай+және+Қыпшақ+хандығы+қазақша+түсіндіру"
+            "title": "ҚАЗАҚСТАН ТАРИХЫ: ҚАРАХАН МЕМЛЕКЕТІ",
+            "channel": "Dilnaz Makimova",
+            "duration": "13:45",
+            "youtubeId": "LvMlqKrJS98",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қарахан мемлекеті Найман Керейіт Қыпшақ хандығы",
+            "url": "https://www.youtube.com/watch?v=LvMlqKrJS98"
+          },
+          {
+            "title": "7. Қарахан, Қарақытай, Жалайыр, Керейіт,  Найман, Қыпшақ хандығы",
+            "channel": "Dostyq Tarih",
+            "duration": "35:51",
+            "youtubeId": "E2-8UcgjEe4",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қарахан мемлекеті Найман Керейіт Қыпшақ хандығы",
+            "url": "https://www.youtube.com/watch?v=E2-8UcgjEe4"
+          },
+          {
+            "title": "Найман, Керей, Жалайыр, Қыпшақ мемлекеттері / Қазақстан тарихы ҰБТ - ға дайындық",
+            "channel": "QAZBILIM TV",
+            "duration": "2:55",
+            "youtubeId": "GIJ6PXVkJWk",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қарахан мемлекеті Найман Керейіт Қыпшақ хандығы",
+            "url": "https://www.youtube.com/watch?v=GIJ6PXVkJWk"
           }
         ],
         "books": [
@@ -3246,12 +4156,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "09–12 Моңғол шапқыншылығы, Ұлыстар, Алтын Орда (Жошы ұлысы), Ақ Орда, Моғолстан, Әмір Темір, Әбілқайыр хандығы, Ноғай Ордасы: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 09–12 Моңғол шапқыншылығы, Ұлыстар, Алтын Орда (Жошы ұлысы), Ақ Орда, Моғолстан, Әмір Темір, Әбілқайыр хандығы, Ноғай Ордасы қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+09–12+Моңғол+шапқыншылығы,+Ұлыстар,+Алтын+Орда+(Жошы+ұлысы),+Ақ+Орда,+Моғолстан,+Әмір+Темір,+Әбілқайыр+хандығы,+Ноғай+Ордасы+қазақша+түсіндіру"
+            "title": "АЛТЫН ОРДА ТАРИХЫ 17 МИНУТТА",
+            "channel": "Qalam Tarih",
+            "duration": "17:38",
+            "youtubeId": "58mk8MLqgvU",
+            "searchQuery": "ҰБТ Қазақстан тарихы Моңғол шапқыншылығы Алтын Орда Ақ Орда Моғолстан Әмір Темір",
+            "url": "https://www.youtube.com/watch?v=58mk8MLqgvU"
+          },
+          {
+            "title": "Қазақстан тарихы  / Моңғол империясының құрамындағы Қазақстан. Алтын Орда, Ақ Орда тарихы",
+            "channel": "QAZBILIM TV",
+            "duration": "50:15",
+            "youtubeId": "DEm6SHm_NqY",
+            "searchQuery": "ҰБТ Қазақстан тарихы Моңғол шапқыншылығы Алтын Орда Ақ Орда Моғолстан Әмір Темір",
+            "url": "https://www.youtube.com/watch?v=DEm6SHm_NqY"
+          },
+          {
+            "title": "ҚАЗАҚСТАН ТАРИХЫ ҰБТ-2023 | МОҢҒОЛ ШАПҚЫНШЫЛЫҒЫ",
+            "channel": "JUZ40 ONLINE",
+            "duration": "57:16",
+            "youtubeId": "V4QyCwx4T_s",
+            "searchQuery": "ҰБТ Қазақстан тарихы Моңғол шапқыншылығы Алтын Орда Ақ Орда Моғолстан Әмір Темір",
+            "url": "https://www.youtube.com/watch?v=V4QyCwx4T_s"
           }
         ],
         "books": [
@@ -3294,12 +4220,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "13–16 Қазақ хандығының құрылуы және XV–XVII ғ. хандары (Керей, Жәнібек, Бұрындық, Қасым, Хақназар, Тәуекел, Есім, Жәңгір): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 13–16 Қазақ хандығының құрылуы және XV–XVII ғ. хандары (Керей, Жәнібек, Бұрындық, Қасым, Хақназар, Тәуекел, Есім, Жәңгір) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+13–16+Қазақ+хандығының+құрылуы+және+XV–XVII+ғ.+хандары+(Керей,+Жәнібек,+Бұрындық,+Қасым,+Хақназар,+Тәуекел,+Есім,+Жәңгір)+қазақша+түсіндіру"
+            "title": "Қазақ хандығының құрылуының ШЫНАЙЫ ТАРИХЫ? Керей мен Жәнібек саясаты.",
+            "channel": "Тарихстан",
+            "duration": "3:56",
+            "youtubeId": "3ZnxiMqqZfk",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ хандығының құрылуы Керей Жәнібек Қасым Хақназар Есім",
+            "url": "https://www.youtube.com/watch?v=3ZnxiMqqZfk"
+          },
+          {
+            "title": "Қазақ хандығы қалай құрылды? Керей, Жәнібек және Әбілқайыр | Қазақстан тарихы",
+            "channel": "JUZ40 ONLINE",
+            "duration": "20:46",
+            "youtubeId": "LRjeXqTobho",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ хандығының құрылуы Керей Жәнібек Қасым Хақназар Есім",
+            "url": "https://www.youtube.com/watch?v=LRjeXqTobho"
+          },
+          {
+            "title": "ҰБТ 2026/ХАҚНАЗАР ХАН/ҚАЗАҚСТАН ТАРИХЫ/ ДАРЫН АҒАЙ",
+            "channel": "EASY TARIH",
+            "duration": "21:44",
+            "youtubeId": "-YzjRQpESpY",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ хандығының құрылуы Керей Жәнібек Қасым Хақназар Есім",
+            "url": "https://www.youtube.com/watch?v=-YzjRQpESpY"
           }
         ],
         "books": [
@@ -3342,12 +4284,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "17–19 Тәуке хан («Жеті жарғы»), Жоңғар шапқыншылығы («Ақтабан шұбырынды»), Аңырақай және Абылай хан дәуірі: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 17–19 Тәуке хан («Жеті жарғы»), Жоңғар шапқыншылығы («Ақтабан шұбырынды»), Аңырақай және Абылай хан дәуірі қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+17–19+Тәуке+хан+(«Жеті+жарғы»),+Жоңғар+шапқыншылығы+(«Ақтабан+шұбырынды»),+Аңырақай+және+Абылай+хан+дәуірі+қазақша+түсіндіру"
+            "title": "MDE 171: Тәуке Хан және оның \"Жеті Жарғысы\"",
+            "channel": "GULIM ULYKBEKOVA",
+            "duration": "6:12",
+            "youtubeId": "BBSWG6z2zFw",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тәуке хан Жеті жарғы Жоңғар шапқыншылығы Абылай хан",
+            "url": "https://www.youtube.com/watch?v=BBSWG6z2zFw"
+          },
+          {
+            "title": "ЖӘҢГІР ХАН, ТӘУКЕ ХАН. 16 САБАҚ. ҚАЗАҚСТАН ТАРИХЫ.",
+            "channel": "Қазақстан тарихы 0-ден бастап",
+            "duration": "13:09",
+            "youtubeId": "czdJpfsQe3s",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тәуке хан Жеті жарғы Жоңғар шапқыншылығы Абылай хан",
+            "url": "https://www.youtube.com/watch?v=czdJpfsQe3s"
+          },
+          {
+            "title": "ҰБТ 2025/ЕСІМ, ЖӘҢГІР, ТӘУКЕ ХАНДАР/ СУПЕР ТҮСІНІКТІ САБАҚ-ДАРЫН АҒАЙМЕН",
+            "channel": "EASY TARIH",
+            "duration": "21:25",
+            "youtubeId": "6Bz6z79ONZA",
+            "searchQuery": "ҰБТ Қазақстан тарихы Тәуке хан Жеті жарғы Жоңғар шапқыншылығы Абылай хан",
+            "url": "https://www.youtube.com/watch?v=6Bz6z79ONZA"
           }
         ],
         "books": [
@@ -3390,12 +4348,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "20–27 Қазақстанның Ресей империясына қосылуы (1731 ж.), Ұлт-азаттық көтерілістер (Сырым Датұлы, Исатай–Махамбет, Кенесары Қасымұлы, Жанқожа–Есет) және 1822–1824 ж. Жарғылар: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 20–27 Қазақстанның Ресей империясына қосылуы (1731 ж.), Ұлт-азаттық көтерілістер (Сырым Датұлы, Исатай–Махамбет, Кенесары Қасымұлы, Жанқожа–Есет) және 1822–1824 ж. Жарғылар қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+20–27+Қазақстанның+Ресей+империясына+қосылуы+(1731+ж.),+Ұлт-азаттық+көтерілістер+(Сырым+Датұлы,+Исатай–Махамбет,+Кенесары+Қасымұлы,+Жанқожа–Есет)+және+1822–1824+ж.+Жарғылар+қазақша+түсіндіру"
+            "title": "Сырым Датұлы бастаған ұлт-азаттық қозғалыс. Қазақстан тарихы 7 класс ІІ-тоқсан",
+            "channel": "Кaisar “QHistory” Nurtanov",
+            "duration": "3:28",
+            "youtubeId": "eLDOJpoeRec",
+            "searchQuery": "ҰБТ Қазақстан тарихы Сырым Датұлы Исатай Махамбет Кенесары Қасымұлы 1822 1824 реформа",
+            "url": "https://www.youtube.com/watch?v=eLDOJpoeRec"
+          },
+          {
+            "title": "1822-1824 ЖЫЛДАРДАҒЫ ПАТША РЕФОРМАЛАРЫ",
+            "channel": "EASY TARIH",
+            "duration": "47:26",
+            "youtubeId": "2xRYZRABE04",
+            "searchQuery": "ҰБТ Қазақстан тарихы Сырым Датұлы Исатай Махамбет Кенесары Қасымұлы 1822 1824 реформа",
+            "url": "https://www.youtube.com/watch?v=2xRYZRABE04"
+          },
+          {
+            "title": "Қазақстан тарихы. Сырым Датұлы көтерілісі",
+            "channel": "Қазақстан тарих",
+            "duration": "31:30",
+            "youtubeId": "lg3x1T_X7ns",
+            "searchQuery": "ҰБТ Қазақстан тарихы Сырым Датұлы Исатай Махамбет Кенесары Қасымұлы 1822 1824 реформа",
+            "url": "https://www.youtube.com/watch?v=lg3x1T_X7ns"
           }
         ],
         "books": [
@@ -3438,12 +4412,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "28–32 1867–1868 ж. және 1886–1891 ж. Әкімшілік реформалар, Орал–Торғай–Маңғыстау көтерілістері (1868–1870 ж.), Ұйғырлар мен Дүнгендердің қоныс аударуы: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 28–32 1867–1868 ж. және 1886–1891 ж. Әкімшілік реформалар, Орал–Торғай–Маңғыстау көтерілістері (1868–1870 ж.), Ұйғырлар мен Дүнгендердің қоныс аударуы қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+28–32+1867–1868+ж.+және+1886–1891+ж.+Әкімшілік+реформалар,+Орал–Торғай–Маңғыстау+көтерілістері+(1868–1870+ж.),+Ұйғырлар+мен+Дүнгендердің+қоныс+аударуы+қазақша+түсіндіру"
+            "title": "Орал, Торғай және Маңғыстау көтерілістері және 1880 - 90 жж реформалар",
+            "channel": "almas kairat",
+            "duration": "19:18",
+            "youtubeId": "s5JtMDI80hc",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1867 1868 реформалар 1886 1891 Орал Торғай Маңғыстау көтерілісі",
+            "url": "https://www.youtube.com/watch?v=s5JtMDI80hc"
+          },
+          {
+            "title": "1867 1868 жж реформалар",
+            "channel": "almas kairat",
+            "duration": "16:39",
+            "youtubeId": "RGemQFNywBU",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1867 1868 реформалар 1886 1891 Орал Торғай Маңғыстау көтерілісі",
+            "url": "https://www.youtube.com/watch?v=RGemQFNywBU"
+          },
+          {
+            "title": "1867-1868 жж. ӘКІМШІЛІК АУМАҚТЫҚ РЕФОРМА | ҚАЗАҚСТАН ТАРИХЫ | НҰРЖАН АҒАЙ",
+            "channel": "ТАРИХ ТАҒЫЛЫМЫ",
+            "duration": "16:08",
+            "youtubeId": "ozlYZ1kraj0",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1867 1868 реформалар 1886 1891 Орал Торғай Маңғыстау көтерілісі",
+            "url": "https://www.youtube.com/watch?v=ozlYZ1kraj0"
           }
         ],
         "books": [
@@ -3486,12 +4476,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "33–36 1916 ж. Ұлт-азаттық көтеріліс, 1917 ж. Революциялар, «Алаш» қозғалысы, «Қазақ» газеті және Алашорда үкіметі: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 33–36 1916 ж. Ұлт-азаттық көтеріліс, 1917 ж. Революциялар, «Алаш» қозғалысы, «Қазақ» газеті және Алашорда үкіметі қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+33–36+1916+ж.+Ұлт-азаттық+көтеріліс,+1917+ж.+Революциялар,+«Алаш»+қозғалысы,+«Қазақ»+газеті+және+Алашорда+үкіметі+қазақша+түсіндіру"
+            "title": "ҰБТ дайындық | 1916 ЖЫЛҒЫ ҰЛТ-АЗАТТЫҚ ҚОЗҒАЛЫС | Қазақстан тарихы | 03.03.2023 | Тыныбекұлы Тілеубек",
+            "channel": "Zerdeli Online мектебі",
+            "duration": "58:45",
+            "youtubeId": "L8rVeGuIDM4",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1916 жылғы көтеріліс Алаш қозғалысы Алашорда үкіметі",
+            "url": "https://www.youtube.com/watch?v=L8rVeGuIDM4"
+          },
+          {
+            "title": "Егер сен 1916 жылы өмір сүрсең... | Ұлт-азаттық көтеріліс",
+            "channel": "Тарихты көр",
+            "duration": "5:19",
+            "youtubeId": "kfYWOnwpAf4",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1916 жылғы көтеріліс Алаш қозғалысы Алашорда үкіметі",
+            "url": "https://www.youtube.com/watch?v=kfYWOnwpAf4"
+          },
+          {
+            "title": "1917 ЖЫЛҒЫ АҚПАН РЕВОЛЮЦИЯСЫ/АЛАШ ҚОЗҒАЛЫСЫ/ХХ ҒАСЫР БАСЫНДАҒЫ ҚАЗАҚ ЗИЯЛЫЛАРЫ",
+            "channel": "EASY TARIH",
+            "duration": "30:16",
+            "youtubeId": "7HsAp_L-IAQ",
+            "searchQuery": "ҰБТ Қазақстан тарихы 1916 жылғы көтеріліс Алаш қозғалысы Алашорда үкіметі",
+            "url": "https://www.youtube.com/watch?v=7HsAp_L-IAQ"
           }
         ],
         "books": [
@@ -3534,12 +4540,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "37–42 Кеңес дәуірі (І жартысы): Қазақ АКСР (1920), ЖЭС, Индустрияландыру (Түрксіб), Ұжымдастыру мен Ашаршылық (1931–1933), Саяси қуғын-сүргін (1937–1938), Қазақ КСР (1936) және Ұлы Отан соғысы (1941–1945): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 37–42 Кеңес дәуірі (І жартысы): Қазақ АКСР (1920), ЖЭС, Индустрияландыру (Түрксіб), Ұжымдастыру мен Ашаршылық (1931–1933), Саяси қуғын-сүргін (1937–1938), Қазақ КСР (1936) және Ұлы Отан соғысы (1941–1945) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+37–42+Кеңес+дәуірі+(І+жартысы):+Қазақ+АКСР+(1920),+ЖЭС,+Индустрияландыру+(Түрксіб),+Ұжымдастыру+мен+Ашаршылық+(1931–1933),+Саяси+қуғын-сүргін+(1937–1938),+Қазақ+КСР+(1936)+және+Ұлы+Отан+соғысы+(1941–1945)+қазақша+түсіндіру"
+            "title": "Қазақстан тарихы: §18 19  ҚАЗАҚСТАНДАҒЫ ҰЖЫМДАСТЫРУ",
+            "channel": "Қазақша кино",
+            "duration": "13:55",
+            "youtubeId": "V84xolHyMh0",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ АКСР Индустрияландыру Ұжымдастыру Ашаршылық Ұлы Отан соғысы",
+            "url": "https://www.youtube.com/watch?v=V84xolHyMh0"
+          },
+          {
+            "title": "ҰЛЫ ОТАН СОҒЫСЫНЫҢ БАСТАЛУЫ | ҰБТ | ҚАЗАҚСТАН ТАРИХЫ",
+            "channel": "Serikzhan History",
+            "duration": "37:50",
+            "youtubeId": "U_LlC9MERn4",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ АКСР Индустрияландыру Ұжымдастыру Ашаршылық Ұлы Отан соғысы",
+            "url": "https://www.youtube.com/watch?v=U_LlC9MERn4"
+          },
+          {
+            "title": "ҚАЗАҚ АКСР-НІҢ ҚҰРЫЛУЫ/ӘСКЕРИ КОММУНИЗМ",
+            "channel": "EASY TARIH",
+            "duration": "17:19",
+            "youtubeId": "o9Xyz8usdz0",
+            "searchQuery": "ҰБТ Қазақстан тарихы Қазақ АКСР Индустрияландыру Ұжымдастыру Ашаршылық Ұлы Отан соғысы",
+            "url": "https://www.youtube.com/watch?v=o9Xyz8usdz0"
           }
         ],
         "books": [
@@ -3582,12 +4604,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "43–47 Соғыстан кейінгі кезең (Бекмаханов ісі, Семей полигоны), Тың игеру (1954), Қонаев кезеңі (1979 Целиноград), Желтоқсан (1986) және Тәуелсіз Қазақстан (1991–2026): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 43–47 Соғыстан кейінгі кезең (Бекмаханов ісі, Семей полигоны), Тың игеру (1954), Қонаев кезеңі (1979 Целиноград), Желтоқсан (1986) және Тәуелсіз Қазақстан (1991–2026) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+43–47+Соғыстан+кейінгі+кезең+(Бекмаханов+ісі,+Семей+полигоны),+Тың+игеру+(1954),+Қонаев+кезеңі+(1979+Целиноград),+Желтоқсан+(1986)+және+Тәуелсіз+Қазақстан+(1991–2026)+қазақша+түсіндіру"
+            "title": "ЖЕЛТОҚСАН ОҚИҒАСЫНЫҢ ТОЛЫҚ ХРОНОЛОГИЯСЫ",
+            "channel": "tañda",
+            "duration": "14:49",
+            "youtubeId": "t6WaZl_p_KA",
+            "searchQuery": "Тың игеру Желтоқсан 1986 Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=t6WaZl_p_KA"
+          },
+          {
+            "title": "1986 ж  Желтоқсан оқиғасы",
+            "channel": "Динара Окимбаева",
+            "duration": "2:20",
+            "youtubeId": "47I7BzkpYMM",
+            "searchQuery": "Тың игеру Желтоқсан 1986 Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=47I7BzkpYMM"
+          },
+          {
+            "title": "ЖЕЛТОҚСАН ОҚИҒАСЫ. КСРОны Құлатқан 86. ҚОНАЕВ ҚАЙДА БОЛДЫ?",
+            "channel": "ШЫН ТАРИХ",
+            "duration": "4:55",
+            "youtubeId": "RYPihnuwOSc",
+            "searchQuery": "Тың игеру Желтоқсан 1986 Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=RYPihnuwOSc"
           }
         ],
         "books": [
@@ -3630,12 +4668,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "48–55 Қазақ халқының материалдық және рухани мәдениеті: Ортағасырлық ғалымдар, Жыраулар, ХІХ ғ. Ағартушылары (Шоқан, Ыбырай, Абай), Күйшілер және Ғылым: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ 48–55 Қазақ халқының материалдық және рухани мәдениеті: Ортағасырлық ғалымдар, Жыраулар, ХІХ ғ. Ағартушылары (Шоқан, Ыбырай, Абай), Күйшілер және Ғылым қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+48–55+Қазақ+халқының+материалдық+және+рухани+мәдениеті:+Ортағасырлық+ғалымдар,+Жыраулар,+ХІХ+ғ.+Ағартушылары+(Шоқан,+Ыбырай,+Абай),+Күйшілер+және+Ғылым+қазақша+түсіндіру"
+            "title": "ҚАЗАҚСТАН ТАРИХЫ | НҰСҚА ТАЛДАУ | АБАЙ АҒАЙ | ҚАҢТАР ҰБТ-ға ДАЙЫНДЫҚ #1",
+            "channel": "JUZ40 ONLINE",
+            "duration": "1:08:45",
+            "youtubeId": "ZHigwRUPsco",
+            "searchQuery": "Шоқан Ыбырай Абай Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=ZHigwRUPsco"
+          },
+          {
+            "title": "Ежелгі Қазақстан  тарихы /  Қазақстан тарихы пәнінен ҰБТ - ға дайындық / Оразбек Әбсаттар",
+            "channel": "QAZBILIM TV",
+            "duration": "32:07",
+            "youtubeId": "c901WjuU27I",
+            "searchQuery": "Шоқан Ыбырай Абай Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=c901WjuU27I"
+          },
+          {
+            "title": "ҚАЗАҚСТАН ТАРИХЫ | НҰСҚА ТАЛДАУ | АБАЙ АҒАЙ",
+            "channel": "JUZ40 ONLINE",
+            "duration": "58:55",
+            "youtubeId": "lr7BAqbOaBo",
+            "searchQuery": "Шоқан Ыбырай Абай Қазақстан тарихы ҰБТ",
+            "url": "https://www.youtube.com/watch?v=lr7BAqbOaBo"
           }
         ],
         "books": [
@@ -3678,12 +4732,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "§1–12 Көшпелі малшаруашылығы мен Егіншілік, Қолөнер мен Ою-өрнек, Ұлы Жібек жолы және ХХ–ХХІ ғ. Қазақстан экономикасы: Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ §1–12 Көшпелі малшаруашылығы мен Егіншілік, Қолөнер мен Ою-өрнек, Ұлы Жібек жолы және ХХ–ХХІ ғ. Қазақстан экономикасы қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+§1–12+Көшпелі+малшаруашылығы+мен+Егіншілік,+Қолөнер+мен+Ою-өрнек,+Ұлы+Жібек+жолы+және+ХХ–ХХІ+ғ.+Қазақстан+экономикасы+қазақша+түсіндіру"
+            "title": "Қазақстанда көшпелі малшаруашылығы және егіншіліктің дамуы. 11 сыныптың сабағы.",
+            "channel": "Тлеужан Ташимов",
+            "duration": "5:36",
+            "youtubeId": "aRioCwah9kk",
+            "searchQuery": "ҰБТ Қазақстан тарихы Көшпелі малшаруашылығы Егіншілік Ұлы Жібек жолы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=aRioCwah9kk"
+          },
+          {
+            "title": "Ұлы Жібек жолы",
+            "channel": "EASY TARIH",
+            "duration": "21:47",
+            "youtubeId": "55IipbZ4HNs",
+            "searchQuery": "ҰБТ Қазақстан тарихы Көшпелі малшаруашылығы Егіншілік Ұлы Жібек жолы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=55IipbZ4HNs"
+          },
+          {
+            "title": "Ұлы жібек жолы / Қазақстан тарихы пәнінен ҰБТ-ға дайындық",
+            "channel": "QAZBILIM TV",
+            "duration": "27:59",
+            "youtubeId": "rLfSWlOqwDU",
+            "searchQuery": "ҰБТ Қазақстан тарихы Көшпелі малшаруашылығы Егіншілік Ұлы Жібек жолы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=rLfSWlOqwDU"
           }
         ],
         "books": [
@@ -3726,12 +4796,28 @@ window.UBT_CURRICULUM = {
         ],
         "videos": [
           {
-            "title": "§13–22 Моноэтникалық және Полиэтникалық қоғам, Халықтар депортациясы (1936–1944), Көші-қон саясаты («Нұрлы көш», «Серпін», Құрылтайлар) және Қазақстан халқы Ассамблеясы (ҚХА): Қазақша толық талдау",
-            "channel": "ҰБТ Тарих / 140 Academy",
-            "duration": "20 мин",
-            "youtubeId": "8Z1aY0_a2w0",
-            "searchQuery": "ҰБТ §13–22 Моноэтникалық және Полиэтникалық қоғам, Халықтар депортациясы (1936–1944), Көші-қон саясаты («Нұрлы көш», «Серпін», Құрылтайлар) және Қазақстан халқы Ассамблеясы (ҚХА) қазақша түсіндіру",
-            "url": "https://www.youtube.com/results?search_query=ҰБТ+§13–22+Моноэтникалық+және+Полиэтникалық+қоғам,+Халықтар+депортациясы+(1936–1944),+Көші-қон+саясаты+(«Нұрлы+көш»,+«Серпін»,+Құрылтайлар)+және+Қазақстан+халқы+Ассамблеясы+(ҚХА)+қазақша+түсіндіру"
+            "title": "11 сынып.  Қазақстан Республикасының көші қон саясаты",
+            "channel": "Тарих, қоғамтану пәнінен видео сабақтар",
+            "duration": "10:46",
+            "youtubeId": "xJumvuAA9MU",
+            "searchQuery": "ҰБТ Қазақстан тарихы Халықтар депортациясы Көші қон Қазақстан халқы Ассамблеясы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=xJumvuAA9MU"
+          },
+          {
+            "title": "Қазақстан халқы моноэтникалық құрамының өзгеруі 11-сынып",
+            "channel": "Т.Жүргенов атындағы No123 мектеп-лицей",
+            "duration": "10:57",
+            "youtubeId": "1XGRGpTjqE0",
+            "searchQuery": "ҰБТ Қазақстан тарихы Халықтар депортациясы Көші қон Қазақстан халқы Ассамблеясы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=1XGRGpTjqE0"
+          },
+          {
+            "title": "КСРО халықтарының Қазақстанға депортациясы",
+            "channel": "HISTORY История",
+            "duration": "5:00",
+            "youtubeId": "VneM2xGa6_w",
+            "searchQuery": "ҰБТ Қазақстан тарихы Халықтар депортациясы Көші қон Қазақстан халқы Ассамблеясы 11 сынып",
+            "url": "https://www.youtube.com/watch?v=VneM2xGa6_w"
           }
         ],
         "books": [
