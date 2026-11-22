@@ -36,6 +36,19 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
+    public void setFocusMode(String mode) {
+        if ("strict".equalsIgnoreCase(mode) || "reminder".equalsIgnoreCase(mode) || "off".equalsIgnoreCase(mode)) {
+            StudyFocusAccessibilityService.focusMode = mode.toLowerCase();
+            Toast.makeText(mContext, "Фокус режимі: " + ("reminder".equals(mode) ? "Жұмсақ ескерту" : "strict".equals(mode) ? "Қатаң режим" : "Өшірулі"), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @JavascriptInterface
+    public String getFocusMode() {
+        return StudyFocusAccessibilityService.focusMode;
+    }
+
+    @JavascriptInterface
     public void startFocusSession(String lessonTitle, int durationMinutes) {
         StudyFocusAccessibilityService.isFocusModeActive = true;
         StudyFocusAccessibilityService.currentLessonTitle = (lessonTitle != null && !lessonTitle.isEmpty()) ? lessonTitle : "ҰБТ Сабағы";

@@ -1,7 +1,6 @@
 package kz.qazaqlab.unt140;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -25,7 +24,7 @@ public class BlockerWarningActivity extends Activity {
         Button btnReturn = findViewById(R.id.btn_return_study);
         Button btnEmergency = findViewById(R.id.btn_emergency_unlock);
 
-        String appLabel = blockedPkg != null ? blockedPkg : "Әлеуметтік желі";
+        String appLabel = "Әлеуметтік желі";
         if (blockedPkg != null) {
             try {
                 PackageManager pm = getPackageManager();
@@ -35,35 +34,38 @@ public class BlockerWarningActivity extends Activity {
             } catch (Exception ignored) {}
         }
 
-        tvBlockedApp.setText("Бұғатталған қосымша: " + appLabel);
-        if (lessonTitle != null && !lessonTitle.isEmpty()) {
-            tvCurrentLesson.setText("Ағымдағы сабақ: " + lessonTitle);
+        if (tvBlockedApp != null) {
+            tvBlockedApp.setText("Ашылған қосымша: " + appLabel);
+        }
+        if (tvCurrentLesson != null && lessonTitle != null && !lessonTitle.isEmpty()) {
+            tvCurrentLesson.setText("Бүгінгі сабақ: " + lessonTitle);
         }
 
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mainIntent = new Intent(BlockerWarningActivity.this, MainActivity.class);
-                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(mainIntent);
-                finish();
-            }
-        });
+        // Return to study
+        if (btnReturn != null) {
+            btnReturn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mainIntent = new Intent(BlockerWarningActivity.this, MainActivity.class);
+                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(mainIntent);
+                    finish();
+                }
+            });
+        }
 
-        btnEmergency.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(BlockerWarningActivity.this)
-                    .setTitle("Шұғыл бұғаттан шығару")
-                    .setMessage("Сабақты мерзімінен бұрын аяқтағыңыз келе ме? Бұл бүгінгі фокус ұпайларының есептелуін тоқтатады.")
-                    .setPositiveButton("Иә, шығу", (dialog, which) -> {
-                        StudyFocusAccessibilityService.isFocusModeActive = false;
-                        finish();
-                    })
-                    .setNegativeButton("Сабақты жалғастыру", null)
-                    .show();
-            }
-        });
+        // 1-Click friendly dismiss - no punishment, easy exit!
+        if (btnEmergency != null) {
+            btnEmergency.setText("Түсіндім (Қосымшаға өту)");
+            btnEmergency.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Turn off strict blocker temporarily for 15 minutes so user is not blocked
+                    StudyFocusAccessibilityService.isFocusModeActive = false;
+                    finish();
+                }
+            });
+        }
     }
 
     @Override

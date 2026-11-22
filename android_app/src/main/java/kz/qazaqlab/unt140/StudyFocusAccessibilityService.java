@@ -1,9 +1,15 @@
 package kz.qazaqlab.unt140;
 
 import android.accessibilityservice.AccessibilityService;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.Toast;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,10 +19,15 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
     public static volatile boolean isFocusModeActive = false;
     public static volatile String currentLessonTitle = "ҰБТ Сабағы";
     public static volatile long focusEndTime = 0;
+    
+    // Focus Mode: "reminder" (friendly notification/toast - default), "strict" (overlay with easy exit), "off"
+    public static volatile String focusMode = "reminder";
+
+    private static final String CHANNEL_ID = "unt140_focus_reminders";
+    private static long lastReminderTime = 0;
 
     // Distracting social media & game packages
-    public static final Set<String> DEFAULT_BLOCKED_PACKAGES = new HashSet<>(Arrays.asList(
-        // Social Media & Messaging
+    public static final Set<String> BLOCKED_PACKAGES = new HashSet<>(Arrays.asList(
         "com.instagram.android",
         "com.zhiliaoapp.musically",
         "com.ss.android.ugc.trill",
@@ -31,10 +42,6 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
         "com.instagram.barcelona",
         "com.whatsapp",
         "com.whatsapp.w4b",
-        "com.pinterest",
-        "com.reddit.frontpage",
-        
-        // Games & Entertainment
         "com.supercell.brawlstars",
         "com.tencent.ig",
         "com.dts.freefireth",
@@ -44,11 +51,7 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
         "com.supercell.clashroyale",
         "com.supercell.clashofclans",
         "com.miHoYo.GenshinImpact",
-        "com.riotgames.league.wildrift",
-        "com.activision.callofduty.shooter",
-        "com.mojang.minecraftpe",
-        "com.subwaysurfers",
-        "com.ea.gp.fifamobile"
+        "com.subwaysurfers"
     ));
 
     private static StudyFocusAccessibilityService instance = null;
@@ -61,6 +64,7 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
     public void onServiceConnected() {
         super.onServiceConnected();
         instance = this;
+        createNotificationChannel();
     }
 
     @Override
@@ -69,9 +73,25 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
         instance = null;
     }
 
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                CHANNEL_ID,
+                "Сабақ және Фокус ескертулері",
+                NotificationManager.IMPORTANCE_HIGH
+            );
+            channel.setDescription("Сабақ кезінде назарды сақтауға көмектесетін ескертулер");
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (nm != null) {
+                nm.createNotificationChannel(channel);
+            }
+        }
+    }
+
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         if (!isFocusModeActive) return;
+        if ("off".equals(focusMode)) return;
 
         // Auto expire if timer elapsed
         if (focusEndTime > 0 && System.currentTimeMillis() > focusEndTime) {
@@ -84,23 +104,68 @@ public class StudyFocusAccessibilityService extends AccessibilityService {
             if (rawPkg == null) return;
             String pkgName = rawPkg.toString();
 
-            // Ignore our own package and system UI
             if (pkgName.equals(getPackageName()) || pkgName.contains("systemui") || pkgName.contains("launcher")) {
                 return;
             }
 
-            if (DEFAULT_BLOCKED_PACKAGES.contains(pkgName)) {
-                // Instantly block and push back
-                performGlobalAction(GLOBAL_ACTION_BACK);
+            if (BLOCKED_PACKAGES.contains(pkgName)) {
+                long now = System.currentTimeMillis();
 
-                Intent warningIntent = new Intent(this, BlockerWarningActivity.class);
-                warningIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                warningIntent.putExtra("blocked_pkg", pkgName);
-                warningIntent.putExtra("lesson_title", currentLessonTitle);
-                warningIntent.putExtra("end_time", focusEndTime);
-                startActivity(warningIntent);
+                // 1. "reminder" MODE (Default: friendly reminder notification & toast, NO HARD BAN)
+                if ("reminder".equals(focusMode)) {
+                    if (now - lastReminderTime > 15000) { // Limit notifications to once every 15s
+                        lastReminderTime = now;
+                        sendFriendlyFocusNotification(currentLessonTitle);
+                    }
+                    return;
+                }
+
+                // 2. "strict" MODE (Shows gentle warning activity with instant 1-click dismiss)
+                if ("strict".equals(focusMode)) {
+                    if (now - lastReminderTime > 5000) {
+                        lastReminderTime = now;
+                        Intent warningIntent = new Intent(this, BlockerWarningActivity.class);
+                        warningIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        warningIntent.putExtra("blocked_pkg", pkgName);
+                        warningIntent.putExtra("lesson_title", currentLessonTitle);
+                        warningIntent.putExtra("end_time", focusEndTime);
+                        startActivity(warningIntent);
+                    }
+                }
             }
         }
+    }
+
+    private void sendFriendlyFocusNotification(String lesson) {
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (nm == null) return;
+
+        Intent appIntent = new Intent(this, MainActivity.class);
+        appIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pi = PendingIntent.getActivity(
+            this,
+            101,
+            appIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0)
+        );
+
+        Notification.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder = new Notification.Builder(this, CHANNEL_ID);
+        } else {
+            builder = new Notification.Builder(this);
+        }
+
+        Notification notif = builder
+            .setSmallIcon(R.drawable.ic_launcher)
+            .setContentTitle("Сабақты ұмытпаңыз: " + (lesson != null ? lesson : "ҰБТ Дайындығы"))
+            .setContentText("Фокусты жоғалтпаңыз! Сабақты аяқтап, 130 балл мақсатына жетіңіз.")
+            .setAutoCancel(true)
+            .setContentIntent(pi)
+            .build();
+
+        nm.notify(101, notif);
+        Toast.makeText(this, "Сабақ жүріп жатыр! ҰБТ сабағын аяқтауды ұмытпаңыз.", Toast.LENGTH_SHORT).show();
     }
 
     @Override

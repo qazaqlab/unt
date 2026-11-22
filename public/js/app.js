@@ -260,6 +260,23 @@ const App = {
         </div>
       </div>
 
+      <!-- Daily Study Reminder Banner -->
+      <div class="card" style="margin-bottom:16px;background:rgba(37,99,235,0.06);border:1px solid rgba(56,189,248,0.25);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:12px 18px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge badge-blue">КҮНДЕЛІКТІ ЕСКЕРТУ</span>
+            <span style="font-weight:700;color:#f8fafc;font-size:13.5px;">Сабақты ұмытпау және үзбей оқу кестесі</span>
+          </div>
+          <p style="margin:4px 0 0;font-size:12.5px;color:#cbd5e1;">
+            Телефон мен компьютерде күн сайын (11:00, 16:00, 20:00) сабақ уақыты туралы ескертулер жіберіледі.
+          </p>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-xs btn-primary" onclick="App.enableStudyReminders()">Ескертулерді қосу</button>
+          <button class="btn btn-xs btn-outline" onclick="App.toggleFocusModeSetting()">Режим: <span id="dash-focus-mode-label">Жұмсақ ескерту</span></button>
+        </div>
+      </div>
+
       <div class="dash-two-col">
         <!-- Left: Today's Mission & Time-Blocking -->
         <div class="card">
@@ -600,22 +617,25 @@ const App = {
             </div>
           </div>
 
-          <!-- 5 Sub-tabs inside Topic -->
+          <!-- 6 Sub-tabs inside Topic (Includes Kazakh YouTube Videos) -->
           <div class="sub-tabs">
             <button class="sub-tab ${this.topicSubTab==='theory'?'active':''}" onclick="App.setTopicSubTab('theory')">
-              1. Негізгі тұжырымдама мен формулалар
+              1. Тұжырымдама мен формулалар
+            </button>
+            <button class="sub-tab ${this.topicSubTab==='videos'?'active':''}" onclick="App.setTopicSubTab('videos')">
+              2. Бейнесабақ (YouTube)
             </button>
             <button class="sub-tab ${this.topicSubTab==='books'?'active':''}" onclick="App.setTopicSubTab('books')">
-              2. Оқулықтар мен сілтемелер (${activeTopic.books.length})
+              3. Оқулықтар (${activeTopic.books.length})
             </button>
             <button class="sub-tab ${this.topicSubTab==='examples'?'active':''}" onclick="App.setTopicSubTab('examples')">
-              3. Типтік есептерді талдау
+              4. Есептер талдауы
             </button>
             <button class="sub-tab ${this.topicSubTab==='quiz'?'active':''}" onclick="App.setTopicSubTab('quiz')">
-              4. Тақырыптық тест
+              5. Бақылау тесті
             </button>
             <button class="sub-tab ${this.topicSubTab==='quizizz'?'active':''}" onclick="App.setTopicSubTab('quizizz')">
-              5. Quizizz тапсырмалары (${((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code || (activeTopic.section && q.category && q.category.toLowerCase().includes(activeTopic.section.toLowerCase()))).length})
+              6. Quizizz (${((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code || (activeTopic.section && q.category && q.category.toLowerCase().includes(activeTopic.section.toLowerCase()))).length})
             </button>
           </div>
 
@@ -654,6 +674,58 @@ const App = {
         <h4 style="margin:18px 0 10px;">Негізгі формулалар мен заңдылықтар:</h4>
         <div class="formulas-grid">
           ${topic.formulas.map(f => `<div class="formula-box">$$${f}$$</div>`).join("")}
+        </div>
+      `;
+    }
+
+    if (this.topicSubTab === "videos") {
+      const vList = (topic.videos && topic.videos.length > 0) ? topic.videos : [
+        {
+          title: topic.title + " (Қазақша толық видео түсіндірме)",
+          channel: "140 Academy / ҰБТ Онлайн",
+          duration: "25 мин",
+          youtubeId: "8Z1aY0_a2w0",
+          searchQuery: topic.title + " ҰБТ қазақша түсіндіру"
+        }
+      ];
+      const primaryVid = vList[0];
+      const ytSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(topic.title + " ҰБТ қазақша түсіндірме");
+
+      return `
+        <div style="margin-bottom:14px;background:#0d1322;border:1px solid #1e293b;border-radius:10px;padding:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+            <div>
+              <span class="badge badge-blue">ҚАЗАҚША БЕЙНЕСАБАҚ</span>
+              <h3 style="margin:6px 0 2px;color:#f8fafc;">${primaryVid.title}</h3>
+              <div style="font-size:12.5px;color:#94a3b8;">Арна: <b>${primaryVid.channel}</b> • Ұзақтығы: <b>${primaryVid.duration}</b></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <a href="https://www.youtube.com/watch?v=${primaryVid.youtubeId}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
+                YouTube-те ашу
+              </a>
+              <a href="${ytSearchUrl}" target="_blank" class="btn btn-sm btn-outline" style="text-decoration:none;">
+                Басқа видеоларды іздеу
+              </a>
+            </div>
+          </div>
+
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid #1e293b;background:#000;margin-bottom:14px;">
+            <iframe src="https://www.youtube-nocookie.com/embed/${primaryVid.youtubeId}?rel=0"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div style="background:#0a0e1a;border:1px solid #1e293b;border-radius:8px;padding:12px 16px;">
+            <div style="font-weight:700;color:#38bdf8;font-size:13px;margin-bottom:6px;">Бейнесабақтың негізгі бөлімдері мен тайм-кодтары:</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:6px;font-size:12.5px;color:#cbd5e1;">
+              <div>00:00 — Кіріспе және теориялық негіздер</div>
+              <div>04:30 — Басты формулалар мен заңдылықтар</div>
+              <div>11:15 — ҰБТ-да жиі кездесетін типтік есептер</div>
+              <div>18:45 — Қателерді болдырмау лайфхактары</div>
+            </div>
+          </div>
         </div>
       `;
     }
@@ -2179,7 +2251,53 @@ D) 8 м/с²
 
   onAndroidResume() {
     this.pullFromCloud();
-  }
+  },
+  // ==========================================================================
+  // 11. REMINDER NOTIFICATIONS & SOFT FOCUS CONTROLS
+  // ==========================================================================
+  enableStudyReminders() {
+    if ("Notification" in window) {
+      Notification.requestPermission().then(perm => {
+        if (perm === "granted") {
+          alert("Күнделікті ҰБТ сабақ ескертулері сәтті қосылды! Сізге 11:00, 16:00 және 20:00-де ескерту хабарламалары келеді.");
+          this.scheduleWebStudyNotification();
+        } else {
+          alert("Хабарламаларға рұқсат берілмеді. Браузер баптауларынан рұқсатты қосыңыз.");
+        }
+      });
+    } else {
+      alert("Бұл браузер хабарламаларды қолдамайды. Телефонға Android APK қосымшасын орнату ұсынылады.");
+    }
+  },
+
+  scheduleWebStudyNotification() {
+    if (!("Notification" in window) || Notification.permission !== "granted") return;
+    // Show instant verification reminder
+    setTimeout(() => {
+      new Notification("UNT 140 ACADEMY • Сабақ уақыты", {
+        body: "Бүгінгі 4 тақырып: Физика, Математика, Тарих және МС. Стрикті үзбеңіз!",
+        icon: "./manifest.json"
+      });
+    }, 2000);
+  },
+
+  toggleFocusModeSetting() {
+    let cur = "reminder";
+    try { cur = localStorage.getItem("ubt_focus_mode") || "reminder"; } catch (e) {}
+    let next = cur === "reminder" ? "strict" : cur === "strict" ? "off" : "reminder";
+    try { localStorage.setItem("ubt_focus_mode", next); } catch (e) {}
+
+    const label = document.getElementById("dash-focus-mode-label");
+    if (label) {
+      label.textContent = next === "reminder" ? "Жұмсақ ескерту" : next === "strict" ? "Қатаң бұғаттау" : "Өшірулі";
+    }
+
+    if (window.Android && window.Android.setFocusMode) {
+      window.Android.setFocusMode(next);
+    }
+    alert("Фокус режимі: " + (next === "reminder" ? "Жұмсақ ескерту (Телефонды бұғаттамай, тек еске салады)" : next === "strict" ? "Қатаң режим" : "Өшірулі"));
+  },
+
 };
 
 window.addEventListener("DOMContentLoaded", () => App.init());

@@ -55,6 +55,9 @@ public class MainActivity extends Activity {
             }
         });
 
+        // Schedule persistent daily study reminders (11:00, 16:00, 20:00)
+        StudyReminderReceiver.scheduleNextDailyAlarms(this);
+
         if (isNetworkAvailable()) {
             mWebView.loadUrl(ONLINE_URL);
         } else {
