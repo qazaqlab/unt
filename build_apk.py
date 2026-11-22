@@ -107,12 +107,13 @@ def main():
         os.remove(aligned_apk)
     run(f'"{ZIPALIGN}" -v -p 4 "{raw_apk}" "{aligned_apk}"', "Zipaligning APK package")
 
-    # 8. Create debug keystore if not exists
+    # 8. Create release keystore if not exists
+    KEYSTORE = os.path.join(BUILD_DIR, "qazaqlab.keystore")
     if not os.path.exists(KEYSTORE):
-        run(f'"{KEYTOOL}" -genkey -v -keystore "{KEYSTORE}" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"', "Generating debug keystore")
+        run(f'"{KEYTOOL}" -genkey -v -keystore "{KEYSTORE}" -storepass qazaqlab140 -alias unt140key -keypass qazaqlab140 -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=QazaqLab UNT 140,O=QazaqLab,L=Almaty,C=KZ"', "Generating QazaqLab release keystore")
 
-    # 9. Sign APK with apksigner
-    run(f'"{APKSIGNER}" sign --ks "{KEYSTORE}" --ks-pass pass:android --ks-key-alias androiddebugkey --key-pass pass:android --out "{FINAL_APK}" "{aligned_apk}"', "Signing APK with apksigner")
+    # 9. Sign APK with apksigner (v1 + v2 + v3 for maximum device compatibility)
+    run(f'"{APKSIGNER}" sign --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --ks "{KEYSTORE}" --ks-pass pass:qazaqlab140 --ks-key-alias unt140key --key-pass pass:qazaqlab140 --out "{FINAL_APK}" "{aligned_apk}"', "Signing APK with apksigner (v1+v2+v3)")
 
     # Verify APK signature
     run(f'"{APKSIGNER}" verify --verbose "{FINAL_APK}"', "Verifying signed APK")
@@ -121,9 +122,11 @@ def main():
     desktop_dest = r"C:\Users\user\Desktop\ҰБТ\UNT_140_ACADEMY.apk"
     shutil.copy(FINAL_APK, desktop_dest)
     
-    # Copy to platform root
+    # Copy to platform root and public/
     root_dest = r"C:\Users\user\.gemini\antigravity\scratch\ubt-140-platform\UNT_140_ACADEMY.apk"
+    public_dest = r"C:\Users\user\.gemini\antigravity\scratch\ubt-140-platform\public\UNT_140_ACADEMY.apk"
     shutil.copy(FINAL_APK, root_dest)
+    shutil.copy(FINAL_APK, public_dest)
 
     size_mb = os.path.getsize(FINAL_APK) / (1024 * 1024)
     print("=====================================================================")
