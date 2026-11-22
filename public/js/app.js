@@ -24,6 +24,7 @@ const App = {
   quizizzSearch: "",
   // Inline Book Reader state
   selectedBookIdx: 0,
+  pdfDocCache: {},
   inlinePdfDoc: null,
   inlinePdfFile: null,
   inlinePdfPage: 1,
@@ -153,8 +154,10 @@ const App = {
 
   resolveBookUrls(relPath) {
     if (!relPath) return [];
-    const baseName = relPath.split("/").pop().split("\\").pop();
-    const enc = encodeURIComponent(baseName);
+    const norm = relPath.replace(/\\/g, "/");
+    const isSlice = norm.startsWith("slices/");
+    const baseName = norm.split("/").pop();
+    const enc = (isSlice ? "slices/" : "") + encodeURIComponent(baseName);
     const urls = [];
     if (window.location.hostname.includes("github.io")) {
       urls.push(`./public/books/${enc}`);
@@ -164,7 +167,7 @@ const App = {
     } else {
       urls.push(`./books/${enc}`);
       urls.push(`./public/books/${enc}`);
-      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      if (!isSlice && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
         urls.push(`/api/pdf?file=${encodeURIComponent(relPath)}`);
       }
     }
@@ -672,6 +675,9 @@ const App = {
     const activeBook = booksList[this.selectedBookIdx];
     const startPage = activeBook.startPage || 1;
     const endPage = activeBook.endPage || startPage;
+    const fastFile = activeBook.sliceFile || activeBook.file;
+    const fastStartPage = activeBook.sliceFile ? 1 : startPage;
+    const fastEndPage = activeBook.sliceFile ? (activeBook.slicePageCount || 1) : endPage;
 
     const vList = (activeTopic.videos && activeTopic.videos.length > 0) ? activeTopic.videos : [
       {
@@ -790,23 +796,24 @@ const App = {
               <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
                 <button class="btn btn-xs btn-outline" onclick="App.changeInlineBookPage(-1)">◀ Алдыңғы бет</button>
                 <span style="font-size:12.5px;color:#cbd5e1;">Бет:</span>
-                <input id="inline-book-page-input" type="number" min="1" value="${startPage}" style="width:62px;padding:4px 6px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;font-weight:700;text-align:center;" onchange="App.jumpInlineBookPage(this.value)" />
+                <input id="inline-book-page-input" type="number" min="1" value="${fastStartPage}" style="width:62px;padding:4px 6px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;font-weight:700;text-align:center;" onchange="App.jumpInlineBookPage(this.value)" />
                 <span id="inline-book-total-pages" style="font-size:12.5px;color:#94a3b8;"></span>
                 <button class="btn btn-xs btn-outline" onclick="App.changeInlineBookPage(1)">Келесі бет ▶</button>
               </div>
               <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-                <button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${startPage})">Тақырып басы (${startPage}-бет)</button>
-                ${endPage > startPage ? `<button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${endPage})">Тақырып соңы (${endPage}-бет)</button>` : ''}
+                <button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${fastStartPage})">Тақырып басы</button>
+                ${fastEndPage > fastStartPage ? `<button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${fastEndPage})">Тақырып соңы (${fastEndPage})</button>` : ''}
+                ${activeBook.sliceFile ? `<button class="btn btn-xs btn-outline" onclick="App.loadAndRenderInlineBook('${activeBook.file.replace(/'/g, "\\'")}', ${startPage})">Толық кітапты жүктеу</button>` : ''}
               </div>
             </div>
 
             <!-- Inline Book Canvas & Iframe Viewport -->
             <div style="background:#070a12;border:1px solid #1e293b;border-radius:10px;min-height:480px;max-height:760px;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:12px;position:relative;">
               <div id="inline-book-status" style="color:#38bdf8;font-size:13px;padding:14px;text-align:center;">
-                Кітаптың ${startPage}-беті ашылуда...
+                Кітаптың беті жылдам жүктелуде...
               </div>
               <canvas id="inline-book-canvas" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,0.85);background:#fff;display:${this.inlinePdfMode === 'canvas' ? 'block' : 'none'};"></canvas>
-              <iframe id="inline-book-iframe" src="${this.inlinePdfMode === 'iframe' ? this.resolveBookUrl(activeBook.file, startPage) : 'about:blank'}" style="width:100%;height:640px;border:none;border-radius:6px;display:${this.inlinePdfMode === 'iframe' ? 'block' : 'none'};background:#fff;"></iframe>
+              <iframe id="inline-book-iframe" src="${this.inlinePdfMode === 'iframe' ? this.resolveBookUrl(fastFile, fastStartPage) : 'about:blank'}" style="width:100%;height:640px;border:none;border-radius:6px;display:${this.inlinePdfMode === 'iframe' ? 'block' : 'none'};background:#fff;"></iframe>
             </div>
 
             <!-- Extracted Formulas & Summary from the Book -->
@@ -959,9 +966,9 @@ const App = {
     `;
     this.renderMathInElement(container);
 
-    // Load and render the exact book page right inside the lesson!
-    this.inlinePdfPage = startPage;
-    this.loadAndRenderInlineBook(activeBook.file, startPage);
+    // Load and render the exact book page right inside the lesson (using ultra-fast slice when available)!
+    this.inlinePdfPage = fastStartPage;
+    this.loadAndRenderInlineBook(fastFile, fastStartPage);
   },
 
   selectSubject(subjId) {
@@ -1042,6 +1049,9 @@ const App = {
   async loadPdfDocumentWithFallback(relPath) {
     this.initPdfJs();
     if (!window.pdfjsLib) throw new Error("PDF.js кітапханасы жүктелмеді");
+    if (this.pdfDocCache && this.pdfDocCache[relPath]) {
+      return this.pdfDocCache[relPath];
+    }
     const candidateUrls = this.resolveBookUrls(relPath);
     let lastErr = null;
     for (const url of candidateUrls) {
@@ -1049,10 +1059,16 @@ const App = {
         const loadingTask = window.pdfjsLib.getDocument({
           url,
           cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
-          cMapPacked: true
+          cMapPacked: true,
+          disableAutoFetch: true,
+          disableStream: false,
+          rangeChunkSize: 65536
         });
         const doc = await loadingTask.promise;
-        return { doc, url };
+        const entry = { doc, url };
+        if (!this.pdfDocCache) this.pdfDocCache = {};
+        this.pdfDocCache[relPath] = entry;
+        return entry;
       } catch (err) {
         lastErr = err;
       }
@@ -1068,6 +1084,7 @@ const App = {
     const totalEl = document.getElementById("inline-book-total-pages");
     const extLink = document.getElementById("inline-book-ext-link");
 
+    const reqId = (this._inlinePdfReqId = (this._inlinePdfReqId || 0) + 1);
     this.inlinePdfPage = pageNum;
     if (pageInput) pageInput.value = pageNum;
     if (extLink) extLink.href = this.resolveBookUrl(relPath, pageNum);
@@ -1090,6 +1107,7 @@ const App = {
     try {
       if (!this.inlinePdfDoc || this.inlinePdfFile !== relPath) {
         const { doc, url } = await this.loadPdfDocumentWithFallback(relPath);
+        if (reqId !== this._inlinePdfReqId) return;
         this.inlinePdfDoc = doc;
         this.inlinePdfFile = relPath;
         this.inlinePdfResolvedUrl = url;
@@ -1106,16 +1124,22 @@ const App = {
       }
 
       const page = await this.inlinePdfDoc.getPage(safePage);
-      const viewport = page.getViewport({ scale: 1.5 });
+      if (reqId !== this._inlinePdfReqId) return;
+      const viewport = page.getViewport({ scale: 1.35 });
       if (!canvas) return;
+      if (this._inlineRenderTask) {
+        try { this._inlineRenderTask.cancel(); } catch (e) {}
+      }
       const ctx = canvas.getContext("2d");
       canvas.height = viewport.height;
       canvas.width = viewport.width;
       canvas.style.display = "block";
 
-      await page.render({ canvasContext: ctx, viewport }).promise;
-      if (statusEl) statusEl.style.display = "none";
+      this._inlineRenderTask = page.render({ canvasContext: ctx, viewport });
+      await this._inlineRenderTask.promise;
+      if (statusEl && reqId === this._inlinePdfReqId) statusEl.style.display = "none";
     } catch (err) {
+      if (err && err.name === "RenderingCancelledException") return;
       console.warn("Inline PDF.js render fallback to iframe:", err);
       if (statusEl) statusEl.style.display = "none";
       if (canvas) canvas.style.display = "none";

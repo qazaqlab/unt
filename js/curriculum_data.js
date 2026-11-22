@@ -1,4 +1,6 @@
-// ҰБТ 140/140 ФИЗМАТ — ТОЛЫҚ ОҚУ БАҒДАРЛАМАСЫ (100% ТЕКСЕРІЛГЕН КІТАП БЕТТЕРІ + НАҚТЫ YOUTUBE + QUIZIZZ)
+// ============================================================================
+// ҰБТ 140/140 ФИЗМАТ — ТОЛЫҚ ОҚУ БАҒДАРЛАМАСЫ (ЖЫЛДАМ КІТАП БЕТТЕРІ + НАҚТЫ YOUTUBE + QUIZIZZ)
+// ============================================================================
 window.UBT_CURRICULUM = {
   "meta": {
     "title": "ҰБТ 130/130 ФизМат — 5 Айлық Анти-Выгорание Бағдарламасы",
@@ -234,7 +236,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "5–10 беттер",
             "startPage": 5,
-            "endPage": 10
+            "endPage": 10,
+            "sliceFile": "slices/PHYS-01.pdf",
+            "sliceStartPage": 5,
+            "slicePageCount": 6
           },
           {
             "title": "Физика ЕНТ 1-бөлім (LETS Жұмыс дәптері) — 1–12 сабақтар",
@@ -321,7 +326,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "11–16 беттер",
             "startPage": 11,
-            "endPage": 16
+            "endPage": 16,
+            "sliceFile": "slices/PHYS-02.pdf",
+            "sliceStartPage": 11,
+            "slicePageCount": 6
           },
           {
             "title": "Физика ЕНТ 1-бөлім (LETS Жұмыс дәптері) — 13–20 сабақтар",
@@ -402,7 +410,10 @@ window.UBT_CURRICULUM = {
             "file": "Физика ЕНТ 1 болим каз-1.pdf",
             "pages": "146–151 беттер",
             "startPage": 146,
-            "endPage": 151
+            "endPage": 151,
+            "sliceFile": "slices/PHYS-03.pdf",
+            "sliceStartPage": 146,
+            "slicePageCount": 6
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 7-1. Механика және Күш моменті",
@@ -477,7 +488,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "17–19 беттер",
             "startPage": 17,
-            "endPage": 19
+            "endPage": 19,
+            "sliceFile": "slices/PHYS-04.pdf",
+            "sliceStartPage": 17,
+            "slicePageCount": 3
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 9-3. Сақталу заңдары",
@@ -551,7 +565,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "24–25 беттер",
             "startPage": 24,
-            "endPage": 25
+            "endPage": 25,
+            "sliceFile": "slices/PHYS-05.pdf",
+            "sliceStartPage": 24,
+            "slicePageCount": 2
           },
           {
             "title": "Физика ЕНТ 1-бөлім (LETS Жұмыс дәптері) — 21–26 сабақтар: Гидродинамика, Паскаль, Архимед",
@@ -625,7 +642,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "26–27 беттер",
             "startPage": 26,
-            "endPage": 27
+            "endPage": 27,
+            "sliceFile": "slices/PHYS-06.pdf",
+            "sliceStartPage": 26,
+            "slicePageCount": 2
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 10-1. Молекулалық физика",
@@ -699,7 +719,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "28–29 беттер",
             "startPage": 28,
-            "endPage": 29
+            "endPage": 29,
+            "sliceFile": "slices/PHYS-07.pdf",
+            "sliceStartPage": 28,
+            "slicePageCount": 2
           },
           {
             "title": "А-ТОК Физика есептер жинағы — Газ заңдары",
@@ -773,7 +796,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "30–32 беттер",
             "startPage": 30,
-            "endPage": 32
+            "endPage": 32,
+            "sliceFile": "slices/PHYS-08.pdf",
+            "sliceStartPage": 30,
+            "slicePageCount": 3
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 8-4. Термодинамиканың І заңы",
@@ -847,7 +873,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "33–36 беттер",
             "startPage": 33,
-            "endPage": 36
+            "endPage": 36,
+            "sliceFile": "slices/PHYS-09.pdf",
+            "sliceStartPage": 33,
+            "slicePageCount": 4
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 8-3. Жылу құбылыстары",
@@ -914,7 +943,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "37–43 беттер",
             "startPage": 37,
-            "endPage": 43
+            "endPage": 43,
+            "sliceFile": "slices/PHYS-10.pdf",
+            "sliceStartPage": 37,
+            "slicePageCount": 7
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 8-2. Электростатика. Конденсатор",
@@ -988,7 +1020,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "44–46 беттер",
             "startPage": 44,
-            "endPage": 46
+            "endPage": 46,
+            "sliceFile": "slices/PHYS-11.pdf",
+            "sliceStartPage": 44,
+            "slicePageCount": 3
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 8-1. Тұрақты ток",
@@ -1061,7 +1096,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "45–46 беттер",
             "startPage": 45,
-            "endPage": 46
+            "endPage": 46,
+            "sliceFile": "slices/PHYS-12.pdf",
+            "sliceStartPage": 45,
+            "slicePageCount": 2
           },
           {
             "title": "А-ТОК Физика есептер жинағы — Электр тогы және қуат",
@@ -1127,7 +1165,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "47–49 беттер",
             "startPage": 47,
-            "endPage": 49
+            "endPage": 49,
+            "sliceFile": "slices/PHYS-13.pdf",
+            "sliceStartPage": 47,
+            "slicePageCount": 3
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 10-2. Магнит өрісі",
@@ -1200,7 +1241,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "50–51 беттер",
             "startPage": 50,
-            "endPage": 51
+            "endPage": 51,
+            "sliceFile": "slices/PHYS-14.pdf",
+            "sliceStartPage": 50,
+            "slicePageCount": 2
           },
           {
             "title": "А-ТОК Физика есептер жинағы — Электромагниттік индукция",
@@ -1266,7 +1310,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "20–23 беттер",
             "startPage": 20,
-            "endPage": 23
+            "endPage": 23,
+            "sliceFile": "slices/PHYS-15.pdf",
+            "sliceStartPage": 20,
+            "slicePageCount": 4
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Механикалық тербелістер",
@@ -1340,7 +1387,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "52–55 беттер",
             "startPage": 52,
-            "endPage": 55
+            "endPage": 55,
+            "sliceFile": "slices/PHYS-16.pdf",
+            "sliceStartPage": 52,
+            "slicePageCount": 4
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Электрмагниттік тербелістер және Айнымалы ток",
@@ -1413,7 +1463,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "22–23 беттер",
             "startPage": 22,
-            "endPage": 23
+            "endPage": 23,
+            "sliceFile": "slices/PHYS-17.pdf",
+            "sliceStartPage": 22,
+            "slicePageCount": 2
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 9-5. Толқын және Дыбыс",
@@ -1484,7 +1537,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "56–57 беттер",
             "startPage": 56,
-            "endPage": 57
+            "endPage": 57,
+            "sliceFile": "slices/PHYS-18.pdf",
+            "sliceStartPage": 56,
+            "slicePageCount": 2
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Электромагниттік толқындар",
@@ -1549,7 +1605,10 @@ window.UBT_CURRICULUM = {
             "file": "ҰБТ_да_келетін_11_сынып_Физикасының_Теориясы.pdf",
             "pages": "6–8 беттер",
             "startPage": 6,
-            "endPage": 8
+            "endPage": 8,
+            "sliceFile": "slices/PHYS-19.pdf",
+            "sliceStartPage": 6,
+            "slicePageCount": 3
           },
           {
             "title": "369 формула (Е. Жұмаділов) — Толқындық оптика",
@@ -1614,7 +1673,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "58–62 беттер",
             "startPage": 58,
-            "endPage": 62
+            "endPage": 62,
+            "sliceFile": "slices/PHYS-20.pdf",
+            "sliceStartPage": 58,
+            "slicePageCount": 5
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Геометриялық оптика",
@@ -1686,7 +1748,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "68-бет",
             "startPage": 68,
-            "endPage": 68
+            "endPage": 68,
+            "sliceFile": "slices/PHYS-21.pdf",
+            "sliceStartPage": 68,
+            "slicePageCount": 1
           },
           {
             "title": "А-ТОК Физика есептер жинағы — 11-2. Салыстырмалылық физика",
@@ -1759,7 +1824,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "64–66 беттер",
             "startPage": 64,
-            "endPage": 66
+            "endPage": 66,
+            "sliceFile": "slices/PHYS-22.pdf",
+            "sliceStartPage": 64,
+            "slicePageCount": 3
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Сәулелену, Фотоэффект, Атом физикасы",
@@ -1832,7 +1900,10 @@ window.UBT_CURRICULUM = {
             "file": "369 формула.pdf",
             "pages": "66–67 беттер",
             "startPage": 66,
-            "endPage": 67
+            "endPage": 67,
+            "sliceFile": "slices/PHYS-23.pdf",
+            "sliceStartPage": 66,
+            "slicePageCount": 2
           },
           {
             "title": "11-сынып Физика теориясы (М. Харун) — Атом ядросы, Радиоактивтілік, Реактор",
@@ -1903,7 +1974,10 @@ window.UBT_CURRICULUM = {
             "file": "ҰБТ_да_келетін_11_сынып_Физикасының_Теориясы.pdf",
             "pages": "17-бет",
             "startPage": 17,
-            "endPage": 17
+            "endPage": 17,
+            "sliceFile": "slices/PHYS-24.pdf",
+            "sliceStartPage": 17,
+            "slicePageCount": 1
           },
           {
             "title": "369 формула (Е. Жұмаділов) — Физикалық өлшем бірліктер мен қосымшалар",
@@ -1975,7 +2049,10 @@ window.UBT_CURRICULUM = {
             "file": "ҰБТ_да_келетін_11_сынып_Физикасының_Теориясы.pdf",
             "pages": "18–21 беттер",
             "startPage": 18,
-            "endPage": 21
+            "endPage": 21,
+            "sliceFile": "slices/PHYS-25.pdf",
+            "sliceStartPage": 18,
+            "slicePageCount": 4
           },
           {
             "title": "369 формула (Е. Жұмаділов) — Бүкіләлемдік тартылыс және Ғарыштық жылдамдықтар",
@@ -2043,7 +2120,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "19–22 беттер",
             "startPage": 19,
-            "endPage": 22
+            "endPage": 22,
+            "sliceFile": "slices/MATH-01.pdf",
+            "sliceStartPage": 19,
+            "slicePageCount": 4
           },
           {
             "title": "Рустюмова Математика тренажері — І тарау §1. Сандық өрнектер және ІІ тарау §1. Иррационал өрнектер",
@@ -2109,7 +2189,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "21–22 беттер",
             "startPage": 21,
-            "endPage": 22
+            "endPage": 22,
+            "sliceFile": "slices/MATH-02.pdf",
+            "sliceStartPage": 21,
+            "slicePageCount": 2
           },
           {
             "title": "Рустюмова Математика тренажері — Дәрежелер мен түбірлерді түрлендіру",
@@ -2176,7 +2259,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "75–79 беттер",
             "startPage": 75,
-            "endPage": 79
+            "endPage": 79,
+            "sliceFile": "slices/MATH-03.pdf",
+            "sliceStartPage": 75,
+            "slicePageCount": 5
           },
           {
             "title": "Рустюмова Математика тренажері — IV тарау §1. Тригонометриялық түрлендірулер",
@@ -2243,7 +2329,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "21–22 беттер",
             "startPage": 21,
-            "endPage": 22
+            "endPage": 22,
+            "sliceFile": "slices/MATH-04.pdf",
+            "sliceStartPage": 21,
+            "slicePageCount": 2
           },
           {
             "title": "Рустюмова Математика тренажері — І тарау §2. Рационал алгебралық өрнектерді түрлендіру",
@@ -2309,7 +2398,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "24–26 беттер",
             "startPage": 24,
-            "endPage": 26
+            "endPage": 26,
+            "sliceFile": "slices/MATH-05.pdf",
+            "sliceStartPage": 24,
+            "slicePageCount": 3
           },
           {
             "title": "Рустюмова Математика тренажері — І тарау §3. Рационал теңдеулер және §6. Модульді теңдеулер",
@@ -2375,7 +2467,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "27, 80 беттер",
             "startPage": 80,
-            "endPage": 81
+            "endPage": 81,
+            "sliceFile": "slices/MATH-06.pdf",
+            "sliceStartPage": 80,
+            "slicePageCount": 2
           },
           {
             "title": "Рустюмова Математика тренажері — ІІ тарау §2. Иррационал теңдеулер (104-бет) & IV тарау §2. Тригонометриялық теңдеулер (229-бет)",
@@ -2440,7 +2535,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "23, 29 беттер",
             "startPage": 23,
-            "endPage": 29
+            "endPage": 29,
+            "sliceFile": "slices/MATH-07.pdf",
+            "sliceStartPage": 23,
+            "slicePageCount": 7
           },
           {
             "title": "Рустюмова Математика тренажері — ІІІ тарау §1–4. Көрсеткіштік және логарифмдік теңдеулер",
@@ -2504,7 +2602,10 @@ window.UBT_CURRICULUM = {
             "file": "Рустюмова қазақша.pdf",
             "pages": "45–58, 279–305 беттер",
             "startPage": 45,
-            "endPage": 58
+            "endPage": 58,
+            "sliceFile": "slices/MATH-08.pdf",
+            "sliceStartPage": 45,
+            "slicePageCount": 12
           },
           {
             "title": "НЗМ Математика формулалар жинағы — Матрица, Анықтауыштар және Крамер ережесі",
@@ -2568,7 +2669,10 @@ window.UBT_CURRICULUM = {
             "file": "Рустюмова қазақша.pdf",
             "pages": "113–120, 193–207 беттер",
             "startPage": 193,
-            "endPage": 207
+            "endPage": 207,
+            "sliceFile": "slices/MATH-09.pdf",
+            "sliceStartPage": 193,
+            "slicePageCount": 12
           },
           {
             "title": "НЗМ Математика формулалар жинағы — Теңдеулер мен жүйелер",
@@ -2633,7 +2737,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "24, 28–29, 80 беттер",
             "startPage": 28,
-            "endPage": 29
+            "endPage": 29,
+            "sliceFile": "slices/MATH-10.pdf",
+            "sliceStartPage": 28,
+            "slicePageCount": 2
           },
           {
             "title": "Рустюмова Математика тренажері — §5 Рационал (59-бет), §7 Модульді (82-бет), ІІ §4 Иррационал (121-бет), ІІІ §2,5 Көрсеткіштік-Логарифмдік (140, 178-бет)",
@@ -2697,7 +2804,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "113–131 беттер",
             "startPage": 113,
-            "endPage": 131
+            "endPage": 131,
+            "sliceFile": "slices/MATH-11.pdf",
+            "sliceStartPage": 113,
+            "slicePageCount": 12
           },
           {
             "title": "Рустюмова Математика тренажері — VII тарау §1. Функция және оның қасиеттері, Анықталу облысы",
@@ -2762,7 +2872,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "23-бет",
             "startPage": 23,
-            "endPage": 23
+            "endPage": 23,
+            "sliceFile": "slices/MATH-12.pdf",
+            "sliceStartPage": 23,
+            "slicePageCount": 1
           },
           {
             "title": "Рустюмова Математика тренажері — V тарау §1–2. Арифметикалық және Геометриялық прогрессия",
@@ -2829,7 +2942,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "132–149 беттер",
             "startPage": 132,
-            "endPage": 149
+            "endPage": 149,
+            "sliceFile": "slices/MATH-13.pdf",
+            "sliceStartPage": 132,
+            "slicePageCount": 12
           },
           {
             "title": "Рустюмова Математика тренажері — VII тарау §2–5. Туынды, Жанама, Экстремумдар, Алғашқы функция және Интеграл",
@@ -2895,7 +3011,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "30–40 беттер",
             "startPage": 30,
-            "endPage": 40
+            "endPage": 40,
+            "sliceFile": "slices/MATH-14.pdf",
+            "sliceStartPage": 30,
+            "slicePageCount": 11
           },
           {
             "title": "Рабинович 7–9 сынып Геометрия — Дайын сызбалардағы жаттығулар мен есептер",
@@ -2968,7 +3087,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "86–91 беттер",
             "startPage": 86,
-            "endPage": 91
+            "endPage": 91,
+            "sliceFile": "slices/MATH-15.pdf",
+            "sliceStartPage": 86,
+            "slicePageCount": 6
           },
           {
             "title": "НЗМ Математика формулалар жинағы — Синустар/Косинустар теоремасы, Медиана, Биссектриса",
@@ -3041,7 +3163,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "41–54 беттер",
             "startPage": 41,
-            "endPage": 54
+            "endPage": 54,
+            "sliceFile": "slices/MATH-16.pdf",
+            "sliceStartPage": 41,
+            "slicePageCount": 12
           },
           {
             "title": "Рустюмова Математика тренажері — ІХ тарау §1–2. Кеңістіктегі бұрыштар мен Көпжақтар",
@@ -3107,7 +3232,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "55–70 беттер",
             "startPage": 55,
-            "endPage": 70
+            "endPage": 70,
+            "sliceFile": "slices/MATH-17.pdf",
+            "sliceStartPage": 55,
+            "slicePageCount": 12
           },
           {
             "title": "Рустюмова Математика тренажері — ІХ тарау §3. Айналу денелері",
@@ -3173,7 +3301,10 @@ window.UBT_CURRICULUM = {
             "file": "Математика_формулалар_жинағы_каз_1.pdf",
             "pages": "92–108 беттер",
             "startPage": 92,
-            "endPage": 108
+            "endPage": 108,
+            "sliceFile": "slices/MATH-18.pdf",
+            "sliceStartPage": 92,
+            "slicePageCount": 12
           },
           {
             "title": "Рустюмова Математика тренажері — Х тарау §2. Жазықтықтағы және кеңістіктегі векторлар",
@@ -3239,7 +3370,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "2–4, 7, 12 беттер",
             "startPage": 2,
-            "endPage": 7
+            "endPage": 7,
+            "sliceFile": "slices/MSL-01.pdf",
+            "sliceStartPage": 2,
+            "slicePageCount": 6
           },
           {
             "title": "Математикалық сауаттылық Тренді — Сандар, Тақ/Жұп, Соңғы цифр, Логикалық есептер",
@@ -3310,7 +3444,10 @@ window.UBT_CURRICULUM = {
             "file": "MS-matematika_trendi.pdf",
             "pages": "2, 7, 17–23 беттер",
             "startPage": 2,
-            "endPage": 23
+            "endPage": 23,
+            "sliceFile": "slices/MSL-02.pdf",
+            "sliceStartPage": 2,
+            "slicePageCount": 12
           },
           {
             "title": "МС Формула жинағы — Кітап бетіне байланысты формулалар",
@@ -3381,7 +3518,10 @@ window.UBT_CURRICULUM = {
             "file": "MS-matematika_trendi.pdf",
             "pages": "11–16, 42–43, 56 беттер",
             "startPage": 11,
-            "endPage": 16
+            "endPage": 16,
+            "sliceFile": "slices/MSL-03.pdf",
+            "sliceStartPage": 11,
+            "slicePageCount": 6
           },
           {
             "title": "Дайын кітап (МатСауат) — Процентке және концентрацияға арналған есептер",
@@ -3452,7 +3592,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "9–11 беттер",
             "startPage": 9,
-            "endPage": 11
+            "endPage": 11,
+            "sliceFile": "slices/MSL-04.pdf",
+            "sliceStartPage": 9,
+            "slicePageCount": 3
           },
           {
             "title": "Математикалық сауаттылық Тренді — Арифметикалық орта, Медиана, Мода есептері",
@@ -3523,7 +3666,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "5–6, 12 беттер",
             "startPage": 5,
-            "endPage": 6
+            "endPage": 6,
+            "sliceFile": "slices/MSL-05.pdf",
+            "sliceStartPage": 5,
+            "slicePageCount": 2
           },
           {
             "title": "Математикалық сауаттылық Тренді — Комбинаторика, Қол алысу, Ойындар және Ықтималдық",
@@ -3594,7 +3740,10 @@ window.UBT_CURRICULUM = {
             "file": "MS-matematika_trendi.pdf",
             "pages": "20, 24, 27, 39–41 беттер",
             "startPage": 39,
-            "endPage": 41
+            "endPage": 41,
+            "sliceFile": "slices/MSL-06.pdf",
+            "sliceStartPage": 39,
+            "slicePageCount": 3
           },
           {
             "title": "Дайын кітап (МатСауат) — Қозғалысқа және орташа жылдамдыққа байланысты мәселе есептер",
@@ -3658,7 +3807,10 @@ window.UBT_CURRICULUM = {
             "file": "MS-matematika_trendi.pdf",
             "pages": "41–43, 50–55 беттер",
             "startPage": 50,
-            "endPage": 55
+            "endPage": 55,
+            "sliceFile": "slices/MSL-07.pdf",
+            "sliceStartPage": 50,
+            "slicePageCount": 6
           },
           {
             "title": "Дайын кітап (МатСауат) — Сандық тізбектер және Арифметикалық/Геометриялық прогрессия",
@@ -3722,7 +3874,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "13–16 беттер",
             "startPage": 13,
-            "endPage": 16
+            "endPage": 16,
+            "sliceFile": "slices/MSL-08.pdf",
+            "sliceStartPage": 13,
+            "slicePageCount": 4
           },
           {
             "title": "Математикалық сауаттылық Тренді — Бұрышқа, хордалар мен фигуралар санауға байланысты есептер",
@@ -3786,7 +3941,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "8, 17, 19 беттер",
             "startPage": 17,
-            "endPage": 19
+            "endPage": 19,
+            "sliceFile": "slices/MSL-09.pdf",
+            "sliceStartPage": 17,
+            "slicePageCount": 3
           },
           {
             "title": "Математикалық сауаттылық Тренді — Фигуралардың периметрі мен боялған бөлік ауданы",
@@ -3857,7 +4015,10 @@ window.UBT_CURRICULUM = {
             "file": "МС ФОРМУЛА ЖИНАҒЫ.pdf",
             "pages": "18-бет",
             "startPage": 18,
-            "endPage": 18
+            "endPage": 18,
+            "sliceFile": "slices/MSL-10.pdf",
+            "sliceStartPage": 18,
+            "slicePageCount": 1
           },
           {
             "title": "Математикалық сауаттылық Тренді — Боялған текшені (кубты) кесу және кеңістік денелері",
@@ -3930,7 +4091,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "3–6, 9–12 беттер",
             "startPage": 3,
-            "endPage": 12
+            "endPage": 12,
+            "sliceFile": "slices/HIST-01.pdf",
+            "sliceStartPage": 3,
+            "slicePageCount": 10
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 01. Ежелгі кезең (Тас, Энеолит, Қола дәуірі)",
@@ -3994,7 +4158,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "6–13, 18 беттер",
             "startPage": 6,
-            "endPage": 13
+            "endPage": 13,
+            "sliceFile": "slices/HIST-02.pdf",
+            "sliceStartPage": 6,
+            "slicePageCount": 8
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 02. Ерте көшпенділер дәуірі",
@@ -4058,7 +4225,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "14–18 беттер",
             "startPage": 14,
-            "endPage": 18
+            "endPage": 18,
+            "sliceFile": "slices/HIST-03.pdf",
+            "sliceStartPage": 14,
+            "slicePageCount": 5
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 03–05. VI–IX ғ. Қазақстан, Түрік, Түргеш, Қарлұқ, Оғыз, Қимақ",
@@ -4122,7 +4292,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "16–21 беттер",
             "startPage": 16,
-            "endPage": 21
+            "endPage": 21,
+            "sliceFile": "slices/HIST-04.pdf",
+            "sliceStartPage": 16,
+            "slicePageCount": 6
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 06–07. Қарахан мемлекеті, Найман, Керейіт, Жалайыр, Қыпшақ",
@@ -4186,7 +4359,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "17–21 беттер",
             "startPage": 17,
-            "endPage": 21
+            "endPage": 21,
+            "sliceFile": "slices/HIST-05.pdf",
+            "sliceStartPage": 17,
+            "slicePageCount": 5
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 08–10. Моңғол империясы, Алтын Орда, Ақ Орда, Моғолстан, Әмір Темір, Этногенез",
@@ -4250,7 +4426,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "19–22 беттер",
             "startPage": 19,
-            "endPage": 22
+            "endPage": 22,
+            "sliceFile": "slices/HIST-06.pdf",
+            "sliceStartPage": 19,
+            "slicePageCount": 4
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 11–16. Қазақ хандығының құрылуы, Қасым, Хақназар, Тәуекел, Есім, Жәңгір хандар",
@@ -4314,7 +4493,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "5, 14, 21–22 беттер",
             "startPage": 21,
-            "endPage": 22
+            "endPage": 22,
+            "sliceFile": "slices/HIST-07.pdf",
+            "sliceStartPage": 21,
+            "slicePageCount": 2
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 17–21. Тәуке хан («Жеті жарғы»), Жоңғар шапқыншылығы, Абылай хан",
@@ -4378,7 +4560,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "33–36 беттер",
             "startPage": 33,
-            "endPage": 36
+            "endPage": 36,
+            "sliceFile": "slices/HIST-08.pdf",
+            "sliceStartPage": 33,
+            "slicePageCount": 4
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 22–28. Сырым Датұлы, 1822–1824 ж. реформалар, Бөкей ордасы, Кенесары Қасымұлы",
@@ -4442,7 +4627,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "34–39 беттер",
             "startPage": 34,
-            "endPage": 39
+            "endPage": 39,
+            "sliceFile": "slices/HIST-09.pdf",
+            "sliceStartPage": 34,
+            "slicePageCount": 6
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 29–32. 1867–1868 ж. реформалар, 1860–1870 ж. көтерілістер, Жәрмеңкелер",
@@ -4506,7 +4694,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "23–24 беттер",
             "startPage": 23,
-            "endPage": 24
+            "endPage": 24,
+            "sliceFile": "slices/HIST-10.pdf",
+            "sliceStartPage": 23,
+            "slicePageCount": 2
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 33–35. 1916 ж. көтеріліс, 1917 ж. революциялар, «Алаш» қозғалысы",
@@ -4570,7 +4761,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "25–27, 40–42 беттер",
             "startPage": 25,
-            "endPage": 27
+            "endPage": 27,
+            "sliceFile": "slices/HIST-11.pdf",
+            "sliceStartPage": 25,
+            "slicePageCount": 3
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 36–42. Қазақ АКСР, Индустрияландыру, 1931–1933 ж. Ашаршылық, Репрессия, ҰОС",
@@ -4634,7 +4828,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "28–32 беттер",
             "startPage": 28,
-            "endPage": 32
+            "endPage": 32,
+            "sliceFile": "slices/HIST-12.pdf",
+            "sliceStartPage": 28,
+            "slicePageCount": 5
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 43–50. Соғыстан кейінгі кезең, Тың игеру, Тоқырау, Желтоқсан (1986), Тәуелсіз Қазақстан",
@@ -4698,7 +4895,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "11–18, 21 беттер",
             "startPage": 11,
-            "endPage": 18
+            "endPage": 18,
+            "sliceFile": "slices/HIST-13.pdf",
+            "sliceStartPage": 11,
+            "slicePageCount": 8
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 51–52. ХІХ–ХХ ғ. Қазақстан мәдениеті, Шоқан, Ыбырай, Абай, А. Байтұрсынов, Қ. Сәтбаев",
@@ -4762,7 +4962,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "3–32 беттер",
             "startPage": 3,
-            "endPage": 32
+            "endPage": 32,
+            "sliceFile": "slices/HIST-14.pdf",
+            "sliceStartPage": 3,
+            "slicePageCount": 12
           },
           {
             "title": "Қазақстан тарихы оқулықтар тізбесі (6–11 сыныптар)",
@@ -4826,7 +5029,10 @@ window.UBT_CURRICULUM = {
             "file": "Тарих 11 сынып.pdf",
             "pages": "33–54 беттер",
             "startPage": 33,
-            "endPage": 54
+            "endPage": 54,
+            "sliceFile": "slices/HIST-15.pdf",
+            "sliceStartPage": 33,
+            "slicePageCount": 12
           },
           {
             "title": "Қазақстан тарихы 2026 Тест спецификациясы — 53–55. Контекстік тапсырмалар (Құжаттар, Тұлғалар, Карталар)",
