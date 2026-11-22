@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <!-- Supabase Realtime JS SDK & Mozilla PDF.js for Inline Book Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <style>
     :root {
       --bg-main: #0a0e1a;
@@ -689,14 +692,6 @@
           <div class="brand-subtitle">ФизМат • Академиялық дайындық жүйесі</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <button class="btn btn-xs btn-outline" onclick="App.openSyncModal()" style="border-radius:16px;">
-          Синхрондау
-        </button>
-        <button class="btn btn-xs btn-primary" onclick="App.openDeviceModal()" style="border-radius:16px;">
-          Құрылғылар мен QR
-        </button>
-      </div>
     </div>
 
     <nav class="nav-links">
@@ -711,10 +706,6 @@
     </nav>
 
     <div class="header-stats">
-      <div class="stat-pill" title="Бұлттық синхрондау коды (барлық құрылғылар бірдей)" onclick="App.openSyncModal()" style="cursor:pointer;border-color:rgba(16,185,129,0.3);">
-        <span class="stat-pill-label">БҰЛТ</span>
-        <span id="hdr-cloud" style="color:var(--green);font-weight:700;">140-SYNC</span>
-      </div>
       <div class="stat-pill" title="Үздіксіз сабақ оқу күндері">
         <span class="stat-pill-label">Стрик</span>
         <span id="hdr-streak" style="color:var(--amber);">1 күн</span>
@@ -731,6 +722,10 @@
         <span class="stat-pill-label">Қателер</span>
         <span id="hdr-errors" style="color:var(--red);">0</span>
       </div>
+      <button class="btn btn-xs btn-outline" onclick="App.openSyncModal()" title="Профиль және құрылғыларды синхрондау" style="border-radius:16px;padding:5px 12px;display:flex;align-items:center;gap:6px;">
+        <span id="sync-status-dot" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#10b981;"></span>
+        <span>Профиль</span>
+      </button>
     </div>
   </header>
 
@@ -774,14 +769,21 @@
     <div class="pdf-modal-bar">
       <div id="pdf-modal-title" style="font-weight:700;color:#f8fafc;font-size:14px;">PDF Оқулық құралы</div>
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <span style="font-size:12.5px;color:#94a3b8;">Бетке өту:</span>
-        <input id="pdf-page-input" type="number" min="1" value="1" style="width:70px;padding:5px 8px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;" />
+        <button class="btn btn-sm btn-outline" onclick="App.prevModalPdfPage()">◀ Алдыңғы</button>
+        <span style="font-size:12.5px;color:#94a3b8;">Бет:</span>
+        <input id="pdf-page-input" type="number" min="1" value="1" style="width:65px;padding:5px 8px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;" onchange="App.jumpPdfPage()" />
+        <span id="pdf-modal-total-pages" style="font-size:12.5px;color:#94a3b8;"></span>
+        <button class="btn btn-sm btn-outline" onclick="App.nextModalPdfPage()">Келесі ▶</button>
         <button class="btn btn-sm btn-primary" onclick="App.jumpPdfPage()">Өту</button>
-        <a id="pdf-external-link" href="#" target="_blank" class="btn btn-sm btn-accent" style="text-decoration:none;">Жаңа терезеде ашу</a>
+        <a id="pdf-external-link" href="#" target="_blank" class="btn btn-sm btn-accent" style="text-decoration:none;">Жаңа терезеде ашу ↗</a>
         <button class="btn btn-sm btn-outline" onclick="App.closePdfModal()">Жабу</button>
       </div>
     </div>
-    <iframe id="pdf-iframe" class="pdf-iframe" src="about:blank"></iframe>
+    <div id="pdf-modal-canvas-wrap" style="flex:1;overflow:auto;background:#090d16;display:flex;flex-direction:column;align-items:center;padding:16px;position:relative;">
+      <div id="pdf-modal-status" style="color:#38bdf8;font-size:13.5px;margin-bottom:10px;display:none;">Кітап беті жүктелуде...</div>
+      <canvas id="pdf-modal-canvas" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 10px 35px rgba(0,0,0,0.8);background:#fff;display:none;"></canvas>
+      <iframe id="pdf-iframe" class="pdf-iframe" src="about:blank" style="width:100%;height:100%;border:none;"></iframe>
+    </div>
   </div>
 
   <!-- Cross-Device Real-Time Cloud Sync & Supabase Modal -->
@@ -840,22 +842,26 @@
         </div>
       </div>
 
-      <!-- Section 3: Supabase Direct Database (Optional) -->
+      <!-- Section 3: Supabase Direct Realtime Database -->
       <div style="background:#0a0e1a;border:1px solid #1e293b;padding:14px;border-radius:10px;margin-bottom:14px;">
         <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer;" onclick="App.toggleSupabasePanel()">
-          <h4 style="margin:0;font-size:14px;color:#38bdf8;">Жеке Supabase дерекқорын қосу (Қосымша)</h4>
-          <span id="supabase-panel-toggle" style="font-size:12px;color:#94a3b8;">Ашу ▼</span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h4 style="margin:0;font-size:14px;color:#38bdf8;">Supabase Realtime Дерекқоры (Планшет • Телефон • Ноутбук)</h4>
+            <span id="supabase-status-badge" class="badge badge-green" style="font-size:10.5px;">Бұлттық режим дайын</span>
+          </div>
+          <span id="supabase-panel-toggle" style="font-size:12px;color:#94a3b8;">Жабу ▲</span>
         </div>
-        <div id="supabase-config-body" style="display:none;margin-top:12px;">
+        <div id="supabase-config-body" style="display:block;margin-top:12px;">
           <p style="font-size:12px;color:#cbd5e1;margin-bottom:10px;">
-            Егер өз Supabase жобаңызды қосқыңыз келсе, Project URL және Anon Key енгізіңіз. Барлық деректер тікелей сіздің жеке PostgreSQL базаңызда сақталады:
+            Өз Supabase жобаңыздың Project URL және Anon Key мәліметтерін енгізіңіз (немесе төмендегі SQL-ді көшіріп Supabase SQL Editor-де іске қосыңыз). Барлық құрылғылар нақты уақытта (WebSocket арқылы &lt; 0.5 сек) синхрондалады:
           </p>
           <div style="display:flex;flex-direction:column;gap:8px;">
             <input id="supabase-url-input" class="input-control" placeholder="Supabase Project URL (мысалы: https://xyz.supabase.co)" />
             <input id="supabase-key-input" class="input-control" placeholder="Supabase Anon Public API Key (eyJhbGciOi...)" />
-            <div style="display:flex;gap:8px;margin-top:4px;">
-              <button class="btn btn-sm btn-accent" onclick="App.saveSupabaseConfig()">Supabase-ті сақтау және тексеру</button>
-              <button class="btn btn-sm btn-outline" onclick="App.copySupabaseSql()">SQL кесте сұранысын көшіру</button>
+            <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap;">
+              <button class="btn btn-sm btn-accent" onclick="App.saveSupabaseConfig()">Supabase қосу және синхрондау</button>
+              <button class="btn btn-sm btn-outline" onclick="App.copySupabaseSql()">1-шертумен SQL кесте кодын көшіру</button>
+              <button class="btn btn-sm btn-outline" onclick="App.pullFromCloud()">Қазір жаңарту</button>
             </div>
           </div>
         </div>

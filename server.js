@@ -344,7 +344,8 @@ const server = http.createServer((req, res) => {
   }
 
   // Static files from public/
-  let filePath = pathname === '/' ? path.join(PUBLIC_DIR, 'index.html') : path.join(PUBLIC_DIR, pathname);
+  const cleanPathname = pathname.startsWith('/public/') ? pathname.slice(7) : pathname;
+  let filePath = cleanPathname === '/' ? path.join(PUBLIC_DIR, 'index.html') : path.join(PUBLIC_DIR, cleanPathname);
   if (!filePath.startsWith(PUBLIC_DIR)) {
     res.writeHead(403);
     res.end('Forbidden');
@@ -352,9 +353,14 @@ const server = http.createServer((req, res) => {
   }
 
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+    const stat = fs.statSync(filePath);
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': contentType });
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Content-Length': stat.size,
+      'Accept-Ranges': 'bytes'
+    });
     fs.createReadStream(filePath).pipe(res);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });

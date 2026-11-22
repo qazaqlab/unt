@@ -22,12 +22,25 @@ const App = {
   quizizzSubj: "hist",
   quizizzCategory: "all",
   quizizzSearch: "",
+  // Inline Book Reader state
+  selectedBookIdx: 0,
+  inlinePdfDoc: null,
+  inlinePdfFile: null,
+  inlinePdfPage: 1,
+  inlinePdfTotalPages: 1,
+  inlinePdfMode: "canvas", // "canvas" (PDF.js universal) or "iframe"
+  modalPdfDoc: null,
+  modalPdfFile: null,
+  modalPdfPage: 1,
+  modalPdfTotalPages: 1,
   // Real-time Cloud Sync & Supabase
   syncKey: null,
   syncDebounceTimer: null,
   cloudPollInterval: null,
   supabaseUrl: "",
   supabaseKey: "",
+  sbClient: null,
+  sbChannel: null,
   isCloudSyncing: false,
   // Android Native Focus & Blocker
   webFocusActive: false,
@@ -112,14 +125,77 @@ const App = {
     this.pushToCloud();
   },
 
+  getStaticBooksCatalog() {
+    return [
+      { name: "369 формула (Е. Жұмаділов) — Физика барлық формулалар жинағы", relPath: "369 формула.pdf", folder: "Физика • Формулалар", sizeMB: "4.09", pagesCount: 69, isEmpty: false },
+      { name: "Физика ЕНТ 1-бөлім (LETS Жұмыс дәптері — Теория + Есептер)", relPath: "Физика ЕНТ 1 болим каз-1.pdf", folder: "Физика • Оқулық", sizeMB: "9.12", pagesCount: 152, isEmpty: false },
+      { name: "ҰБТ-да келетін 11-сынып Физикасының Теориясы (М. Харун)", relPath: "ҰБТ_да_келетін_11_сынып_Физикасының_Теориясы.pdf", folder: "Физика • Теория", sizeMB: "4.91", pagesCount: 22, isEmpty: false },
+      { name: "А-ТОК Физика есептер жинағы 7–11 сынып (Барат А.Ж.)", relPath: "физика есептер (8).pdf", folder: "Физика • Есептер жинағы", sizeMB: "5.42", pagesCount: 332, isEmpty: false },
+      { name: "Juz40 Физика формулалар мен шпаргалка жинағы", relPath: "Phisic_formula_juz40.pdf", folder: "Физика • Формулалар", sizeMB: "2.18", pagesCount: 24, isEmpty: false },
+      { name: "1-нұсқа Физика ҰБТ-2024 сынама жинағы", relPath: "1 нұсқа Физика ҰБТ 2024.pdf", folder: "Физика • Нұсқалар", sizeMB: "0.68", pagesCount: 9, isEmpty: false },
+      { name: "ҰБТ-2024 Физика жаңа нұсқалар жинағы", relPath: "ҰБТ 2024 жаңа.pdf", folder: "Физика • Нұсқалар", sizeMB: "2.94", pagesCount: 11, isEmpty: false },
+      { name: "НЗМ Математикадан формулалар жинағы (Арифметика, Алгебра, 3D Геометрия, Анализ)", relPath: "Математика_формулалар_жинағы_каз_1.pdf", folder: "Математика • Формулалар", sizeMB: "18.16", pagesCount: 176, isEmpty: false },
+      { name: "И.П. Рустюмова — Математикадан ҰБТ-ға дайындалуға арналған тренажер (Толық 490 бет)", relPath: "Рустюмова қазақша.pdf", folder: "Математика • Тренажер", sizeMB: "18.80", pagesCount: 490, isEmpty: false },
+      { name: "Е.М. Рабинович — 7–9 сынып Геометрия (Дайын сызбалардағы есептер)", relPath: "Рабинович 7-9 кл.pdf", folder: "Математика • Планиметрия", sizeMB: "1.18", pagesCount: 56, isEmpty: false },
+      { name: "Математикалық сауаттылық Формулалар жинағы (Чек-лист)", relPath: "МС ФОРМУЛА ЖИНАҒЫ.pdf", folder: "Мат. сауаттылық • Формулалар", sizeMB: "4.31", pagesCount: 21, isEmpty: false },
+      { name: "Математикалық сауаттылық Тренді (37 тақырыптық тест жинағы)", relPath: "MS-matematika_trendi.pdf", folder: "Мат. сауаттылық • Тренажер", sizeMB: "4.97", pagesCount: 58, isEmpty: false },
+      { name: "Математикалық сауаттылық — Дайын кітап (Теория және 237 беттік есептер)", relPath: "Дайын кітап_210902_144231.pdf", folder: "Мат. сауаттылық • Оқулық", sizeMB: "14.23", pagesCount: 237, isEmpty: false },
+      { name: "Қазақстан тарихы ҰБТ Сұрақ-жауап кітапшасы (Testcenter бекіткен база)", relPath: "Тарих 11 сынып.pdf", folder: "Қазақстан тарихы • Оқулық", sizeMB: "16.69", pagesCount: 55, isEmpty: false },
+      { name: "11 Физика — ҰБТ-2026 ресми тест спецификациясы", relPath: "11_Физика_каз.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.12", pagesCount: 2, isEmpty: false },
+      { name: "09 Математика — ҰБТ-2026 ресми тест спецификациясы", relPath: "09_Математика_каз.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.11", pagesCount: 2, isEmpty: false },
+      { name: "07 Математикалық сауаттылық — ҰБТ-2026 ресми тест спецификациясы", relPath: "07_Математикалық-сауаттылық.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.10", pagesCount: 2, isEmpty: false },
+      { name: "22 Қазақстан тарихы — ҰБТ-2026 ресми тест спецификациясы (55 тақырып)", relPath: "22_Қазақстан-тарихы.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.15", pagesCount: 4, isEmpty: false },
+      { name: "Физика пәні бойынша ұсынылатын ресми оқулықтар тізбесі", relPath: "Физика-1.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.10", pagesCount: 2, isEmpty: false },
+      { name: "Математика және Мат. сауаттылық бойынша ұсынылатын оқулықтар тізбесі", relPath: "Математикалық-сауаттылық-және-математика.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.12", pagesCount: 5, isEmpty: false },
+      { name: "Қазақстан тарихы бойынша ұсынылатын ресми оқулықтар тізбесі", relPath: "Қазақстан-тарихы-2.pdf", folder: "Ресми 2026 Спецификация", sizeMB: "0.11", pagesCount: 2, isEmpty: false }
+    ];
+  },
+
+  resolveBookUrls(relPath) {
+    if (!relPath) return [];
+    const baseName = relPath.split("/").pop().split("\\").pop();
+    const enc = encodeURIComponent(baseName);
+    const urls = [];
+    if (window.location.hostname.includes("github.io")) {
+      urls.push(`./public/books/${enc}`);
+      urls.push(`./books/${enc}`);
+    } else if (window.location.protocol === "file:") {
+      urls.push(`https://qazaqlab.github.io/unt/public/books/${enc}`);
+    } else {
+      urls.push(`./books/${enc}`);
+      urls.push(`./public/books/${enc}`);
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        urls.push(`/api/pdf?file=${encodeURIComponent(relPath)}`);
+      }
+    }
+    urls.push(`https://qazaqlab.github.io/unt/public/books/${enc}`);
+    return Array.from(new Set(urls));
+  },
+
+  resolveBookUrl(relPath, page = 1) {
+    const urls = this.resolveBookUrls(relPath);
+    const base = urls[0] || "";
+    return page ? `${base}#page=${page}` : base;
+  },
+
   async loadBooks() {
+    this.books = this.getStaticBooksCatalog();
     try {
       const res = await fetch("/api/books");
-      const data = await res.json();
-      this.books = data.books || [];
+      if (res.ok) {
+        const data = await res.json();
+        if (data.books && data.books.length > 0) {
+          // Merge server books with static catalog
+          const existingNames = new Set(this.books.map(b => b.name));
+          data.books.forEach(sb => {
+            if (!sb.isEmpty && !existingNames.has(sb.name)) {
+              this.books.push(sb);
+            }
+          });
+        }
+      }
     } catch (e) {
-      console.error("Books load error:", e);
-      this.books = [];
+      // Static catalog is already loaded
     }
   },
 
@@ -294,24 +370,24 @@ const App = {
           <!-- Today's 4 Subject Topic Pills -->
           <div class="today-topics-grid">
             <div class="topic-pill phys" onclick="App.openTopicDirect('${physTopic.code}')">
-              <div class="tp-head">Физика (50 б)</div>
+              <div class="tp-head">Физика (50 б) • ${physTopic.books?.[0]?.pages || ''}</div>
               <div class="tp-title">${physTopic.title}</div>
-              <div class="tp-link">Түсіндірме + PDF беттерін ашу →</div>
+              <div class="tp-link">1. Кітап беті • 2. YouTube • 3. Quizizz тест →</div>
             </div>
             <div class="topic-pill math" onclick="App.openTopicDirect('${mathTopic.code}')">
-              <div class="tp-head">Математика (50 б)</div>
+              <div class="tp-head">Математика (50 б) • ${mathTopic.books?.[0]?.pages || ''}</div>
               <div class="tp-title">${mathTopic.title}</div>
-              <div class="tp-link">Түсіндірме + PDF беттерін ашу →</div>
+              <div class="tp-link">1. Кітап беті • 2. YouTube • 3. Quizizz тест →</div>
             </div>
             <div class="topic-pill hist" onclick="App.openTopicDirect('${histTopic.code}')">
-              <div class="tp-head">Қазақстан тарихы (20 б)</div>
+              <div class="tp-head">Қазақстан тарихы (20 б) • ${histTopic.books?.[0]?.pages || ''}</div>
               <div class="tp-title">${histTopic.title}</div>
-              <div class="tp-link">Даталар мен тұлғаларды ашу →</div>
+              <div class="tp-link">1. Кітап беті • 2. YouTube • 3. Quizizz тест →</div>
             </div>
             <div class="topic-pill msl" onclick="App.openTopicDirect('${mslTopic.code}')">
-              <div class="tp-head">Мат. сауаттылық (10 б)</div>
+              <div class="tp-head">Мат. сауаттылық (10 б) • ${mslTopic.books?.[0]?.pages || ''}</div>
               <div class="tp-title">${mslTopic.title}</div>
-              <div class="tp-link">Логикалық лайфхактарды ашу →</div>
+              <div class="tp-link">1. Кітап беті • 2. YouTube • 3. Quizizz тест →</div>
             </div>
           </div>
 
@@ -416,8 +492,11 @@ const App = {
     if (!t) return;
     this.selectedSubject = t.subjectId;
     this.selectedTopicCode = code;
-    this.topicSubTab = "theory";
+    this.selectedBookIdx = 0;
+    this.inlinePdfDoc = null;
+    this.inlinePdfFile = null;
     this.switchTab("curriculum");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   },
 
   // Pomodoro methods
@@ -565,7 +644,7 @@ const App = {
   },
 
   // ==========================================================================
-  // 3. ОҚУ БАҒДАРЛАМАСЫ ЖӘНЕ 108 ТАҚЫРЫП (CURRICULUM VIEW)
+  // 3. БІРЫҢҒАЙ САБАҚ ЛОГИКАСЫ (1. КІТАП БЕТІ -> 2. YOUTUBE ВИДЕО -> 3. QUIZIZZ ТЕСТ)
   // ==========================================================================
   renderCurriculumView() {
     const container = document.getElementById("curriculum-content");
@@ -580,284 +659,459 @@ const App = {
     }
 
     const topicQuestions = window.UBT_QUESTIONS.filter(q => q.topic === activeTopic.code || q.subject === this.selectedSubject);
+    const topicQuizizz = ((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code);
+    const completedTopics = (this.state && this.state.completedTopics) || {};
+    const isTopicDone = !!completedTopics[activeTopic.code];
+
+    const booksList = (activeTopic.books && activeTopic.books.length > 0) ? activeTopic.books : [
+      { title: "ҰБТ-2026 Ресми тест спецификациясы", file: "11_Физика_каз.pdf", pages: "1–2 беттер", startPage: 1, endPage: 2 }
+    ];
+    if (this.selectedBookIdx >= booksList.length || this.selectedBookIdx < 0) {
+      this.selectedBookIdx = 0;
+    }
+    const activeBook = booksList[this.selectedBookIdx];
+    const startPage = activeBook.startPage || 1;
+    const endPage = activeBook.endPage || startPage;
+
+    const vList = (activeTopic.videos && activeTopic.videos.length > 0) ? activeTopic.videos : [
+      {
+        title: activeTopic.title + " (Қазақша толық видео түсіндірме)",
+        channel: "140 Academy / ҰБТ Онлайн",
+        duration: "25 мин",
+        youtubeId: "8Z1aY0_a2w0",
+        searchQuery: activeTopic.title + " ҰБТ қазақша түсіндіру"
+      }
+    ];
+    const primaryVid = vList[0];
+    const ytSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(activeTopic.title + " ҰБТ қазақша түсіндірме");
+    const completedQuizizzMap = (this.state && this.state.completedQuizizz) || {};
 
     container.innerHTML = `
       <!-- Subject Switcher -->
       <div class="subject-tabs">
-        ${subjects.map(s => `
-          <button class="subj-tab ${this.selectedSubject === s.id ? 'active' : ''}" onclick="App.selectSubject('${s.id}')">
-            <span>${s.name}</span>
-            <span class="subj-badge">${s.maxPoints} балл • ${window.UBT_CURRICULUM.topics[s.id].length} модуль</span>
-          </button>
-        `).join("")}
+        ${subjects.map(s => {
+          const sTopics = window.UBT_CURRICULUM.topics[s.id] || [];
+          const doneCount = sTopics.filter(t => completedTopics[t.code]).length;
+          return `
+            <button class="subj-tab ${this.selectedSubject === s.id ? 'active' : ''}" onclick="App.selectSubject('${s.id}')">
+              <span>${s.name}</span>
+              <span class="subj-badge">${doneCount}/${sTopics.length} тақырып • ${s.maxPoints} балл</span>
+            </button>
+          `;
+        }).join("")}
       </div>
 
       <div class="curriculum-layout">
-        <!-- Sidebar: Topics list -->
+        <!-- Sidebar: Official Specification Topics list -->
         <div class="topics-sidebar card">
-          <h4 style="margin:0 0 10px;">Ресми 2026 тақырыптар тізімі</h4>
+          <h4 style="margin:0 0 10px;">Ресми 2026 спецификация тақырыптары</h4>
           <div class="topics-scroll">
-            ${topicsList.map(t => `
-              <div class="topic-nav-item ${t.code === activeTopic.code ? 'active' : ''}" onclick="App.selectTopic('${t.code}')">
-                <div class="tni-meta">${t.code} • ${t.week}-апта • ${t.grade}</div>
-                <div class="tni-title">${t.title}</div>
-              </div>
-            `).join("")}
+            ${topicsList.map(t => {
+              const tDone = !!completedTopics[t.code];
+              const qCount = ((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === t.code).length;
+              return `
+                <div class="topic-nav-item ${t.code === activeTopic.code ? 'active' : ''}" onclick="App.selectTopic('${t.code}')" style="${tDone ? 'border-left:3px solid #10b981;' : ''}">
+                  <div class="tni-meta" style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>${t.code} • ${t.books?.[0]?.pages || ''}</span>
+                    <span style="color:${tDone ? '#10b981' : '#38bdf8'};font-weight:700;">${tDone ? 'Өтілді' : qCount + ' Quizizz'}</span>
+                  </div>
+                  <div class="tni-title">${t.title}</div>
+                </div>
+              `;
+            }).join("")}
           </div>
         </div>
 
-        <!-- Main Topic Content -->
+        <!-- Main Unified Lesson Page: 1. BOOK -> 2. YOUTUBE VIDEO -> 3. QUIZIZZ TEST -->
         <div class="topic-detail card">
-          <div class="td-header">
+          <div class="td-header" style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:1px solid #1e293b;padding-bottom:14px;margin-bottom:18px;">
             <div>
-              <span class="badge badge-blue">${activeTopic.section}</span>
-              <span class="badge badge-amber">${activeTopic.importance}</span>
-              <span class="badge badge-green">${activeTopic.week}-апта (${activeTopic.grade})</span>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                <span class="badge badge-blue">${activeTopic.code} • ${activeTopic.section}</span>
+                <span class="badge badge-amber">${activeTopic.importance}</span>
+                <span class="badge badge-green">Кітап: ${activeBook.pages}</span>
+              </div>
               <h2 style="margin:8px 0 4px;">${activeTopic.title}</h2>
+              <div style="font-size:12.5px;color:#94a3b8;">
+                Бірыңғай сабақ құрылымы: <b>1. Кітаптан тақырыпты оқу (${activeBook.pages})</b> → <b>2. Қазақша YouTube бейнесабақ</b> → <b>3. Quizizz тест (${topicQuizizz.length} тест)</b>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-sm ${isTopicDone ? 'btn-accent' : 'btn-primary'}" onclick="App.toggleTopicCompleted('${activeTopic.code}')">
+                ${isTopicDone ? 'Сабақ өтілді (Сақталған)' : 'Сабақты аяқтадым деп белгілеу'}
+              </button>
             </div>
           </div>
 
-          <!-- 6 Sub-tabs inside Topic (Includes Kazakh YouTube Videos) -->
-          <div class="sub-tabs">
-            <button class="sub-tab ${this.topicSubTab==='theory'?'active':''}" onclick="App.setTopicSubTab('theory')">
-              1. Тұжырымдама мен формулалар
-            </button>
-            <button class="sub-tab ${this.topicSubTab==='videos'?'active':''}" onclick="App.setTopicSubTab('videos')">
-              2. Бейнесабақ (YouTube)
-            </button>
-            <button class="sub-tab ${this.topicSubTab==='books'?'active':''}" onclick="App.setTopicSubTab('books')">
-              3. Оқулықтар (${activeTopic.books.length})
-            </button>
-            <button class="sub-tab ${this.topicSubTab==='examples'?'active':''}" onclick="App.setTopicSubTab('examples')">
-              4. Есептер талдауы
-            </button>
-            <button class="sub-tab ${this.topicSubTab==='quiz'?'active':''}" onclick="App.setTopicSubTab('quiz')">
-              5. Бақылау тесті
-            </button>
-            <button class="sub-tab ${this.topicSubTab==='quizizz'?'active':''}" onclick="App.setTopicSubTab('quizizz')">
-              6. Quizizz (${((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => q.topicCode === activeTopic.code || (activeTopic.section && q.category && q.category.toLowerCase().includes(activeTopic.section.toLowerCase()))).length})
-            </button>
+          <!-- Quick Jump Bar on the same page -->
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+            <a href="#lesson-sec-book" class="btn btn-xs btn-primary" style="text-decoration:none;">1-ҚАДАМ: Кітаптағы тақырып (${activeBook.pages})</a>
+            <a href="#lesson-sec-video" class="btn btn-xs btn-outline" style="text-decoration:none;">2-ҚАДАМ: YouTube Бейнесабақ (${primaryVid.duration})</a>
+            <a href="#lesson-sec-quizizz" class="btn btn-xs btn-outline" style="text-decoration:none;">3-ҚАДАМ: Quizizz Тесттер (${topicQuizizz.length})</a>
+            <a href="#lesson-sec-practice" class="btn btn-xs btn-outline" style="text-decoration:none;">4-ҚАДАМ: Есептер мен Бақылау тесті</a>
           </div>
 
-          <div class="sub-tab-body">
-            ${this.renderTopicSubTabContent(activeTopic, topicQuestions)}
+          <!-- ================================================================ -->
+          <!-- STEP 1: BOOK READER OPENED DIRECTLY ON THE TOPIC'S EXACT PAGE    -->
+          <!-- ================================================================ -->
+          <div id="lesson-sec-book" style="background:#0b1120;border:1px solid #1e293b;border-radius:12px;padding:16px;margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+              <div>
+                <span class="badge badge-blue">1-ҚАДАМ • ОҚУЛЫҚТАҒЫ ТАҚЫРЫП БЕТТЕРІ</span>
+                <h3 style="margin:6px 0 2px;font-size:17px;color:#f8fafc;">${activeBook.title}</h3>
+                <div style="font-size:12.5px;color:#38bdf8;">Осы тақырыптың кітаптағы беттері: <b>${activeBook.pages}</b> (Кітап тікелей <b>${startPage}-беттен</b> ашылды)</div>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="btn btn-xs btn-outline" onclick="App.toggleInlinePdfMode()">
+                  Режим: ${this.inlinePdfMode === 'canvas' ? 'Беттік ридер (Барлық құрылғылар)' : 'PDF Фрейм'}
+                </button>
+                <button class="btn btn-xs btn-primary" onclick="App.openPdfModal('${activeBook.file.replace(/'/g, "\\'")}', App.inlinePdfPage || ${startPage}, '${activeBook.title.replace(/'/g, "\\'")}')">
+                  Толық экранда ашу
+                </button>
+                <a id="inline-book-ext-link" href="${this.resolveBookUrl(activeBook.file, startPage)}" target="_blank" class="btn btn-xs btn-accent" style="text-decoration:none;">
+                  Жаңа бетте ашу ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Book Switcher Pills (if topic exists in multiple books) -->
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+              ${booksList.map((b, idx) => `
+                <button class="btn btn-xs ${idx === this.selectedBookIdx ? 'btn-primary' : 'btn-outline'}" onclick="App.selectTopicBook(${idx})" style="border-radius:8px;text-align:left;">
+                  <b>Кітап #${idx + 1}:</b> ${b.title} <span style="color:${idx === this.selectedBookIdx ? '#fff' : '#38bdf8'};">(${b.pages})</span>
+                </button>
+              `).join("")}
+            </div>
+
+            <!-- Inline Book Page Navigation Toolbar -->
+            <div style="background:#0f172a;border:1px solid #1e293b;border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                <button class="btn btn-xs btn-outline" onclick="App.changeInlineBookPage(-1)">◀ Алдыңғы бет</button>
+                <span style="font-size:12.5px;color:#cbd5e1;">Бет:</span>
+                <input id="inline-book-page-input" type="number" min="1" value="${startPage}" style="width:62px;padding:4px 6px;background:#0a0e1a;color:#fff;border:1px solid #334155;border-radius:6px;font-weight:700;text-align:center;" onchange="App.jumpInlineBookPage(this.value)" />
+                <span id="inline-book-total-pages" style="font-size:12.5px;color:#94a3b8;"></span>
+                <button class="btn btn-xs btn-outline" onclick="App.changeInlineBookPage(1)">Келесі бет ▶</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                <button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${startPage})">Тақырып басы (${startPage}-бет)</button>
+                ${endPage > startPage ? `<button class="btn btn-xs btn-outline" onclick="App.jumpInlineBookPage(${endPage})">Тақырып соңы (${endPage}-бет)</button>` : ''}
+              </div>
+            </div>
+
+            <!-- Inline Book Canvas & Iframe Viewport -->
+            <div style="background:#070a12;border:1px solid #1e293b;border-radius:10px;min-height:480px;max-height:760px;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:12px;position:relative;">
+              <div id="inline-book-status" style="color:#38bdf8;font-size:13px;padding:14px;text-align:center;">
+                Кітаптың ${startPage}-беті ашылуда...
+              </div>
+              <canvas id="inline-book-canvas" style="max-width:100%;height:auto;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,0.85);background:#fff;display:${this.inlinePdfMode === 'canvas' ? 'block' : 'none'};"></canvas>
+              <iframe id="inline-book-iframe" src="${this.inlinePdfMode === 'iframe' ? this.resolveBookUrl(activeBook.file, startPage) : 'about:blank'}" style="width:100%;height:640px;border:none;border-radius:6px;display:${this.inlinePdfMode === 'iframe' ? 'block' : 'none'};background:#fff;"></iframe>
+            </div>
+
+            <!-- Extracted Formulas & Summary from the Book -->
+            <div style="margin-top:16px;background:#0f172a;border:1px solid #1e293b;border-radius:10px;padding:14px;">
+              <div style="font-weight:700;color:#38bdf8;font-size:14px;margin-bottom:8px;">Кітаптағы негізгі теориялық конспект пен формулалар түйіні:</div>
+              <div class="easy-explanation-box" style="margin-bottom:12px;">
+                ${activeTopic.easyExplanation}
+              </div>
+              <div class="formulas-grid">
+                ${activeTopic.formulas.map(f => `<div class="formula-box">$$${f}$$</div>`).join("")}
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================ -->
+          <!-- STEP 2: KAZAKH YOUTUBE VIDEO LESSON FOR THIS EXACT TOPIC         -->
+          <!-- ================================================================ -->
+          <div id="lesson-sec-video" style="background:#0b1120;border:1px solid #1e293b;border-radius:12px;padding:16px;margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+              <div>
+                <span class="badge badge-amber">2-ҚАДАМ • YOUTUBE БЕЙНЕСАБАҚ (ҚАЗАҚША ТҮСІНДІРМЕ)</span>
+                <h3 style="margin:6px 0 2px;color:#f8fafc;font-size:17px;">${primaryVid.title}</h3>
+                <div style="font-size:12.5px;color:#94a3b8;">Арна: <b>${primaryVid.channel}</b> • Ұзақтығы: <b>${primaryVid.duration}</b></div>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <a href="https://www.youtube.com/watch?v=${primaryVid.youtubeId}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
+                  YouTube-те ашу ↗
+                </a>
+                <a href="${ytSearchUrl}" target="_blank" class="btn btn-sm btn-outline" style="text-decoration:none;">
+                  Осы тақырыпқа басқа видеолар ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid #1e293b;background:#000;margin-bottom:12px;">
+              <iframe src="https://www.youtube-nocookie.com/embed/${primaryVid.youtubeId}?rel=0"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div style="background:#0f172a;border:1px solid #1e293b;border-radius:8px;padding:10px 14px;display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:6px;font-size:12px;color:#cbd5e1;">
+              <div><b>00:00</b> — Кіріспе және кітаптағы теория</div>
+              <div><b>04:30</b> — Басты формулалар мен заңдылықтар</div>
+              <div><b>11:15</b> — ҰБТ-да келетін типтік есептер талдауы</div>
+              <div><b>18:45</b> — Жиі жіберілетін қателер мен лайфхактар</div>
+            </div>
+          </div>
+
+          <!-- ================================================================ -->
+          <!-- STEP 3: QUIZIZZ / WAYGROUND TESTS FOR THIS EXACT TOPIC           -->
+          <!-- ================================================================ -->
+          <div id="lesson-sec-quizizz" style="background:#0b1120;border:1px solid #1e293b;border-radius:12px;padding:16px;margin-bottom:24px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+              <div>
+                <span class="badge badge-green">3-ҚАДАМ • ОСЫ ТАҚЫРЫП БОЙЫНША QUIZIZZ ТЕСТТЕРІ (${topicQuizizz.length})</span>
+                <h3 style="margin:6px 0 2px;font-size:17px;color:#f8fafc;">«${activeTopic.title}» — Quizizz / Wayground практикасы</h3>
+                <div style="font-size:12.5px;color:#94a3b8;">Тестті басып орындаңыз да, қасындағы «Орындалды (+30 XP)» белгісін қойыңыз — нәтиже барлық құрылғыда сақталады:</div>
+              </div>
+            </div>
+
+            <div class="book-links-grid">
+              ${topicQuizizz.map((qz, qIdx) => {
+                const isDone = !!completedQuizizzMap[qz.id];
+                return `
+                  <div class="book-link-card" style="border-left: 4px solid ${isDone ? '#10b981' : '#38bdf8'};background:#0f172a;">
+                    <div>
+                      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                        <span class="badge badge-blue">Тест #${qIdx + 1}</span>
+                        <span class="badge badge-green">${qz.grade || qz.category}</span>
+                      </div>
+                      <div style="font-weight:700;color:#f8fafc;font-size:14.5px;">${qz.title}</div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                      <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;cursor:pointer;user-select:none;">
+                        <input type="checkbox" ${isDone ? 'checked' : ''} onchange="App.toggleQuizizzComplete('${qz.id}', this.checked)" />
+                        <span style="color:${isDone ? '#10b981' : '#94a3b8'};font-weight:700;">${isDone ? 'Орындалды (+30 XP)' : 'Тапсырдым'}</span>
+                      </label>
+                      <a href="${qz.url}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
+                        Quizizz тестті бастау ↗
+                      </a>
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+
+          <!-- ================================================================ -->
+          <!-- STEP 4: SOLVED BOOK EXAMPLES, HOMEWORK & BUILT-IN CONTROL TEST   -->
+          <!-- ================================================================ -->
+          <div id="lesson-sec-practice" style="background:#0b1120;border:1px solid #1e293b;border-radius:12px;padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+              <div>
+                <span class="badge badge-blue">4-ҚАДАМ • ЕСЕПТЕР ТАЛДАУЫ ЖӘНЕ БАҚЫЛАУ СҰРАҚТАРЫ</span>
+                <h3 style="margin:6px 0 2px;font-size:17px;color:#f8fafc;">Типтік ҰБТ есептері мен өзіндік жұмыс</h3>
+              </div>
+              <button class="btn btn-sm btn-accent" onclick="App.startTopicQuiz('${activeTopic.code}')">
+                Осы тақырыптан ҰБТ бақылау тестін бастау
+              </button>
+            </div>
+
+            <div class="examples-list" style="margin-bottom:16px;">
+              ${activeTopic.examples.map((ex, i) => `
+                <div class="example-card">
+                  <div class="ex-prob"><b>${i + 1}-мысал:</b> ${ex.problem}</div>
+                  <div class="ex-sol"><b>Шешу жолы:</b> ${ex.solution}</div>
+                  <div class="ex-ans">Жауабы: <b>${ex.answer}</b></div>
+                </div>
+              `).join("")}
+            </div>
+
+            <h4 style="margin:16px 0 8px;">Сабақты бекіту чек-парағы:</h4>
+            <div class="schedule-list" style="margin-bottom:16px;">
+              ${activeTopic.homework.map((hw, i) => {
+                const hwKey = `${activeTopic.code}_hw_${i}`;
+                const done = !!(this.state.homeworkChecks && this.state.homeworkChecks[hwKey]);
+                return `
+                  <label class="schedule-item ${done ? 'done' : ''}">
+                    <input type="checkbox" ${done ? 'checked' : ''} onchange="App.toggleHomework('${hwKey}', this.checked)" />
+                    <span class="sch-title">${hw}</span>
+                  </label>
+                `;
+              }).join("")}
+            </div>
+
+            <div style="padding-top:14px;border-top:1px solid #1e293b;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <div style="font-size:13px;color:#94a3b8;">
+                Кітаптағы тақырыпты оқып, YouTube видеоны көріп және Quizizz тестті тапсырған соң сабақты аяқтаңыз:
+              </div>
+              <button class="btn ${isTopicDone ? 'btn-accent' : 'btn-primary'}" onclick="App.toggleTopicCompleted('${activeTopic.code}')" style="font-weight:700;">
+                ${isTopicDone ? 'Сабақ толық орындалды (Келесі тақырыпқа өту →)' : 'Сабақты толық аяқтау (Кітап + Видео + Quizizz) • +100 XP'}
+              </button>
+            </div>
           </div>
         </div>
       </div>
     `;
     this.renderMathInElement(container);
+
+    // Load and render the exact book page right inside the lesson!
+    this.inlinePdfPage = startPage;
+    this.loadAndRenderInlineBook(activeBook.file, startPage);
   },
 
   selectSubject(subjId) {
     this.selectedSubject = subjId;
     this.selectedTopicCode = window.UBT_CURRICULUM.topics[subjId][0].code;
-    this.topicSubTab = "theory";
+    this.selectedBookIdx = 0;
+    this.inlinePdfDoc = null;
+    this.inlinePdfFile = null;
     this.renderCurriculumView();
   },
 
   selectTopic(code) {
     this.selectedTopicCode = code;
+    this.selectedBookIdx = 0;
     this.renderCurriculumView();
   },
 
-  setTopicSubTab(tab) {
-    this.topicSubTab = tab;
+  selectTopicBook(bookIdx) {
+    this.selectedBookIdx = bookIdx;
+    this.inlinePdfDoc = null;
+    this.inlinePdfFile = null;
     this.renderCurriculumView();
   },
 
-  renderTopicSubTabContent(topic, topicQuestions) {
-    if (this.topicSubTab === "theory") {
-      return `
-        <div class="easy-explanation-box">
-          ${topic.easyExplanation}
-        </div>
-        <h4 style="margin:18px 0 10px;">Негізгі формулалар мен заңдылықтар:</h4>
-        <div class="formulas-grid">
-          ${topic.formulas.map(f => `<div class="formula-box">$$${f}$$</div>`).join("")}
-        </div>
-      `;
+  toggleInlinePdfMode() {
+    this.inlinePdfMode = this.inlinePdfMode === "canvas" ? "iframe" : "canvas";
+    this.renderCurriculumView();
+  },
+
+  toggleTopicCompleted(topicCode) {
+    const completedTopics = { ...((this.state && this.state.completedTopics) || {}) };
+    const wasDone = !!completedTopics[topicCode];
+    completedTopics[topicCode] = !wasDone;
+    this.saveState({ completedTopics });
+
+    // If just marked completed, optionally advance to next topic if user clicks again
+    if (wasDone) {
+      const topicsList = window.UBT_CURRICULUM.topics[this.selectedSubject] || [];
+      const idx = topicsList.findIndex(t => t.code === topicCode);
+      if (idx >= 0 && idx + 1 < topicsList.length) {
+        completedTopics[topicCode] = true;
+        this.saveState({ completedTopics });
+        this.selectTopic(topicsList[idx + 1].code);
+        return;
+      }
+    }
+    this.renderCurriculumView();
+  },
+
+  initPdfJs() {
+    if (window.pdfjsLib && !this.pdfWorkerInitialized) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+      this.pdfWorkerInitialized = true;
+    }
+  },
+
+  async loadPdfDocumentWithFallback(relPath) {
+    this.initPdfJs();
+    if (!window.pdfjsLib) throw new Error("PDF.js кітапханасы жүктелмеді");
+    const candidateUrls = this.resolveBookUrls(relPath);
+    let lastErr = null;
+    for (const url of candidateUrls) {
+      try {
+        const loadingTask = window.pdfjsLib.getDocument({
+          url,
+          cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
+          cMapPacked: true
+        });
+        const doc = await loadingTask.promise;
+        return { doc, url };
+      } catch (err) {
+        lastErr = err;
+      }
+    }
+    throw lastErr || new Error("Кітап файлы табылмады: " + relPath);
+  },
+
+  async loadAndRenderInlineBook(relPath, pageNum = 1) {
+    const statusEl = document.getElementById("inline-book-status");
+    const canvas = document.getElementById("inline-book-canvas");
+    const iframe = document.getElementById("inline-book-iframe");
+    const pageInput = document.getElementById("inline-book-page-input");
+    const totalEl = document.getElementById("inline-book-total-pages");
+    const extLink = document.getElementById("inline-book-ext-link");
+
+    this.inlinePdfPage = pageNum;
+    if (pageInput) pageInput.value = pageNum;
+    if (extLink) extLink.href = this.resolveBookUrl(relPath, pageNum);
+
+    if (this.inlinePdfMode === "iframe") {
+      if (statusEl) statusEl.style.display = "none";
+      if (canvas) canvas.style.display = "none";
+      if (iframe) {
+        iframe.style.display = "block";
+        iframe.src = this.resolveBookUrl(relPath, pageNum);
+      }
+      return;
     }
 
-    if (this.topicSubTab === "videos") {
-      const vList = (topic.videos && topic.videos.length > 0) ? topic.videos : [
-        {
-          title: topic.title + " (Қазақша толық видео түсіндірме)",
-          channel: "140 Academy / ҰБТ Онлайн",
-          duration: "25 мин",
-          youtubeId: "8Z1aY0_a2w0",
-          searchQuery: topic.title + " ҰБТ қазақша түсіндіру"
-        }
-      ];
-      const primaryVid = vList[0];
-      const ytSearchUrl = "https://www.youtube.com/results?search_query=" + encodeURIComponent(topic.title + " ҰБТ қазақша түсіндірме");
-
-      return `
-        <div style="margin-bottom:14px;background:#0d1322;border:1px solid #1e293b;border-radius:10px;padding:16px;">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
-            <div>
-              <span class="badge badge-blue">ҚАЗАҚША БЕЙНЕСАБАҚ</span>
-              <h3 style="margin:6px 0 2px;color:#f8fafc;">${primaryVid.title}</h3>
-              <div style="font-size:12.5px;color:#94a3b8;">Арна: <b>${primaryVid.channel}</b> • Ұзақтығы: <b>${primaryVid.duration}</b></div>
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <a href="https://www.youtube.com/watch?v=${primaryVid.youtubeId}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
-                YouTube-те ашу
-              </a>
-              <a href="${ytSearchUrl}" target="_blank" class="btn btn-sm btn-outline" style="text-decoration:none;">
-                Басқа видеоларды іздеу
-              </a>
-            </div>
-          </div>
-
-          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;border:1px solid #1e293b;background:#000;margin-bottom:14px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/${primaryVid.youtubeId}?rel=0"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <div style="background:#0a0e1a;border:1px solid #1e293b;border-radius:8px;padding:12px 16px;">
-            <div style="font-weight:700;color:#38bdf8;font-size:13px;margin-bottom:6px;">Бейнесабақтың негізгі бөлімдері мен тайм-кодтары:</div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:6px;font-size:12.5px;color:#cbd5e1;">
-              <div>00:00 — Кіріспе және теориялық негіздер</div>
-              <div>04:30 — Басты формулалар мен заңдылықтар</div>
-              <div>11:15 — ҰБТ-да жиі кездесетін типтік есептер</div>
-              <div>18:45 — Қателерді болдырмау лайфхактары</div>
-            </div>
-          </div>
-        </div>
-      `;
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.textContent = `Кітаптың ${pageNum}-беті ашылуда...`;
     }
 
-    if (this.topicSubTab === "books") {
-      return `
-        <p style="color:#94a3b8;margin-top:0;">
-          Төмендегі батырманы бассаң, жұмыс үстеліндегі (<code>C:\\Users\\user\\Desktop\\ҰБТ</code>) кітаптың <b>дәл осы тақырыпқа сәйкес беті</b> платформаның ішінде бірден ашылады:
-        </p>
-        <div class="book-links-grid">
-          ${topic.books.map(b => `
-            <div class="book-link-card">
-              <div>
-                <div style="font-weight:700;color:#f8fafc;font-size:15px;">${b.title}</div>
-                <div style="color:#38bdf8;font-size:13px;margin-top:4px;">Оқитын беттер: <b>${b.pages}</b></div>
-                <div style="color:#64748b;font-size:12px;margin-top:2px;">Файл: ${b.file}</div>
-              </div>
-              <button class="btn btn-primary" onclick="App.openPdfModal('${b.file.replace(/'/g, "\\'")}', ${b.startPage || 1}, '${b.title.replace(/'/g, "\\'")}')">
-                ${b.startPage || 1}-беттен ашу
-              </button>
-            </div>
-          `).join("")}
-        </div>
-      `;
-    }
-
-    if (this.topicSubTab === "examples") {
-      return `
-        <h4 style="margin:0 0 12px;">Типтік ҰБТ есептерін қадамдап талдау:</h4>
-        <div class="examples-list">
-          ${topic.examples.map((ex, i) => `
-            <div class="example-card">
-              <div class="ex-prob"><b>${i + 1}-мысал:</b> ${ex.problem}</div>
-              <div class="ex-sol"><b>Шешу жолы:</b> ${ex.solution}</div>
-              <div class="ex-ans">Жауабы: <b>${ex.answer}</b></div>
-            </div>
-          `).join("")}
-        </div>
-
-        <h4 style="margin:20px 0 10px;">Өз бетінше орындайтын тапсырмалар:</h4>
-        <div class="schedule-list">
-          ${topic.homework.map((hw, i) => {
-            const hwKey = `${topic.code}_hw_${i}`;
-            const done = !!(this.state.homeworkChecks && this.state.homeworkChecks[hwKey]);
-            return `
-              <label class="schedule-item ${done ? 'done' : ''}">
-                <input type="checkbox" ${done ? 'checked' : ''} onchange="App.toggleHomework('${hwKey}', this.checked)" />
-                <span class="sch-title">${hw}</span>
-              </label>
-            `;
-          }).join("")}
-        </div>
-      `;
-    }
-
-    if (this.topicSubTab === "quiz") {
-      return `
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-          <div>
-            <h4 style="margin:0;">«${topic.title}» бойынша бекіту сынағы</h4>
-            <p style="margin:4px 0 0;color:#94a3b8;font-size:13px;">Қателескен сұрақтар автоматты түрде «Қатемен жұмыс (1-3-7-21)» банкіне түседі.</p>
-          </div>
-          <button class="btn btn-accent" onclick="App.startTopicQuiz('${topic.code}')">
-            Толық экранда тест тапсыру
-          </button>
-        </div>
-        <div class="examples-list">
-          ${topicQuestions.slice(0, 6).map((q, idx) => `
-            <div class="example-card">
-              <div style="font-size:12px;color:#38bdf8;margin-bottom:4px;">#${idx+1} • ${q.source || 'ҰБТ Базасы'} • ${q.points} балл</div>
-              <div class="ex-prob">${q.question}</div>
-              <details style="margin-top:8px;cursor:pointer;color:#94a3b8;">
-                <summary>Жауабы мен талдауын көру</summary>
-                <div style="margin-top:8px;padding:10px;background:#0f172a;border-radius:8px;color:#e2e8f0;">
-                  ${q.explanation}
-                </div>
-              </details>
-            </div>
-          `).join("")}
-        </div>
-      `;
-    }
-
-    if (this.topicSubTab === "quizizz") {
-      const topicQuizizz = ((window.UBT_QUIZIZZ && window.UBT_QUIZIZZ[this.selectedSubject]) || []).filter(q => {
-        return q.topicCode === topic.code || (topic.section && q.category && q.category.toLowerCase().includes(topic.section.toLowerCase()));
-      });
-
-      if (topicQuizizz.length === 0) {
-        return `
-          <div style="padding:20px;text-align:center;color:#94a3b8;">
-            <p>Бұл нақты тақырыпқа арналған жеке Quizizz тесті табылмады.</p>
-            <button class="btn btn-primary btn-sm" onclick="App.switchTab('quizizz')">
-              Барлық 238 Quizizz тесттерін қарау
-            </button>
-          </div>
-        `;
+    try {
+      if (!this.inlinePdfDoc || this.inlinePdfFile !== relPath) {
+        const { doc, url } = await this.loadPdfDocumentWithFallback(relPath);
+        this.inlinePdfDoc = doc;
+        this.inlinePdfFile = relPath;
+        this.inlinePdfResolvedUrl = url;
+        this.inlinePdfTotalPages = doc.numPages;
       }
 
-      const completedMap = this.state.completedQuizizz || {};
+      const total = this.inlinePdfDoc.numPages;
+      const safePage = Math.max(1, Math.min(total, parseInt(pageNum, 10) || 1));
+      this.inlinePdfPage = safePage;
+      if (pageInput) pageInput.value = safePage;
+      if (totalEl) totalEl.textContent = `/ ${total}`;
+      if (extLink && this.inlinePdfResolvedUrl) {
+        extLink.href = `${this.inlinePdfResolvedUrl}#page=${safePage}`;
+      }
 
-      return `
-        <div style="margin-bottom:14px;">
-          <h4 style="margin:0 0 6px;">«${topic.title}» бойынша Quizizz жаттығулары (${topicQuizizz.length}):</h4>
-          <p style="color:#94a3b8;font-size:13px;margin:0;">Сілтемені басып, Quizizz-те ойнап, біліміңізді тексеріңіз. Орындаған соң чекбоксты белгілеңіз:</p>
-        </div>
-        <div class="book-links-grid">
-          ${topicQuizizz.map(qz => {
-            const isDone = !!completedMap[qz.id];
-            return `
-              <div class="book-link-card" style="border-left: 4px solid ${isDone ? '#34d399' : '#818cf8'};">
-                <div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-                    <span class="badge badge-blue">${qz.grade || qz.category}</span>
-                    <span class="badge badge-green">${qz.category}</span>
-                  </div>
-                  <div style="font-weight:700;color:#f8fafc;font-size:15px;">${qz.title}</div>
-                </div>
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;user-select:none;">
-                    <input type="checkbox" ${isDone ? 'checked' : ''} onchange="App.toggleQuizizzComplete('${qz.id}', this.checked)" />
-                    <span style="color:${isDone ? '#34d399' : '#94a3b8'};font-weight:600;">${isDone ? 'Орындалды' : 'Белгілеу'}</span>
-                  </label>
-                  <a href="${qz.url}" target="_blank" class="btn btn-sm btn-primary" style="text-decoration:none;">
-                    Quizizz ашу
-                  </a>
-                </div>
-              </div>
-            `;
-          }).join("")}
-        </div>
-      `;
+      const page = await this.inlinePdfDoc.getPage(safePage);
+      const viewport = page.getViewport({ scale: 1.5 });
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      canvas.style.display = "block";
+
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      if (statusEl) statusEl.style.display = "none";
+    } catch (err) {
+      console.warn("Inline PDF.js render fallback to iframe:", err);
+      if (statusEl) statusEl.style.display = "none";
+      if (canvas) canvas.style.display = "none";
+      if (iframe) {
+        iframe.style.display = "block";
+        iframe.src = this.resolveBookUrl(relPath, pageNum);
+      }
+    }
+  },
+
+  changeInlineBookPage(delta) {
+    if (!this.inlinePdfFile) {
+      const topicsList = window.UBT_CURRICULUM.topics[this.selectedSubject] || [];
+      const activeTopic = topicsList.find(t => t.code === this.selectedTopicCode) || topicsList[0];
+      const book = activeTopic?.books?.[this.selectedBookIdx];
+      if (book) this.loadAndRenderInlineBook(book.file, (this.inlinePdfPage || book.startPage || 1) + delta);
+      return;
+    }
+    const next = Math.max(1, Math.min(this.inlinePdfTotalPages || 999, (this.inlinePdfPage || 1) + delta));
+    this.loadAndRenderInlineBook(this.inlinePdfFile, next);
+  },
+
+  jumpInlineBookPage(val) {
+    const p = Math.max(1, parseInt(val, 10) || 1);
+    const topicsList = window.UBT_CURRICULUM.topics[this.selectedSubject] || [];
+    const activeTopic = topicsList.find(t => t.code === this.selectedTopicCode) || topicsList[0];
+    const book = activeTopic?.books?.[this.selectedBookIdx];
+    const file = this.inlinePdfFile || (book ? book.file : "");
+    if (file) {
+      this.loadAndRenderInlineBook(file, p);
     }
   },
 
@@ -1240,16 +1494,15 @@ const App = {
     const container = document.getElementById("library-content");
     if (!container) return;
 
-    const validBooks = this.books.filter(b => !b.isEmpty);
-    const emptyBooks = this.books.filter(b => b.isEmpty);
+    const validBooks = (this.books && this.books.length > 0 ? this.books : this.getStaticBooksCatalog()).filter(b => !b.isEmpty);
 
     container.innerHTML = `
       <div class="card" style="margin-bottom:16px;">
         <div class="card-header">
           <div>
-            <h3 style="margin:0;">Оқулықтар мен әдебиеттер қоры (<code>C:\\Users\\user\\Desktop\\ҰБТ</code>)</h3>
+            <h3 style="margin:0;">Оқулықтар, Формула жинақтары және 2026 Спецификациялар қоры (${validBooks.length} кітап)</h3>
             <p style="margin:4px 0 0;color:#94a3b8;font-size:13px;">
-              Табылған PDF кітаптар: <b>${this.books.length}</b> (Толық жұмыс істейтін: <b>${validBooks.length}</b>, 0-байт бос файлдар: <b>${emptyBooks.length}</b>)
+              Барлық кітаптар платформаның ішіне тікелей енгізілген және ноутбукте, планшетте, телефонда бірден ашылады.
             </p>
           </div>
         </div>
@@ -1260,62 +1513,106 @@ const App = {
               <div>
                 <span class="badge badge-blue">${b.folder}</span>
                 <div class="lib-title">${b.name}</div>
-                <div class="lib-meta">Көлемі: ${b.sizeMB} МБ</div>
+                <div class="lib-meta">Көлемі: ${b.sizeMB} МБ ${b.pagesCount ? '• ' + b.pagesCount + ' бет' : ''}</div>
               </div>
-              <div style="display:flex;gap:6px;margin-top:10px;">
+              <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
                 <button class="btn btn-sm btn-primary" onclick="App.openPdfModal('${b.relPath.replace(/'/g, "\\'")}', 1, '${b.name.replace(/'/g, "\\'")}')">
-                  Оқулықты ашу
+                  Платформада ашу
                 </button>
+                <a href="${this.resolveBookUrl(b.relPath, 1)}" target="_blank" class="btn btn-sm btn-outline" style="text-decoration:none;">
+                  Жаңа бетте ↗
+                </a>
               </div>
             </div>
           `).join("")}
         </div>
-
-        ${emptyBooks.length > 0 ? `
-          <div style="margin-top:20px;padding:14px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:10px;">
-            <h4 style="margin:0 0 6px;color:#fbbf24;">Ескерту: Бос файлдар (бос) PDF файлдар (${emptyBooks.length}):</h4>
-            <p style="margin:0 0 8px;font-size:13px;color:#cbd5e1;">
-              Төмендегі файлдар компьютерге жүктелгенде 0 КБ болып бос сақталған. Сондықтан біз Қазақстан тарихының 7–10 сынып оқулықтарындағы <b>барлық 55 тақырыптың теориясын, даталарын, хандарын және мәдениетін</b> платформаның «Оқу бағдарламасы → Қазақстан тарихы» бөліміне толық енгізіп қойдық!
-            </p>
-            <div style="font-size:12px;color:#94a3b8;">
-              ${emptyBooks.map(eb => `<code>${eb.relPath} (0 КБ)</code>`).join(" • ")}
-            </div>
-          </div>
-        ` : ""}
       </div>
     `;
   },
 
-  openPdfModal(relPath, page = 1, title = "PDF Кітап") {
+  async openPdfModal(relPath, page = 1, title = "PDF Кітап") {
     const modal = document.getElementById("pdf-modal");
     const iframe = document.getElementById("pdf-iframe");
+    const canvas = document.getElementById("pdf-modal-canvas");
+    const statusEl = document.getElementById("pdf-modal-status");
     const titleEl = document.getElementById("pdf-modal-title");
     const pageInput = document.getElementById("pdf-page-input");
+    const totalEl = document.getElementById("pdf-modal-total-pages");
     const extLink = document.getElementById("pdf-external-link");
-    if (!modal || !iframe) return;
+    if (!modal) return;
 
     this.currentPdfFile = relPath;
-    if (titleEl) titleEl.textContent = `${title} (${relPath})`;
-    if (pageInput) pageInput.value = page;
-    const pdfUrl = `/api/pdf?file=${encodeURIComponent(relPath)}#page=${page}`;
-    iframe.src = pdfUrl;
-    if (extLink) extLink.href = pdfUrl;
+    this.modalPdfPage = parseInt(page, 10) || 1;
+    if (titleEl) titleEl.textContent = title;
+    if (pageInput) pageInput.value = this.modalPdfPage;
+    const resolvedUrl = this.resolveBookUrl(relPath, this.modalPdfPage);
+    if (extLink) extLink.href = resolvedUrl;
     modal.classList.add("open");
+
+    if (window.pdfjsLib && canvas) {
+      if (iframe) iframe.style.display = "none";
+      if (statusEl) {
+        statusEl.style.display = "block";
+        statusEl.textContent = `Кітаптың ${this.modalPdfPage}-беті жүктелуде...`;
+      }
+      try {
+        if (!this.modalPdfDoc || this.modalPdfFile !== relPath) {
+          const { doc, url } = await this.loadPdfDocumentWithFallback(relPath);
+          this.modalPdfDoc = doc;
+          this.modalPdfFile = relPath;
+          this.modalPdfResolvedUrl = url;
+          this.modalPdfTotalPages = doc.numPages;
+        }
+        const total = this.modalPdfDoc.numPages;
+        const safeP = Math.max(1, Math.min(total, this.modalPdfPage));
+        this.modalPdfPage = safeP;
+        if (pageInput) pageInput.value = safeP;
+        if (totalEl) totalEl.textContent = `/ ${total}`;
+        if (extLink && this.modalPdfResolvedUrl) extLink.href = `${this.modalPdfResolvedUrl}#page=${safeP}`;
+
+        const pdfPage = await this.modalPdfDoc.getPage(safeP);
+        const vp = pdfPage.getViewport({ scale: 1.65 });
+        const ctx = canvas.getContext("2d");
+        canvas.height = vp.height;
+        canvas.width = vp.width;
+        canvas.style.display = "block";
+        await pdfPage.render({ canvasContext: ctx, viewport: vp }).promise;
+        if (statusEl) statusEl.style.display = "none";
+        return;
+      } catch (err) {
+        console.warn("Modal PDF.js fallback to iframe:", err);
+      }
+    }
+
+    if (statusEl) statusEl.style.display = "none";
+    if (canvas) canvas.style.display = "none";
+    if (iframe) {
+      iframe.style.display = "block";
+      iframe.src = resolvedUrl;
+    }
   },
 
   jumpPdfPage() {
     const pageInput = document.getElementById("pdf-page-input");
-    const iframe = document.getElementById("pdf-iframe");
-    const extLink = document.getElementById("pdf-external-link");
-    if (!this.currentPdfFile || !pageInput || !iframe) return;
-    const p = parseInt(pageInput.value, 10) || 1;
-    const pdfUrl = `/api/pdf?file=${encodeURIComponent(this.currentPdfFile)}#page=${p}`;
-    if (extLink) extLink.href = pdfUrl;
-    // Reset src briefly to force PDF viewer page navigation
-    iframe.src = "about:blank";
-    setTimeout(() => {
-      iframe.src = pdfUrl;
-    }, 60);
+    if (!this.currentPdfFile || !pageInput) return;
+    const p = Math.max(1, parseInt(pageInput.value, 10) || 1);
+    const titleEl = document.getElementById("pdf-modal-title");
+    this.openPdfModal(this.currentPdfFile, p, titleEl ? titleEl.textContent : "PDF Кітап");
+  },
+
+  prevModalPdfPage() {
+    const p = Math.max(1, (this.modalPdfPage || 1) - 1);
+    const pageInput = document.getElementById("pdf-page-input");
+    if (pageInput) pageInput.value = p;
+    this.jumpPdfPage();
+  },
+
+  nextModalPdfPage() {
+    const maxP = this.modalPdfTotalPages || 999;
+    const p = Math.min(maxP, (this.modalPdfPage || 1) + 1);
+    const pageInput = document.getElementById("pdf-page-input");
+    if (pageInput) pageInput.value = p;
+    this.jumpPdfPage();
   },
 
   closePdfModal() {
@@ -1933,8 +2230,7 @@ D) 8 м/с²
     } else {
       try { this.syncKey = localStorage.getItem('ubt140_sync_key'); } catch (e) {}
       if (!this.syncKey) {
-        const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
-        this.syncKey = '140-' + rand;
+        this.syncKey = '140-UNT';
         try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
       }
     }
@@ -1944,19 +2240,23 @@ D) 8 м/с²
       this.supabaseKey = localStorage.getItem('ubt_supabase_key') || "";
     } catch (e) {}
 
+    this.connectSupabaseRealtime();
     this.updateCloudStatus();
     this.pullFromCloud();
 
     if (this.cloudPollInterval) clearInterval(this.cloudPollInterval);
     this.cloudPollInterval = setInterval(() => {
       this.pullFromCloud();
-    }, 20000);
+    }, 15000);
 
     window.addEventListener('focus', () => {
       this.pullFromCloud();
     });
 
     document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        this.pullFromCloud();
+      }
       if (document.hidden && (this.webFocusActive || this.timerRunning)) {
         console.warn("User switched window during active lesson!");
       } else if (!document.hidden && (this.webFocusActive || this.timerRunning)) {
@@ -1971,14 +2271,60 @@ D) 8 м/с²
     });
   },
 
+  connectSupabaseRealtime() {
+    const badge = document.getElementById("supabase-status-badge");
+    const dot = document.getElementById("sync-status-dot");
+    if (!window.supabase || !this.supabaseUrl || !this.supabaseKey) {
+      if (badge) {
+        badge.textContent = "Vercel Cloud Sync белсенді";
+        badge.className = "badge badge-blue";
+      }
+      return;
+    }
+
+    try {
+      const cleanUrl = this.supabaseUrl.replace(/\/$/, "");
+      this.sbClient = window.supabase.createClient(cleanUrl, this.supabaseKey);
+      if (this.sbChannel) {
+        try { this.sbClient.removeChannel(this.sbChannel); } catch (e) {}
+      }
+      this.sbChannel = this.sbClient
+        .channel(`ubt_sync_${this.syncKey}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "*",
+            schema: "public",
+            table: "ubt_sync",
+            filter: `sync_key=eq.${this.syncKey}`
+          },
+          payload => {
+            if (payload && payload.new && payload.new.state_data) {
+              this.applyRemoteState(payload.new.state_data);
+            }
+          }
+        )
+        .subscribe(status => {
+          if (status === "SUBSCRIBED") {
+            if (badge) {
+              badge.textContent = "Supabase Realtime Қосулы (Live)";
+              badge.className = "badge badge-green";
+            }
+            if (dot) dot.style.background = "#10b981";
+          }
+        });
+    } catch (err) {
+      console.warn("Supabase Realtime init error:", err);
+    }
+  },
+
   updateCloudStatus() {
     const el = document.getElementById('hdr-cloud');
     if (el) {
-      el.textContent = this.syncKey || "140-SYNC";
-      el.title = `Бұлттық ID: ${this.syncKey}. Барлық құрылғыларда осы кодты енгізіңіз.`;
+      el.textContent = this.syncKey || "140-UNT";
     }
     const displayKey = document.getElementById('sync-display-key');
-    if (displayKey) displayKey.textContent = this.syncKey || "140-SYNC";
+    if (displayKey) displayKey.textContent = this.syncKey || "140-UNT";
 
     const qrImg = document.getElementById('sync-qr-img');
     if (qrImg && this.syncKey) {
@@ -1993,7 +2339,7 @@ D) 8 м/с²
   },
 
   getCloudShareUrl() {
-    return `${window.location.origin}${window.location.pathname}?sync=${encodeURIComponent(this.syncKey || '140-SYNC')}`;
+    return `${window.location.origin}${window.location.pathname}?sync=${encodeURIComponent(this.syncKey || '140-UNT')}`;
   },
 
   copyCloudKey() {
@@ -2013,6 +2359,7 @@ D) 8 м/с²
     }
     this.syncKey = inp.value.trim().toUpperCase();
     try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+    this.connectSupabaseRealtime();
     this.updateCloudStatus();
     this.pullFromCloud();
     alert("Жаңа кілтке сәтті қосылды: " + this.syncKey);
@@ -2022,6 +2369,7 @@ D) 8 м/с²
     const rand = Math.random().toString(36).substring(2, 6).toUpperCase();
     this.syncKey = '140-' + rand;
     try { localStorage.setItem('ubt140_sync_key', this.syncKey); } catch (e) {}
+    this.connectSupabaseRealtime();
     this.updateCloudStatus();
     this.pushToCloud();
     alert("Жаңа бұлттық кілт генерацияланды: " + this.syncKey);
@@ -2061,27 +2409,96 @@ D) 8 м/с²
           }
         });
         if (res.ok) {
-          alert("Supabase дерекқорымен байланыс сәтті орнатылды!");
+          this.connectSupabaseRealtime();
           this.pushToCloud();
+          alert("Supabase дерекқорымен нақты уақыттағы (Realtime) байланыс сәтті орнатылды!");
         } else {
-          alert("Supabase жауабы: " + res.status + ". URL мен Anon Key-ді тексеріңіз және SQL кестенің жасалғанына көз жеткізіңіз.");
+          alert("Supabase жауабы: " + res.status + ". Алдымен «1-шертумен SQL кесте кодын көшіру» батырмасын басып, Supabase SQL Editor-де іске қосыңыз.");
         }
       } catch (err) {
         alert("Supabase-ке қосылу кезінде қате: " + err.message);
       }
     } else {
-      alert("Supabase баптаулары тазартылды. Әдепкі бұлттық байланыс қолданылады.");
+      alert("Supabase баптаулары тазартылды. Әдепкі Vercel бұлттық байланысы қолданылады.");
     }
   },
 
   copySupabaseSql() {
-    const sql = `-- Supabase кестесін құру үшін SQL Editor-ге қойып, Run басыңыз:\n\ncreate table if not exists ubt_sync (\n  sync_key text primary key,\n  state_data jsonb not null,\n  updated_at timestamp with time zone default timezone('utc'::text, now()) not null\n);\n\nalter table ubt_sync enable row level security;\n\ncreate policy \"Allow all access by sync_key\"\non ubt_sync for all using (true) with check (true);`;
+    const sql = `-- Supabase кестесін және Realtime синхрондауды құру үшін SQL Editor-ге қойып, Run басыңыз:\n\ncreate table if not exists public.ubt_sync (\n  sync_key text primary key,\n  state_data jsonb not null default '{}'::jsonb,\n  updated_at timestamp with time zone default timezone('utc'::text, now()) not null\n);\n\nalter table public.ubt_sync enable row level security;\n\ndrop policy if exists "Allow all access by sync_key" on public.ubt_sync;\ncreate policy "Allow all access by sync_key"\non public.ubt_sync for all using (true) with check (true);\n\nalter publication supabase_realtime add table public.ubt_sync;`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(sql);
-      alert("SQL сұранысы көшірілді! Оны Supabase Dashboard -> SQL Editor ішіне қойып, орындаңыз.");
+      alert("SQL сұранысы көшірілді! Оны Supabase Dashboard -> SQL Editor ішіне қойып, Run басыңыз.");
     } else {
       prompt("SQL сұранысын көшіріп алыңыз:", sql);
     }
+  },
+
+  applyRemoteState(remoteState) {
+    if (!remoteState || typeof remoteState !== 'object') return false;
+    let changed = false;
+    const local = this.state || {};
+
+    const mergedTopics = { ...(local.completedTopics || {}), ...(remoteState.completedTopics || {}) };
+    if (JSON.stringify(mergedTopics) !== JSON.stringify(local.completedTopics)) {
+      local.completedTopics = mergedTopics;
+      changed = true;
+    }
+
+    const mergedDays = { ...(local.completedDays || {}), ...(remoteState.completedDays || {}) };
+    if (JSON.stringify(mergedDays) !== JSON.stringify(local.completedDays)) {
+      local.completedDays = mergedDays;
+      changed = true;
+    }
+
+    const mergedBlocks = { ...(local.completedBlocks || {}), ...(remoteState.completedBlocks || {}) };
+    if (JSON.stringify(mergedBlocks) !== JSON.stringify(local.completedBlocks)) {
+      local.completedBlocks = mergedBlocks;
+      changed = true;
+    }
+
+    const mergedQuizizz = { ...(local.completedQuizizz || {}), ...(remoteState.completedQuizizz || {}) };
+    if (JSON.stringify(mergedQuizizz) !== JSON.stringify(local.completedQuizizz)) {
+      local.completedQuizizz = mergedQuizizz;
+      changed = true;
+    }
+
+    const mergedHw = { ...(local.homeworkChecks || {}), ...(remoteState.homeworkChecks || {}) };
+    if (JSON.stringify(mergedHw) !== JSON.stringify(local.homeworkChecks)) {
+      local.homeworkChecks = mergedHw;
+      changed = true;
+    }
+
+    const maxStreak = Math.max(local.streak || 1, remoteState.streak || 1);
+    if (maxStreak !== local.streak) {
+      local.streak = maxStreak;
+      changed = true;
+    }
+
+    const maxFocus = Math.max(local.totalFocusMinutes || 0, remoteState.totalFocusMinutes || 0);
+    if (maxFocus !== local.totalFocusMinutes) {
+      local.totalFocusMinutes = maxFocus;
+      changed = true;
+    }
+
+    const localErr = new Set(local.errorBank || []);
+    (remoteState.errorBank || []).forEach(id => localErr.add(id));
+    const mergedErr = Array.from(localErr);
+    if (mergedErr.length !== (local.errorBank || []).length) {
+      local.errorBank = mergedErr;
+      changed = true;
+    }
+
+    if (changed) {
+      this.state = local;
+      try { localStorage.setItem("ubt130_state_backup", JSON.stringify(this.state)); } catch (e) {}
+      this.updateHeaderStats();
+      if (this.activeTab === "dashboard") this.renderDashboard();
+      else if (this.activeTab === "curriculum") this.renderCurriculumView();
+      else if (this.activeTab === "plan") this.renderPlanView();
+      else if (this.activeTab === "achievements") this.renderAchievementsView();
+      else if (this.activeTab === "quizizz") this.renderQuizizzView();
+    }
+    return changed;
   },
 
   async pullFromCloud() {
@@ -2123,63 +2540,8 @@ D) 8 м/с²
       }
 
       // 3. Merge states
-      if (remoteState && typeof remoteState === 'object') {
-        let changed = false;
-        const local = this.state || {};
-
-        const mergedDays = { ...(local.completedDays || {}), ...(remoteState.completedDays || {}) };
-        if (JSON.stringify(mergedDays) !== JSON.stringify(local.completedDays)) {
-          local.completedDays = mergedDays;
-          changed = true;
-        }
-
-        const mergedBlocks = { ...(local.completedBlocks || {}), ...(remoteState.completedBlocks || {}) };
-        if (JSON.stringify(mergedBlocks) !== JSON.stringify(local.completedBlocks)) {
-          local.completedBlocks = mergedBlocks;
-          changed = true;
-        }
-
-        const mergedQuizizz = { ...(local.completedQuizizz || {}), ...(remoteState.completedQuizizz || {}) };
-        if (JSON.stringify(mergedQuizizz) !== JSON.stringify(local.completedQuizizz)) {
-          local.completedQuizizz = mergedQuizizz;
-          changed = true;
-        }
-
-        const mergedHw = { ...(local.homeworkChecks || {}), ...(remoteState.homeworkChecks || {}) };
-        if (JSON.stringify(mergedHw) !== JSON.stringify(local.homeworkChecks)) {
-          local.homeworkChecks = mergedHw;
-          changed = true;
-        }
-
-        const maxStreak = Math.max(local.streak || 1, remoteState.streak || 1);
-        if (maxStreak !== local.streak) {
-          local.streak = maxStreak;
-          changed = true;
-        }
-
-        const maxFocus = Math.max(local.totalFocusMinutes || 0, remoteState.totalFocusMinutes || 0);
-        if (maxFocus !== local.totalFocusMinutes) {
-          local.totalFocusMinutes = maxFocus;
-          changed = true;
-        }
-
-        const localErr = new Set(local.errorBank || []);
-        (remoteState.errorBank || []).forEach(id => localErr.add(id));
-        const mergedErr = Array.from(localErr);
-        if (mergedErr.length !== (local.errorBank || []).length) {
-          local.errorBank = mergedErr;
-          changed = true;
-        }
-
-        if (changed) {
-          this.state = local;
-          try { localStorage.setItem("ubt130_state_backup", JSON.stringify(this.state)); } catch (e) {}
-          this.updateHeaderStats();
-          if (this.activeTab === "dashboard") this.renderDashboard();
-          else if (this.activeTab === "plan") this.renderPlanView();
-          else if (this.activeTab === "achievements") this.renderAchievementsView();
-          else if (this.activeTab === "quizizz") this.renderQuizizzView();
-        }
+      if (remoteState) {
+        this.applyRemoteState(remoteState);
       }
     } finally {
       this.isCloudSyncing = false;
